@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/13 19:35:59 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/13 19:34:00 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int	ft_printf(const char *format, ...)
+int	parsing(const char *format, t_data *data)
 {
-	t_data	*data;
-	int	index;
+	int	i;
 
-	if (!(data = (t_data*)malloc(sizeof(t_data))))
-		return (-1);
-	index = 0;
-	ft_bzero(data, sizeof(t_data));
-	va_start(data->arg, format);
-	while ((index = parsing(format, data)) > 0)
+	i = 0;
+	while (format[i])
 	{
-
-		ft_putchar(data->conv);
-		if (data->conv)
-			dispatcher(data);
-
+		if (format[i] == '%')
+		{
+			data->conv = format[i + 1];
+			return (1);
+		}
+		else
+			data->buffer[i] = format[i];
+		
+		i++;
 	}
-	
-	return (index);
-}
-
-int	main()
-{	
-	ft_printf("salut tout le monde %c", '!');
+	data->buffer[i] = '\0';
 	return (0);
 }

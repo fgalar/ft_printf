@@ -3,22 +3,23 @@ NAME = libftprint.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = 
-OBJS = $(patsubst src/%.c, obj/%.o, $(SRCS))
+SRCS = ft_printf.c dispatcher.c parsing.c \
+       print_c.c
+OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+LIBDIR = libft/
+LIBFT = $(LIBDIR)libft.a
+INCLUDES= $(LIBDIR)libft.h ft_printf.h 
 
-$(OBJS) : 
+all : $(NAME)
 
-obj :
-	@mkdir -p $@
-obj/%.o: src/%.c
-	$(CC) -c $(CFLAGS) $< -o $@
-obj/%.o: libft/%.c
-	$(CC) -c $(CFLAGS) $< -o $@
+$(NAME) : $(OBJS) $(LIBFT)
+	libtool -static -o $@ $^
+%.o: %.c
+	$(CC) $(CFLAGS) -c $(SRCS) -I $(INCLUDES)
 
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $^
+$(LIBFT) :
+	make -C $(LIBDIR)
 
 clean:
 	rm $(OBJS)
