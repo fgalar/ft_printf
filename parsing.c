@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/13 19:34:00 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/14 10:35:21 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -17,18 +17,12 @@ int	parsing(const char *format, t_data *data)
 	int	i;
 
 	i = 0;
-	while (format[i])
+	if (format[i] == '%')
 	{
-		if (format[i] == '%')
-		{
-			data->conv = format[i + 1];
-			return (1);
-		}
-		else
-			data->buffer[i] = format[i];
-		
+		data->conv = format[i + 1];
 		i++;
 	}
-	data->buffer[i] = '\0';
-	return (0);
+	else
+		data->buffer[i] = format[i];
+	return (i);
 }
