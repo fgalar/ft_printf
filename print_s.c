@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_c.c                                          :+:      :+:    :+:   */
+/*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
+/*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/14 18:49:37 by fgarault         ###   ########.fr       */
+/*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
+/*   Updated: 2019/07/15 15:55:42 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft/libft.h"
-#include "ft_printf.h"
+#include "ft_printf.c"
 
-int	print_c(t_data *data)
+int		print_s(t_data *data)
 {
-	char c;
+	char *s;
 
-	c = va_arg(data->arg, int);
+	s = va_arg(data->arg, char*);
+	ft_strcat(&data->buffer[data->len], s);
+	ft_putstr(data->buffer);
 	data->conv = 0;
-	ft_strcat(data->buffer, &c);
 	return (0);
 }

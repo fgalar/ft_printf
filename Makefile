@@ -4,8 +4,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c dispatcher.c parsing.c \
-       print_c.c
-OBJS = $(SRCS:.c=.o)
+       print_c.c print_s.c
+OBJDIR = obj/
+OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
 
 LIBDIR = libft/
 LIBFT = $(LIBDIR)libft.a
@@ -15,6 +16,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
 	libtool -static -o $@ $^
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $(SRCS) -I $(INCLUDES)
 
@@ -23,8 +25,8 @@ $(LIBFT) :
 
 clean:
 	rm $(OBJS)
-
-fclean: fclean
+	
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
