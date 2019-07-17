@@ -5,8 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c dispatcher.c parsing.c \
        print_c.c print_s.c
-OBJDIR = obj/
-OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
+
+OBJS = $(addprefix obj/, $(SRCS:.c=.o))
 
 LIBDIR = libft/
 LIBFT = $(LIBDIR)libft.a

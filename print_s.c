@@ -6,19 +6,21 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/15 15:55:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/16 12:52:07 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdarg.h>
 #include "libft/libft.h"
-#include "ft_printf.c"
+#include "ft_printf.h"
+
 
 int		print_s(t_data *data)
 {
-	char *s;
+	char	*s;
 
 	s = va_arg(data->arg, char*);
-	ft_strcat(&data->buffer[data->len], s);
-	ft_putstr(data->buffer);
-	data->conv = 0;
+
+	ft_strcat(data->buffer, s);
+	data->len += ft_strlen(s);
 	return (0);
 }
