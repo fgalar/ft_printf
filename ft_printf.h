@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/15 17:58:40 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/17 16:54:42 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# define NB_CONV  2
+# define NB_CONV  3
 
 typedef struct		s_data
 {
@@ -30,4 +30,6 @@ void	parsing(const char *format, t_data *data);
 int		dispatcher(t_data *data);
 int		print_c(t_data *data);
 int		print_s(t_data *data);
+int		print_p(t_data *data);
+
 #endif

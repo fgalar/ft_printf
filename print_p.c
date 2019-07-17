@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_s.c                                          :+:      :+:    :+:   */
+/*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/17 16:14:51 by fgarault         ###   ########.fr       */
+/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
+/*   Updated: 2019/07/17 16:55:34 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdarg.h>
-#include "libft/libft.h"
+
+#include <unistd.h>
 #include "ft_printf.h"
-
-
-int		print_s(t_data *data)
+int		print_p(t_data *data)
 {
-	char	*s;
+	void *adress;
 
-	s = va_arg(data->arg, char*);
-
-	ft_strcat(data->buffer, s);
-	data->len += ft_strlen(s);
-	data->index++;
-	return (0);
+	adress = va_arg(data->arg, void*);
+	write(1, &adress, 1);
+	return 0;
 }
