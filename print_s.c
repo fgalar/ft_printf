@@ -6,10 +6,9 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/17 16:14:51 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/17 18:39:11 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdarg.h>
 #include "libft/libft.h"
 #include "ft_printf.h"
 
