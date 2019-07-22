@@ -9,12 +9,14 @@ SRCS = 	ft_printf.c \
        	print_c.c \
 		print_s.c \
 		print_p.c \
+		print_d.c \
+		print_o.c 
 
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = libft/
 LIBFT = $(LIBDIR)libft.a
-INCLUDES= $(LIBDIR)libft.h ft_printf.h 
+INCLUDE = ft_printf.h 
 
 all : $(NAME)
 
@@ -22,16 +24,18 @@ $(NAME) : $(OBJS) $(LIBFT)
 	libtool -static -o $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $(SRCS) -I $(INCLUDES)
+	$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
 
 $(LIBFT) :
 	make -C $(LIBDIR)
 
 clean:
-	rm $(OBJS)
+	rm -rf $(OBJS)
+	make clean -C $(LIBDIR) 
 	
 fclean: clean
 	rm -rf $(NAME)
+	make fclean -C $(LIBDIR)
 
 re: fclean all
 

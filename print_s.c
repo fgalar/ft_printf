@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/17 18:39:11 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/22 15:29:05 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -20,7 +20,6 @@ int		print_s(t_data *data)
 	s = va_arg(data->arg, char*);
 
 	ft_strcat(data->buffer, s);
-	data->len += ft_strlen(s);
-	data->index++;
+	data->len = ft_strlen(data->buffer);;
 	return (0);
 }

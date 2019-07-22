@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/13 19:19:52 by fgarault          #+#    #+#             */
-/*   Updated: 2019/04/26 17:19:56 by fgarault         ###   ########.fr       */
+/*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/22 16:42:47 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-int		ft_toupper(int c)
+int		print_o(t_data *data)
 {
-	if (c >= 'a' && c <= 'z')
-		return ((c - 'a') + 'A');
-	return (c);
+	char	*oct;
+
+	oct = itoa_base(va_arg(data->arg, int), 8);
+	ft_strcat(data->buffer, oct);
+	data->len = ft_strlen(data->buffer);
+	return (0);	
 }

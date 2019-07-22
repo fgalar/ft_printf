@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/17 16:54:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/22 15:58:30 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# define NB_CONV  3
+# include "libft/libft.h"
+# define NB_CONV 6 
 
 typedef struct		s_data
 {
@@ -31,5 +32,7 @@ int		dispatcher(t_data *data);
 int		print_c(t_data *data);
 int		print_s(t_data *data);
 int		print_p(t_data *data);
+int		print_d(t_data *data);
+int		print_o(t_data *data);
 
 #endif

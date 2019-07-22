@@ -6,23 +6,23 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/22 14:09:10 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
+
 int		print_p(t_data *data)
 {
 	long long *adress;
+	char *prefix;
 
+	prefix = "0x";
 	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	ft_strcat(data->buffer, prefix);
+	ft_strcat(data->buffer, itoa_base((unsigned long long)adress, 16));
+	data->len = ft_strlen(data->buffer);
+	return (0);
 }
 
 

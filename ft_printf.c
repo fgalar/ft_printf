@@ -6,13 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/22 09:53:25 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/22 17:05:26 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h> /*/!\*/
 #include <stdlib.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
+#include <limits.h>
 
 int		ft_printf(const char *format, ...)
 {
@@ -33,9 +34,16 @@ int		ft_printf(const char *format, ...)
 
 int	main()
 {	
-	int			a = 8;
+	int			i;
+	int			y;
 
-	ft_printf("le printf mien = %p\n", &a);
-	printf("le vrai printf = %p\n", &a);
+	i = ft_printf("%o\n%o\n%o\n%o\n%o\n\n", INT_MIN, INT_MAX, 0, 42, -56);
+	y = printf("%o\n%o\n%o\n%o\n%o\n", INT_MIN, INT_MAX, 0, 42, -56);
+	/*ft_putstr("taille ft_printf\t");
+	ft_putnbr(i);
+	ft_putchar('\n');
+	ft_putstr("taille printf\t\t");
+	ft_putnbr(y);
+	ft_putchar('\n');*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/16 15:51:27 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/22 11:49:30 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	print_c(t_data *data)
 	c = va_arg(data->arg, int);
 	data->buffer[data->len] = (unsigned char)c;
 	
-	data->index++;
-	data->len++;
+	data->len = ft_strlen(data->buffer);;
 	return (0);
 }

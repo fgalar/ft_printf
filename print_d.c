@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   print_d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/20 20:13:53 by fgarault          #+#    #+#             */
-/*   Updated: 2019/04/26 17:32:39 by fgarault         ###   ########.fr       */
+/*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/22 15:20:18 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+#include "ft_printf.h"
+int		print_d(t_data *data)
 {
-	new->next = &(**alst);
-	*alst = &(*new);
+	char	*nb;
+
+	nb = ft_itoa(va_arg(data->arg, int));
+	ft_strcat(data->buffer, nb);
+	data->len = ft_strlen(data->buffer);
+	return (0);
 }
