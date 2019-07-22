@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_sort_integer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/27 14:35:26 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/27 18:32:28 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+int			*ft_sort_integer(int *tab, int size)
 {
-	long long *adress;
+	int		i;
+	int		tmp;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	i = 0;
+	while ((size - 1) > i)
+	{
+		if (tab[i] > tab[i + 1])
+		{
+			tmp = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = tmp;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	return (tab);
 }
-
-

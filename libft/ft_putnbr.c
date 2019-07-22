@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/19 17:28:58 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/27 18:01:23 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+#include "libft.h"
+
+void	ft_putnbr(int n)
 {
-	long long *adress;
+	long int	nb;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	nb = n;
+	if (n < 0)
+	{
+		nb *= -1;
+		ft_putchar('-');
+	}
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	ft_putchar(nb % 10 + '0');
 }
-
-

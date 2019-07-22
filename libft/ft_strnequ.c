@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/15 10:51:33 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 18:08:35 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+#include "libft.h"
+
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	long long *adress;
-
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	if (!(s1) || !(s2))
+		return (0);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }
-
-

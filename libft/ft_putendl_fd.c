@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/19 22:13:04 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/19 22:25:57 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+
+void	ft_putendl_fd(char const *s, int fd)
 {
-	long long *adress;
-
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
-
-

@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/11 17:02:06 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 17:40:06 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+#include <string.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	long long *adress;
+	unsigned char	cc;
+	size_t			i;
+	unsigned char	*s_stock;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	cc = (char)c;
+	i = 0;
+	s_stock = (unsigned char*)s;
+	while (n)
+	{
+		if (s_stock[i] == cc)
+		{
+			s_stock = &s_stock[i];
+			return (s_stock);
+		}
+		i++;
+		n--;
+	}
+	return (NULL);
 }
-
-

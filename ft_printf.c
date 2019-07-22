@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/17 16:51:50 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/22 09:53:25 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h> /*/!\*/
@@ -33,10 +33,9 @@ int		ft_printf(const char *format, ...)
 
 int	main()
 {	
-	int		i;
+	int			a = 8;
 
-	i = 4;
-	ft_printf("le printf mien = %p\n", &i);
-	printf("le vrai printf = %p\n", &i);
+	ft_printf("le printf mien = %p\n", &a);
+	printf("le vrai printf = %p\n", &a);
 	return (0);
 }

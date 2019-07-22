@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/09 17:56:10 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 17:38:54 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+#include <string.h>
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	long long *adress;
+	char	*ch_t_dest;
+	char	*ch_t_src;
+	int		i;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	ch_t_dest = (char*)dst;
+	ch_t_src = (char*)src;
+	i = 0;
+	while (n > 0)
+	{
+		ch_t_dest[i] = ch_t_src[i];
+		i++;
+		n--;
+	}
+	return (dst);
 }
-
-

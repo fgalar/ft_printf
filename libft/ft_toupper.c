@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_len_int.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 22:49:30 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/17 18:23:15 by fgarault         ###   ########.fr       */
+/*   Created: 2019/04/13 19:19:52 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 17:19:56 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_nbrlen(long long n)
+int		ft_toupper(int c)
 {
-	int					len;
-	int					sign;
-	unsigned long long	nb;
-
-	len = 1;
-	sign = -1;
-	if (n < 0)
-	{
-		len++;
-		n *= sign;
-	}
-	nb = n;
-	while (nb >= 10)
-	{
-		nb /= 10;
-		len++;
-	}
-	return (len);
+	if (c >= 'a' && c <= 'z')
+		return ((c - 'a') + 'A');
+	return (c);
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/14 15:49:50 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 17:49:57 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
+
+void	*ft_memalloc(size_t size)
 {
-	long long *adress;
+	char	*tab;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	if (size == 0)
+		return (NULL);
+	if (!(tab = (char*)malloc(sizeof(char) * size)))
+		return (NULL);
+	ft_bzero(tab, size);
+	return (tab);
 }
-
-

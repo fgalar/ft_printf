@@ -3,10 +3,14 @@ NAME = libftprint.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c dispatcher.c parsing.c \
-       print_c.c print_s.c
+SRCS = 	ft_printf.c \
+		dispatcher.c \
+		parsing.c \
+       	print_c.c \
+		print_s.c \
+		print_p.c \
 
-OBJS = $(addprefix obj/, $(SRCS:.c=.o))
+OBJS = $(SRCS:.c=.o)
 
 LIBDIR = libft/
 LIBFT = $(LIBDIR)libft.a

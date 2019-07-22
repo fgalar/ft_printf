@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 10:13:13 by fanny            ###   ########.fr       */
+/*   Created: 2019/04/13 16:12:07 by fgarault          #+#    #+#             */
+/*   Updated: 2019/04/26 17:17:10 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
-#include "libft-b/libft.h" 
-#include <stdio.h>
-int		print_p(t_data *data)
+char	*ft_strrchr(const char *s, int c)
 {
-	long long *adress;
+	int		i;
+	char	cc;
+	char	*strch;
 
-	adress = va_arg(data->arg, void*);
-	
-	puts(itoa_base((unsigned long long)adress, 16));
-
-	return 0;
+	i = 0;
+	cc = (char)c;
+	strch = (char*)s;
+	while (strch[i] != '\0')
+		i++;
+	if (cc == '\0')
+		return (&strch[i]);
+	while ((strch[i] != cc) && (i > 0))
+		i--;
+	if (strch[i] == cc)
+		return (&strch[i]);
+	return (0);
 }
-
-
