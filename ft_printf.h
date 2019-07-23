@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/22 15:58:30 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/23 12:35:03 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 typedef struct		s_data
 {
 	char			buffer[4096];
+	int				len;
 	int				index;
 	va_list			arg;
 	char			conv;
-	int				len;
 }					t_data;
 
 int		ft_printf(const char *format, ...);

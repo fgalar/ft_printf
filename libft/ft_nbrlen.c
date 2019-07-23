@@ -6,29 +6,24 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 22:49:30 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 15:48:20 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/23 17:14:52 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_nbrlen(long long n)
 {
 	int					len;
-	int					sign;
-	unsigned long long	nb;
 
-	len = 1;
-	sign = -1;
+	len = 0;
 	if (n < 0)
 	{
 		len++;
-		n *= sign;
+		n *= 1;
 	}
-	nb = n;
-	while (nb >= 10)
+	while (n > 0)
 	{
-		nb /= 10;
+		n /= 10;
 		len++;
 	}
-	len++;
 	return (len);
 }
