@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/22 14:09:10 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/25 19:53:06 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,3 @@ int		print_p(t_data *data)
 	data->len = ft_strlen(data->buffer);
 	return (0);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/23 12:35:03 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/29 12:43:45 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "libft/libft.h"
-# define NB_CONV 6 
-
+# define NB_CONV 9 
+# define NB_FLAGS 4
 typedef struct		s_data
 {
 	char			buffer[4096];
 	int				len;
 	int				index;
 	va_list			arg;
+	char			*flag;
 	char			conv;
 }					t_data;
 
@@ -34,5 +35,9 @@ int		print_s(t_data *data);
 int		print_p(t_data *data);
 int		print_d(t_data *data);
 int		print_o(t_data *data);
+int		print_u(t_data *data);
+int		print_x(t_data *data);
+int		print_xx(t_data *data);
 
+int		check_flags(const char *format, t_data *data);
 #endif

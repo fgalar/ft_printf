@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 22:49:30 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/24 17:04:56 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/24 17:40:09 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/24 18:10:31 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-int		ft_nbrlen(int n)
+int		print_u(t_data *data)
 {
-	int					len;
-	unsigned int		nb;
+	char	*nb;
 
-	len = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n *= -1;
-		len++;
-	}
-	nb = n;
-	while (nb >= 10)
-	{
-		len++;
-		nb /= 10;
-	}
-	len++;
-	return (len);
+	nb = itoa_base(va_arg(data->arg, unsigned), 10);
+	ft_strcat(data->buffer, nb);
+	data->len = ft_strlen(data->buffer);
+	return (0);
 }

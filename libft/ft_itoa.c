@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 20:29:05 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/23 17:51:12 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/07/24 17:12:32 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char		*ft_itoa(int n)
 	unsigned int		nb;
 
 	i = ft_nbrlen(n);
-	if (n == 0)
-		return("0");
 	if (!(nbr = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
+	if (n == 0)
+		nbr[0] = '0';
 	if (n < 0)
 	{
 		nbr[0] = '-';

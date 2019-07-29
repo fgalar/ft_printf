@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
+/*   split_min.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 22:49:30 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/24 17:04:56 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/24 18:48:51 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/24 19:00:50 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_nbrlen(int n)
-{
-	int					len;
-	unsigned int		nb;
+#include "libft.h"
 
-	len = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n *= -1;
-		len++;
-	}
-	nb = n;
-	while (nb >= 10)
-	{
-		len++;
-		nb /= 10;
-	}
-	len++;
-	return (len);
+char	split_min(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	return(c - 'a' + 'A');
 }

@@ -10,7 +10,10 @@ SRCS = 	ft_printf.c \
 		print_s.c \
 		print_p.c \
 		print_d.c \
-		print_o.c 
+		print_o.c \
+		print_u.c \
+		print_x.c \
+		print_xx.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -21,21 +24,21 @@ INCLUDE = ft_printf.h
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
-	libtool -static -o $@ $^
+	@libtool -static -o $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
+	@$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
 
 $(LIBFT) :
-	make -C $(LIBDIR)
+	@make -C $(LIBDIR)
 
 clean:
-	rm -rf $(OBJS)
-	make clean -C $(LIBDIR) 
+	@rm -rf $(OBJS)
+	@make clean -C $(LIBDIR) 
 	
 fclean: clean
-	rm -rf $(NAME)
-	make fclean -C $(LIBDIR)
+	@rm -rf $(NAME)
+	@make fclean -C $(LIBDIR)
 
 re: fclean all
 

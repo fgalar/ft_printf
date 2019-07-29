@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_xx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/29 12:37:27 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/24 19:05:50 by fanny             #+#    #+#             */
+/*   Updated: 2019/07/24 19:35:38 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		print_xx(t_data *data)
 {
-	t_data	*data;
-	
-	if (!(data = (t_data*)malloc(sizeof(t_data))))
-		return (-1);
-	ft_bzero(data, sizeof(t_data));
-	va_start(data->arg, format);
-	while (format[data->index])
+	char	*nb;
+	int		i;
+
+	nb = itoa_base(va_arg(data->arg, unsigned), 16);
+	i = 0;
+	while (nb[i])
 	{
-		parsing(format, data);
+		if (ft_isalpha(nb[i]))
+			nb[i] = split_min(nb[i]);
+		i++;
 	}
-	ft_putstr(data->buffer);
-	va_end(data->arg);
-	return (data->len);
+	ft_strcat(data->buffer, nb);
+	data->len = ft_strlen(data->buffer);
+	return (0);
 }
