@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/29 20:21:43 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/31 16:14:41 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,7 +14,7 @@
 
 int		check_conv(const char *format, t_data *data)
 {
-	static char	conv[NB_CONV] = {'c','s','p','d','i','o','u','x','X'};
+	static char	conv[NB_CONV] = {'c','s','p','d','i','o','u','x','X','f'};
 	int		y;
 
 	y = 0;
@@ -47,6 +47,7 @@ int		check_flag(const char *format, t_data *data)
 		}
 		y++;
 	}
+	data->flag = "0";
 	return (-1);
 }
 
@@ -57,9 +58,7 @@ void	parsing(const char *format, t_data *data)
 		if (format[data->index] == '%')
 		{
 			data->index++;
-			
 			check_flag(format, data);
-
 			check_conv(format, data);
 			dispatcher(data);
 		}	

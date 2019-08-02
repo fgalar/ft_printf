@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/29 12:43:45 by fanny            ###   ########.fr       */
+/*   Updated: 2019/07/31 16:14:09 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "libft/libft.h"
-# define NB_CONV 9 
+# define NB_CONV 10 
 # define NB_FLAGS 4
 typedef struct		s_data
 {
@@ -37,7 +37,8 @@ int		print_d(t_data *data);
 int		print_o(t_data *data);
 int		print_u(t_data *data);
 int		print_x(t_data *data);
-int		print_xx(t_data *data);
+int		print_f(t_data *data);
+char	*print_majhex(char *nb);
 
 int		check_flags(const char *format, t_data *data);
 #endif

@@ -6,7 +6,7 @@
 #    By: fgarault <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:50:20 by fgarault          #+#    #+#              #
-#    Updated: 2019/07/24 19:04:14 by fanny            ###   ########.fr        #
+#    Updated: 2019/07/30 17:30:08 by fanny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c		\
 		ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c	ft_lstmap.c	\
 		ft_nbrlen.c ft_print_tab.c ft_print_tab_int.c ft_power.c 		\
-		ft_sort_integer.c ft_itoa_base.c split_min.c
+		ft_sort_integer.c ft_itoa_base.c ft_split_maj.c
 OBJS = $(SRCS:.c=.o)
 INCLUDE = libft.h
 

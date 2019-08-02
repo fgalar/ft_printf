@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatcher.c                                       :+:      :+:    :+:   */
+/*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/31 16:46:12 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
+/*   Updated: 2019/08/02 08:35:13 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+#include <stdio.h>
 
-
-int	dispatcher(t_data *data)
+int		print_f(t_data *data)
 {
-	int		x;
-	static char	conv[NB_CONV] = {'c','s','p','d','i','o','u','x','X','f'};
-	static int	(*go_ft[NB_CONV])(t_data *data) = {print_c, print_s, print_p, 
-		print_d, print_d, print_o, print_u, print_x, print_x, print_f};
+	double	n;
+	char	*nb;
+	int		i;
 
-	x = 0;
-	while (conv[x] != data->conv)
-		x++;
-	if (conv[x] == data->conv && x < NB_CONV)
-		return ((go_ft[x])(data));
+	n = va_arg(data->arg, double); 
+	
+	nb = itoa_base(n, 10);
+	nb[ft_strlen(nb)] = '.';
+	ft_strcat(data->buffer, nb); 
+	
+	n *= 1000000;
+	nb = itoa_base(n, 10);
+	i = ft_strlen(nb);
+	i -= 6;
+	ft_strcat(data->buffer, &nb[i]); 
+	
 	return (0);
 }

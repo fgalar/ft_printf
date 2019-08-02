@@ -1,4 +1,4 @@
-NAME = libftprint.a
+NAME = libftprintf.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -12,8 +12,7 @@ SRCS = 	ft_printf.c \
 		print_d.c \
 		print_o.c \
 		print_u.c \
-		print_x.c \
-		print_xx.c 
+		print_x.c 
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_xx.c                                         :+:      :+:    :+:   */
+/*   ft_floatoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 19:05:50 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/24 19:35:38 by fanny            ###   ########.fr       */
+/*   Created: 2019/07/31 17:30:40 by fanny             #+#    #+#             */
+/*   Updated: 2019/08/01 10:15:26 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <printf.h>
+#include "libft.h"
 
-int		print_xx(t_data *data)
+char	*ft_floatoa(long double n)
 {
-	char	*nb;
-	int		i;
-
-	nb = itoa_base(va_arg(data->arg, unsigned), 16);
-	i = 0;
-	while (nb[i])
-	{
-		if (ft_isalpha(nb[i]))
-			nb[i] = split_min(nb[i]);
-		i++;
-	}
-	ft_strcat(data->buffer, nb);
-	data->len = ft_strlen(data->buffer);
+	char	*s;
+	
+	s = NULL;
+	(void)n;
+	//s = itoa_base(n, 10);
+	return (s);
+}
+int main()
+{
+	printf("\n%lf", 999999999.9999919);
+	//ft_putstr(ft_floatoa(12345.67891));
 	return (0);
 }
