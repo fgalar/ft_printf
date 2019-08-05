@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/31 16:14:41 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/05 14:29:10 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -28,6 +28,7 @@ int		check_conv(const char *format, t_data *data)
 		}
 		y++;
 	}
+	data->conv = '0';
 	return (-1);
 }
 
@@ -43,6 +44,14 @@ int		check_flag(const char *format, t_data *data)
 		{
 			data->flag = flags[y];
 			data->index += ft_strlen(flags[y]);
+			return (0);
+		}
+		if (format[data->index] == '%')
+		{
+			ft_strcat(data->buffer, "%");
+			data->len++;
+			data->index++;
+			data->conv = '0';
 			return (0);
 		}
 		y++;

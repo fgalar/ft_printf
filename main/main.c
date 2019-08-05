@@ -6,13 +6,13 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/31 17:58:10 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/05 17:08:35 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_len(int	i, int y)
 {
@@ -146,5 +146,13 @@ int main()
 	y = printf("2. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);
 	print_len(i, y);
 	
+	i = ft_printf("1. affiche le pourcent: %%\n");
+	y = printf("2. affiche le pourcent: %%\n");
+	print_len(i, y);
+
+	y = printf("%    %\n", 42);
+	printf("%hd\n", 85);
+	print_len(i, y);
+
 	return 0;
 }
