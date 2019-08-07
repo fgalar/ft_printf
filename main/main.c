@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/05 17:08:35 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/07 10:25:53 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,9 +150,10 @@ int main()
 	y = printf("2. affiche le pourcent: %%\n");
 	print_len(i, y);
 
-	y = printf("%    %\n", 42);
-	printf("%hd\n", 85);
+	i = ft_printf("1. int to x (#) = |%#X\n", 42);
+	y = printf("2. int to x (#) = |%#x\n", 42);
 	print_len(i, y);
+
 
 	return 0;
 }

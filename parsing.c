@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/05 14:29:10 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/07 10:21:04 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int		check_conv(const char *format, t_data *data)
+int		get_conv(const char *format, t_data *data)
 {
 	static char	conv[NB_CONV] = {'c','s','p','d','i','o','u','x','X','f'};
 	int		y;
@@ -32,9 +32,9 @@ int		check_conv(const char *format, t_data *data)
 	return (-1);
 }
 
-int		check_flag(const char *format, t_data *data)
+int		get_flag(const char *format, t_data *data)
 {
-	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l"};
+	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-", "0", "%",};
 	int			y;
 
 	y = 0;
@@ -44,20 +44,13 @@ int		check_flag(const char *format, t_data *data)
 		{
 			data->flag = flags[y];
 			data->index += ft_strlen(flags[y]);
-			return (0);
-		}
-		if (format[data->index] == '%')
-		{
-			ft_strcat(data->buffer, "%");
-			data->len++;
-			data->index++;
-			data->conv = '0';
-			return (0);
+			check_overrides(format, data);
+			return (1);
 		}
 		y++;
 	}
 	data->flag = "0";
-	return (-1);
+	return (0);
 }
 
 void	parsing(const char *format, t_data *data)
@@ -67,8 +60,8 @@ void	parsing(const char *format, t_data *data)
 		if (format[data->index] == '%')
 		{
 			data->index++;
-			check_flag(format, data);
-			check_conv(format, data);
+			get_flag(format, data);
+			get_conv(format, data);
 			dispatcher(data);
 		}	
 		else
