@@ -6,16 +6,18 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/07 10:21:04 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/07 17:35:53 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft/libft.h"
 
 int		get_conv(const char *format, t_data *data)
 {
-	static char	conv[NB_CONV] = {'c','s','p','d','i','o','u','x','X','f'};
-	int		y;
+	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'i', 'o', 'u', 'x', 'X',
+		'f'};
+	int			y;
 
 	y = 0;
 	while (y < NB_CONV)
@@ -34,7 +36,8 @@ int		get_conv(const char *format, t_data *data)
 
 int		get_flag(const char *format, t_data *data)
 {
-	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-", "0", "%",};
+	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
+		"0", "%"};
 	int			y;
 
 	y = 0;
@@ -63,10 +66,10 @@ void	parsing(const char *format, t_data *data)
 			get_flag(format, data);
 			get_conv(format, data);
 			dispatcher(data);
-		}	
+		}
 		else
 		{
-			data->buffer[data->len]= format[data->index];
+			data->buffer[data->len] = format[data->index];
 			data->index++;
 			data->len++;
 		}

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/07 10:25:53 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/07 17:18:30 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,9 +151,28 @@ int main()
 	print_len(i, y);
 
 	i = ft_printf("1. int to x (#) = |%#X\n", 42);
-	y = printf("2. int to x (#) = |%#x\n", 42);
+	y = printf("2. int to x (#) = |%#X\n", 42);
 	print_len(i, y);
 
+	i = ft_printf("1. +int = |%+d\n", 42);
+	y = printf("2. +int = |%+d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. spaceint = |% d\n", 42);
+	y = printf("2. spaceint = |% d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. -int = |%-d\n", 42);
+	y = printf("2. -int = |%-d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. 0int = |%0d\n", 42);
+	y = printf("2. 0int = |%0d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. prct = |%%\n");
+	y = printf("2. prct = |%%\n");
+	print_len(i, y);
 
 	return 0;
 }

@@ -8,5 +8,7 @@ int	main()
 	printf("-int = |%-d\n", 42);
 	printf("0int = |%0d\n", 42);
 	printf("prct = |%%\n");
+
+	printf("%+#x\n", 42);
 	return 0;
 }
