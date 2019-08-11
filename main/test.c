@@ -1,14 +1,36 @@
 #include <stdio.h>
-
+#include <inttypes.h>
 int	main()
 {
-	printf("int to x (#) = |%#x\n", 42);
-	printf("+int = |%+d\n", 42);
-	printf("spaceint = |% d\n", 42);
-	printf("-int = |%-d\n", 42);
-	printf("0int = |%0d\n", 42);
-	printf("prct = |%%\n");
+	printf("# et + et int = |%+0d\n", 42);
+	printf("# et hexa null = |%#x\n", 0);
+	printf("# et hexa < 0 = |%#x\n", -42);
+	printf("# et hexa > 0 = |%#x\n", 42);
+	printf("# et octal null = |%#o\n", 0);
+	printf("# et octal < 0 = |%#o\n", -42);
+	printf("# et octal > 0 = |%#o\n\n\n", 42);
+	
+	printf("0 et int = |%0d\n", 42);
+	printf("0 et valeur de completion et int = |%010d\n\n", 42);
+	printf("- et 0 et valeur de completion et int = |%-010d\n", 42);
 
-	printf("%+#x\n", 42);
+	printf("- et int = |%-d\n", 42);
+	printf("- et valeur de completion et int = |%-10d\n\n", 42);
+	
+	printf("SPCE et int = \t\t\t\t\t|% d\n", 42);
+	printf("SPCE et conv i = \t\t\t\t|% i\n", 42);
+	printf("SPCE et int == 0 = \t\t\t\t|% d\n", 0);
+	printf("SPCE et int < 0 = \t\t\t\t|% d\n", -42);
+
+	printf("SPCE et octal = \t\t\t\t|% o\n", 42);
+	printf("SPCE et conv u = \t\t\t\t|% u\n", 42);
+	printf("SPCE et hexa = \t\t\t\t\t|% x\n", 42);
+	printf("SPCE et valeur de completion et int = \t\t|% 10d\n", 42);
+	printf("SPCE et - et valeur de completion et in = \t|% -10d\n\n", 42);
+
+	printf("+ et int > 0 = \t\t\t\t\t|%+d\n", 42);
+	printf("+ et int == 0 = \t\t\t\t|%+d\n", 0);
+	printf("+ et int < 0 = \t\t\t\t\t|%+d\n", -42);
+	printf("+ et hexa = \t\t\t\t\t|%+x", 42);
 	return 0;
 }
