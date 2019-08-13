@@ -6,22 +6,12 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/07 18:05:57 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/13 16:27:50 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
-
-void	check_overrides(const char *format, t_data *data)
-{
-	(void)format;
-	if (!ft_strcmp(data->flag, "%"))
-		ft_strcat(data->buffer, data->flag);
-	if (!ft_strcmp(data->flag, "#") || !ft_strcmp(data->flag, "+"))
-		data->prefix = 1;
-	data->len++;
-}
 
 int		dispatcher(t_data *data)
 {

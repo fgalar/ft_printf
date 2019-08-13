@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/07 17:35:53 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/13 19:41:16 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,12 @@ int		get_flag(const char *format, t_data *data)
 	{
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
-			data->flag = flags[y];
+			data->flag[y] = 1;
 			data->index += ft_strlen(flags[y]);
-			check_overrides(format, data);
-			return (1);
+			get_flag(format, data);
 		}
 		y++;
 	}
-	data->flag = "0";
 	return (0);
 }
 

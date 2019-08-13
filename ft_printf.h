@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/07 17:28:14 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/13 18:25:47 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 # define NB_CONV 10
 # define NB_FLAGS 10
 
+typedef enum		e_flags
+{
+	hh,
+	h,
+	ll,
+	l,
+	diese, 
+	most, 
+	space,
+	less,
+	zero,
+	percent,	
+}					t_flags;
+
 typedef struct		s_data
 {
 	char			buffer[4096];
@@ -24,8 +38,7 @@ typedef struct		s_data
 	int				index;
 	va_list			arg;
 	char			conv;
-	char			*flag;
-	int				prefix;
+	int				flag[NB_FLAGS];
 }					t_data;
 
 int					ft_printf(const char *format, ...);
