@@ -23,8 +23,7 @@ INCLUDE = ft_printf.h
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
-	@ar -rcs $@ $^
-
+	libtool -static -o $@ $^
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
 
