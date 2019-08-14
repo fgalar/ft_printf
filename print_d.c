@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/13 18:25:53 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/14 11:47:11 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -15,16 +15,16 @@ int		print_d(t_data *data)
 {
 	char	*nb;
 	
-	if (data->flag[most] || data->flag[diese] || data->flag[space])
-		nb = ft_itoa(va_arg(data->arg, int signed));
 	if (data->flag[hh])
 		nb = ft_itoa((char)va_arg(data->arg, int));
-	if (data->flag[h])
+	else if (data->flag[h])
 		nb = ft_itoa((short int)va_arg(data->arg, int));
-	if (data->flag[ll])
+	else if (data->flag[ll])
 		nb = itoa_base(va_arg(data->arg, long long), 10);
-	if (data->flag[l])
+	else if (data->flag[l])
 		nb = itoa_base(va_arg(data->arg, long), 10);
+	else 
+		nb = ft_itoa(va_arg(data->arg, int signed));
 	if (nb[0] != '-' && (data->flag[most] || data->flag[space]))
 		data->flag[most] ? ft_strcat(data->buffer, "+") : ft_strcat(data->buffer, " ");
 	ft_strcat(data->buffer, nb);

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/13 19:41:16 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/14 13:39:40 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,16 @@ int		get_flag(const char *format, t_data *data)
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
 			data->flag[y] = 1;
+			if (data->flag[percent])
+			{
+				ft_strcat(data->buffer, "%");
+				data->len++;
+			}
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
 		y++;
+
 	}
 	return (0);
 }
