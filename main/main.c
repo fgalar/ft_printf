@@ -6,15 +6,16 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/14 12:05:42 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/14 19:14:30 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
 #include "../ft_printf.h"
+#include "../libft/libft.h"
 
-void	print_len(int	i, int y)
+static void	print_len(int i, int y)
 {
 	ft_putchar('\t');
 	ft_putstr("taille ft_printf\t");

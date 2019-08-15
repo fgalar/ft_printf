@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/02 08:35:13 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/15 18:52:54 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int		print_f(t_data *data)
 	i = ft_strlen(nb);
 	i -= 6;
 	ft_strcat(data->buffer, &nb[i]); 
-	
+		
 	return (0);
 }

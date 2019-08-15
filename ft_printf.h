@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/13 18:25:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/14 19:41:50 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,5 @@ int					print_f(t_data *data);
 char				*print_majhex(char *nb);
 int					get_conv(const char *format, t_data *data);
 int					get_flags(const char *format, t_data *data);
-void				check_overrides(const char *format, t_data *data);
 
 #endif
