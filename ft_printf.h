@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/13 18:25:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/22 23:46:17 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct		s_data
 	char			conv;
 	int				flag[NB_FLAGS];
 }					t_data;
+
+typedef struct		s_float
+{
+	char	sign;
+	char	*exponent;
+	int		exp;
+	char	*mantissa;
+	double	manti;
+}					t_float;
 
 int					ft_printf(const char *format, ...);
 void				parsing(const char *format, t_data *data);

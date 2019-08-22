@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/22 10:00:51 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/23 00:39:58 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,46 @@ char	*get_mantissa(double nb, char *tab)
 {
 	double		facto;
 	char		base[2] = {'0', '1'};
-	int			i = 0;
-	facto = (nb / ft_power(2, ft_log(nb))) - 1; //	calcul du mantisse
+	int			i;
+	double		f_loop;
+	
+	tab = (char*)malloc(sizeof(char) * (sizeof(double) + 1));
+	facto = (nb / ft_power(2, ft_log(nb)) -1); //	calcul du mantisse
+	i = 0;
 	while (facto != 0)
 	{
+		facto += facto;
+		
 		printf("facto = %f\n", facto);
-		facto *= 2;
-		*tab++ = base[(int)facto];
-		if (facto >=1)
-			facto -= 1;
+		tab[i] = base[(int)facto];
 		i++;
+		if (facto > 1)
+			facto -= 1;
 	}
+	return(tab);
 }
 
 int		print_f(t_data *data)
 {
-	int				sign;
 	double			n;
-	char			*exp;
-	char			*mantissa;
-	sign = 1;
+	t_float			*nb;
+
 	n = va_arg(data->arg, double);
+	if (!(nb = ((t_float*)malloc(sizeof(t_float))))
+				|| !(nb->exponent = (char*)malloc(sizeof(char) * 9))
+				|| !(nb->mantissa = (char*)malloc(sizeof(char) * 24)))
+		return (0);
 	if (n < 0)
-		sign = -1;
-	exp = itoa_base((ft_log(n) + 127), 2);      // on recupere l'exposant
-	mantissa = get_mantissa(n);
-	printf("exp = %s\n", exp);
-	printf("mantissa = %s\n", mantissa);
+		nb->sign = '1';
+	else
+		nb->sign = '0';
+	printf("%c\n", nb->sign);
+	nb->exponent = itoa_base((ft_log(n) + 127), 2); // exp -> str
+	printf("exp = %s\n", nb->exponent);
+	
+	nb->mantissa = get_mantissa(n, nb->mantissa);
+	printf("mantissa = %s\n", nb->mantissa);
+
 	return (0);
 }
 
