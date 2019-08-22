@@ -12,7 +12,8 @@ SRCS = 	ft_printf.c \
 		print_d.c \
 		print_o.c \
 		print_u.c \
-		print_x.c 
+		print_x.c \
+		print_f.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -22,9 +23,9 @@ INCLUDE = ft_printf.h
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(LIBFT)
-	@ar -rcs $@ $^
-
+$(NAME) : $(LIBFT) $(OBJS)
+	cp $(LIBFT) $@
+	ar rcs $@ $^ 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
 
