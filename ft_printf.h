@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/22 23:46:17 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/26 11:20:50 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ typedef struct		s_data
 
 typedef struct		s_float
 {
-	char	sign;
-	char	*exponent;
-	int		exp;
-	char	*mantissa;
-	double	manti;
+	int			sign;
+	char		*exponent;
+	int			exp;
+	char		*mantissa;
+	long double		m;
 }					t_float;
 
 int					ft_printf(const char *format, ...);
@@ -65,5 +65,5 @@ char				*print_majhex(char *nb);
 int					get_conv(const char *format, t_data *data);
 int					get_flags(const char *format, t_data *data);
 void				check_overrides(const char *format, t_data *data);
-
+char				*ft_ftoa(t_float *nb);
 #endif
