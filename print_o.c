@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/13 19:41:56 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/28 19:22:06 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -19,14 +19,16 @@ int		print_o(t_data *data)
 	prefix = "0";
 	if (data->flag[hh])
 		oct = itoa_base((char)va_arg(data->arg, unsigned), 8);
-	if (data->flag[h])
+	else if (data->flag[h])
 		oct = itoa_base((short)va_arg(data->arg, unsigned), 8);
-	if (data->flag[ll])
+	else if (data->flag[ll])
 		oct = itoa_base(va_arg(data->arg, unsigned long long), 8);
-	if (data->flag[l])
+	else if (data->flag[l])
 		oct = itoa_base(va_arg(data->arg, unsigned long), 8);
 	else	
 		oct = itoa_base(va_arg(data->arg, unsigned), 8);
+	if (data->size)
+		manage_size(data, oct);	
 	if (data->flag[diese])
 		ft_strcat(data->buffer, prefix);
 	ft_strcat(data->buffer, oct);

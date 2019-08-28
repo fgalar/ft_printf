@@ -13,7 +13,7 @@ SRCS = 	ft_printf.c \
 		print_o.c \
 		print_u.c \
 		print_x.c \
-		print_f.c 
+		print_f.c \
 
 OBJS = $(SRCS:.c=.o)
 

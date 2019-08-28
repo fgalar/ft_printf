@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/14 12:05:42 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/28 19:31:34 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,38 @@ int main()
 	
 	i = ft_printf("1. prct = |%%\n");
 	y = printf("2. prct = |%%\n");
+	print_len(i, y);
+
+	i = ft_printf("1. largeur de champs a 10: |%10d\n", 42);
+	y = printf("2. largeur de champs a 10: |%10d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21d\n", 42);
+	y = printf("2. precision a 10: |%.21d\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. largeur de champs + precision: |%10.10d\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10d\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. + et largeur de champs : %+10d\n", 42);
+	y = printf("2. + et largeur de champs : %+10d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10d|\n", 42);
+	y = printf("2. space et largeur de champs:  |% 10d|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. - et largeur de champs : |%-10d|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10d|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10d|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10d|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("|%-010d|\n", 42);
+	y = printf("|%-010d|\n", 42);
 	print_len(i, y);
 
 	return 0;
