@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/14 13:39:40 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/28 09:56:05 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,12 @@ int		get_flag(const char *format, t_data *data)
 				ft_strcat(data->buffer, "%");
 				data->len++;
 			}
+
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
+		if (ft_isdigit(format[data->index]))
+			data->size = ft_atoi(&format[data->index]);
 		y++;
 
 	}

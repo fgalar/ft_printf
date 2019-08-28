@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/26 11:20:50 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/28 09:54:03 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct		s_data
 	int				len;
 	int				index;
 	va_list			arg;
+	int				size;
+	char			*argument;
 	char			conv;
 	int				flag[NB_FLAGS];
 }					t_data;
