@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/28 19:41:37 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/29 16:26:42 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ void	manage_size(t_data *data, char *arg)
 	int		len;
 
 	len = data->size - ft_strlen(arg);
-	if (data->flag[most] || data->flag[diese] || data->flag[space])
+	if (len < 0)
+		return ;
+	if (data->conv == 0 && (data->flag[most] || data->flag[diese] || data->flag[space]))
 		len--;
 	if (data->flag[point])
 		ft_memset(&data->buffer[data->len],'0', len);
 	else
 		ft_memset(&data->buffer[data->len],' ', len);
 	data->len += len;
-	ft_putendl("coucou");
 }
 
 void	get_size(t_data *data, const char *format)

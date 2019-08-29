@@ -6,13 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/28 18:13:56 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/29 16:26:04 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
+# include <stdlib.h>
 # include "libft/libft.h"
 # define NB_CONV 10
 # define NB_FLAGS 11

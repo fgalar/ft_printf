@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/28 19:31:34 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/29 18:20:47 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,9 +202,153 @@ int main()
 	y = printf("2. + et largeur de champs: |%+10d|\n", 42);
 	print_len(i, y);
 
-	i = ft_printf("|%-010d|\n", 42);
-	y = printf("|%-010d|\n", 42);
+	i = ft_printf("- et 0 et largeur de champs :|%-010d|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010d|\n", 42);
 	print_len(i, y);
 
+	i = ft_printf("1. |%3d|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3d|<--largeur trop petite\n", 123456789);
+
+	i = ft_printf("1. |%.3d|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3d|<-- precision trop petite\n", 123456789);
+	
+printf("/*******************************octal*********************************/\n");
+	i = ft_printf("1. largeur de champs a 10: |%10o|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21o|\n", 42);
+	y = printf("2. precision a 10: |%.21o|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. largeur de champs + precision: |%10.10o|\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10o|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. + et largeur de champs : %+10o|\n", 42);
+	y = printf("2. + et largeur de champs : %+10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10o|\n", 42);
+	y = printf("2. space et largeur de champs:  |% 10o|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. - et largeur de champs : |%-10o|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10o|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10o|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("- et 0 et largeur de champs :|%-010o|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%3o|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3o|<--largeur trop petite\n", 123456789);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);
+	print_len(i, y);
+
+	printf("/***************************unsigned*******************************/\n");
+	i = ft_printf("1. largeur de champs a 10: |%10u|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21u|\n", -100);
+	y = printf("2. precision a 10: |%.21u|\n", -100);
+	print_len(i, y);
+
+	i = ft_printf("1. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);
+	y = printf("2. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);
+	print_len(i, y);
+
+	i = ft_printf("1. + et largeur de champs : %+10u|\n", INT_MIN);
+	y = printf("2. + et largeur de champs : %+10u|\n", INT_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10u|\n", LLONG_MIN);
+	y = printf("2. space et largeur de champs:  |% 10u|\n", LLONG_MIN);
+	print_len(i, y);
+
+	i = ft_printf("1. - et largeur de champs : |%-10u|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10u|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10u|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("- et 0 et largeur de champs :|%-010u|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010u|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. |%3u|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3u|<--largeur trop petite\n", 123456789);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);
+	print_len(i, y);
+
+	printf("/***************************HEXxA*******************************/\n");
+	i = ft_printf("1. largeur de champs a 10: |%10x|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21x|\n", -100);
+	y = printf("2. precision a 10: |%.21x|\n", -100);
+	print_len(i, y);
+
+	i = ft_printf("1. largeur de champs + precision: |%10.10x|\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10x|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. + et largeur de champs : %+10X|\n", -42);
+	y = printf("2. + et largeur de champs : %+10X|\n", -42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10X|\n", 77);
+	y = printf("2. space et largeur de champs:  |% 10X|\n", 77);
+	print_len(i, y);
+
+	i = ft_printf("1. - et largeur de champs : |%-10x|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10X|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10X|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("- et 0 et largeur de champs :|%-010x|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010x|\n", 42);
+	print_len(i, y);
+
+	i = ft_printf("1. |%3llX|<--largeur trop petite\n", LLONG_MIN);
+	y = printf("2. |%3llX|<--largeur trop petite\n", LLONG_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3llx|<-- precision trop petite\n", LLONG_MAX);
+	y = printf("2. |%.3llx|<-- precision trop petite\n", LLONG_MAX);
+	print_len(i, y);
+
+	i = ft_printf("1. %.0u\n", 0);
+	y = printf("2. %.0u\n", 0);
+	print_len(i, y);
+
+	i = ft_printf("1. %012.0d\n", 42);
+	y = printf("2. %012.0d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("|%0.5X|\n", 0);
+	y = printf("|%0.5X|\n", 0);
+	print_len(i, y);
+
+	i = ft_printf("|%.0X|\n", 0);
+	y = printf("|%.0X|\n", 0);
+	print_len(i, y);
 	return 0;
 }
