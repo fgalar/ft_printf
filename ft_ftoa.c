@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftoa.c                                             :+:      :+:    :+:   */
+/*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/28 19:25:16 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/31 16:13:14 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 char	*ft_ftoa(t_float *nb)
 {
-	char			*str = "coucou";
+	char			*str = "float";
 	int				index;
 	double			f;
 

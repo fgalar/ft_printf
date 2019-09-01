@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/29 15:28:18 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/31 18:02:28 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -27,6 +27,8 @@ int		print_o(t_data *data)
 		oct = itoa_base(va_arg(data->arg, unsigned long), 8);
 	else	
 		oct = itoa_base(va_arg(data->arg, unsigned), 8);
+	if (!data->size && !ft_strcmp(oct, "0"))
+		return (0);	
 	if (data->size && !data->flag[less])
 		manage_size(data, oct);	
 	if (data->flag[diese])

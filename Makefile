@@ -14,6 +14,7 @@ SRCS = 	ft_printf.c \
 		print_u.c \
 		print_x.c \
 		print_f.c \
+		ft_ftoa.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,14 +24,13 @@ INCLUDE = ft_printf.h
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS)
-	cp $(LIBFT) $@
-	ar rcs $@ $^ 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $(SRCS)-I $(INCLUDE)
-
-$(LIBFT) :
+$(NAME) : $(OBJS)
 	@make -C $(LIBDIR)
+	@cp libft/libft.a ./$(NAME)
+	ar rcs $(NAME) $^
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $^ -I $(INCLUDE)
 
 clean:
 	@rm -rf $(OBJS)
@@ -41,5 +41,3 @@ fclean: clean
 	@make fclean -C $(LIBDIR)
 
 re: fclean all
-
-.PHONY: clean all re fclean

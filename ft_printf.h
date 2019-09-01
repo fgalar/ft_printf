@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/29 16:26:04 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/31 17:32:52 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ int					print_o(t_data *data);
 int					print_u(t_data *data);
 int					print_x(t_data *data);
 int					print_f(t_data *data);
+char				*ft_ftoa(t_float *nb);
 char				*print_majhex(char *nb);
 
 int					get_conv(const char *format, t_data *data);
 int					get_flags(const char *format, t_data *data);
 int					dispatcher(t_data *data);
 void				get_size(t_data *data, const char *format);
-void				manage_size(t_data *data, char *arg);
-char				*ft_ftoa(t_float *nb);
+int					manage_size(t_data *data, char *arg);
 #endif

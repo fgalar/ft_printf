@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/29 18:20:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/08/31 16:48:02 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,8 +335,8 @@ printf("/*******************************octal*********************************/\
 	y = printf("2. |%.3llx|<-- precision trop petite\n", LLONG_MAX);
 	print_len(i, y);
 
-	i = ft_printf("1. %.0u\n", 0);
-	y = printf("2. %.0u\n", 0);
+	i = ft_printf("1. |%.0u|\n", 0);
+	y = printf("2. |%.0u|\n", 0);
 	print_len(i, y);
 
 	i = ft_printf("1. %012.0d\n", 42);

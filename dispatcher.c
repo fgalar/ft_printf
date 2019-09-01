@@ -6,19 +6,19 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/29 16:26:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/01 17:12:22 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	manage_size(t_data *data, char *arg)
+int		manage_size(t_data *data, char *arg)
 {
 	int		len;
 
 	len = data->size - ft_strlen(arg);
 	if (len < 0)
-		return ;
+		return (0);
 	if (data->conv == 0 && (data->flag[most] || data->flag[diese] || data->flag[space]))
 		len--;
 	if (data->flag[point])
@@ -26,6 +26,7 @@ void	manage_size(t_data *data, char *arg)
 	else
 		ft_memset(&data->buffer[data->len],' ', len);
 	data->len += len;
+	return (0);
 }
 
 void	get_size(t_data *data, const char *format)
