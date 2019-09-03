@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/14 13:39:40 by fanny            ###   ########.fr       */
+/*   Updated: 2019/08/29 15:02:11 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int		get_conv(const char *format, t_data *data)
 
 int		get_flag(const char *format, t_data *data)
 {
-	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
-		"0", "%"};
+	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-", "0", "%", "."};
 	int			y;
 
 	y = 0;
@@ -54,8 +53,9 @@ int		get_flag(const char *format, t_data *data)
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
+		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+			get_size(data, format);
 		y++;
-
 	}
 	return (0);
 }

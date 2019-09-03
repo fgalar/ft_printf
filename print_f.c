@@ -6,30 +6,87 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/15 18:52:54 by fgarault         ###   ########.fr       */
+=======
+/*   Updated: 2019/08/31 15:24:50 by fgarault         ###   ########.fr       */
+>>>>>>> dev
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <limits.h>
 
-int		print_f(t_data *data)
+int		ft_log(double value)
 {
-	double	n;
-	char	*nb;
-	int		i;
+	int index;
+	int log;
 
-	n = va_arg(data->arg, double); 
+	index = 0;
+	log = 2;
+	while (value > log)
+	{
+		log +=log;
+		index++;
+	}
+	return (index);
+}
+
+char	*get_mantissa(double nb, char *tab)
+{
+	double		facto;
+	int			i;
 	
-	nb = itoa_base(n, 10);
-	nb[ft_strlen(nb)] = '.';
-	ft_strcat(data->buffer, nb); 
-	
+<<<<<<< HEAD
 	n *= 1000000;
 	nb = itoa_base(n, 10);
 	i = ft_strlen(nb);
 	i -= 6;
 	ft_strcat(data->buffer, &nb[i]); 
 		
+=======
+	facto = (nb / ft_power(2, ft_log(nb)) -1); //	calcul du mantisse x = nb/2^log
+	i = 0;
+	while (i < 52) // a changer apres pour les double = 52bits
+	{
+		facto += facto;
+		if (facto >= 1)
+		{
+			tab[i] = '1';
+			facto -= 1;
+		}
+		else
+			tab[i] = '0';
+		i++;
+	}
+	tab[i]= '\0';
+	return(tab);
+}
+
+int		print_f(t_data *data)
+{
+	double			n;
+	t_float			*nb;
+
+	n = va_arg(data->arg, double);
+	if (!(nb = ((t_float*)malloc(sizeof(t_float))))
+				|| !(nb->exponent = (char*)malloc(sizeof(char) * 12))
+				|| !(nb->mantissa = (char*)malloc(sizeof(char) * 53)))
+		return (0);
+	if (n < 0)
+		nb->sign = 1;
+	else
+		nb->sign = 0;
+	nb->exp = ft_log(n);
+	//printf("%d\n", nb->sign);
+	nb->exponent = itoa_base((nb->exp + 1023), 2); // exp -> str
+//	printf("exp = %s\n", nb->exponent);
+	
+	nb->mantissa = get_mantissa(n, nb->mantissa);
+//	printf("mantissa = %s\n", nb->mantissa);
+	ft_ftoa(nb);
+>>>>>>> dev
 	return (0);
 }

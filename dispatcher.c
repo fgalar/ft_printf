@@ -6,12 +6,44 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/15 18:58:57 by fgarault         ###   ########.fr       */
+=======
+/*   Updated: 2019/09/01 17:12:22 by fgarault         ###   ########.fr       */
+>>>>>>> dev
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+
+int		manage_size(t_data *data, char *arg)
+{
+	int		len;
+
+	len = data->size - ft_strlen(arg);
+	if (len < 0)
+		return (0);
+	if (data->flag[most] || data->flag[diese] || data->flag[space])
+		len--;
+	if (data->flag[point])
+		ft_memset(&data->buffer[data->len],'0', len);
+	else
+		ft_memset(&data->buffer[data->len],' ', len);
+	data->len += len;
+	return (0);
+}
+
+void	get_size(t_data *data, const char *format)
+{
+	int		i;
+
+	i  = 0;
+	if (data->flag[point])
+		data->size = ft_atoi(&format[data->index]);
+	else
+		data->size = ft_atoi(&format[data->index]);
+	data->index += ft_nbrlen(data->size);
+}
 
 int		dispatcher(t_data *data)
 {
