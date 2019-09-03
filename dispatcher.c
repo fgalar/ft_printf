@@ -19,7 +19,7 @@ int		manage_size(t_data *data, char *arg)
 	len = data->size - ft_strlen(arg);
 	if (len < 0)
 		return (0);
-	if (data->conv == 0 && (data->flag[most] || data->flag[diese] || data->flag[space]))
+	if (data->flag[most] || data->flag[diese] || data->flag[space])
 		len--;
 	if (data->flag[point])
 		ft_memset(&data->buffer[data->len],'0', len);
