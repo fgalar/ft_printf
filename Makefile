@@ -4,21 +4,18 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	ft_printf.c \
-		dispatcher.c \
-		parsing.c \
+	dispatcher.c \
+	parsing.c \
        	print_c.c \
-		print_s.c \
-		print_p.c \
-		print_d.c \
-		print_o.c \
-		print_u.c \
-		print_x.c \
-<<<<<<< HEAD
-		print_f.c 
-=======
-		print_f.c \
-		ft_ftoa.c \
->>>>>>> dev
+	print_s.c \
+	print_p.c \
+	print_d.c \
+	print_o.c \
+	print_u.c \
+	print_x.c \
+	print_f.c \
+	print_f.c \
+	ft_ftoa.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -28,17 +25,11 @@ INCLUDE = ft_printf.h
 
 all : $(NAME)
 
-<<<<<<< HEAD
-$(NAME) : $(LIBFT) $(OBJS)
-	cp $(LIBFT) $@
-	ar rcs $@ $^ 
-=======
 $(NAME) : $(OBJS)
 	@make -C $(LIBDIR)
 	@cp libft/libft.a ./$(NAME)
 	ar rcs $(NAME) $^
 
->>>>>>> dev
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $^ -I $(INCLUDE)
 

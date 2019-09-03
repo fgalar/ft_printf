@@ -6,31 +6,36 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2019/08/15 18:58:57 by fgarault         ###   ########.fr       */
-=======
-/*   Updated: 2019/09/01 17:12:22 by fgarault         ###   ########.fr       */
->>>>>>> dev
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int		manage_size(t_data *data, char *arg)
+void		manage_size(t_data *data, char *arg)
 {
 	int		len;
 
 	len = data->size - ft_strlen(arg);
+//	int i = 0;
+//	while (i < NB_FLAGS)
+//	{
+//		ft_putnbr(data->flag[i]);
+//		i++;
+//	}
 	if (len < 0)
-		return (0);
+		return ;
+//	ft_putnbr(data->flag[point]);
 	if (data->flag[most] || data->flag[diese] || data->flag[space])
 		len--;
-	if (data->flag[point])
+	if ((data->conv == 'x' || data->conv == 'X') && data->flag[diese])
+		len--;
+	if ((data->flag[point] || data->flag[zero]) && !data->flag[less])
 		ft_memset(&data->buffer[data->len],'0', len);
 	else
 		ft_memset(&data->buffer[data->len],' ', len);
 	data->len += len;
-	return (0);
 }
 
 void	get_size(t_data *data, const char *format)
@@ -38,11 +43,20 @@ void	get_size(t_data *data, const char *format)
 	int		i;
 
 	i  = 0;
-	if (data->flag[point])
-		data->size = ft_atoi(&format[data->index]);
+	if (data->size == 0)
+	{
+		if (data->flag[point])
+			data->size = ft_atoi(&format[data->index]);
+		else
+			data->size = ft_atoi(&format[data->index]);
+		data->index += ft_nbrlen(data->size);
+	}
 	else
-		data->size = ft_atoi(&format[data->index]);
-	data->index += ft_nbrlen(data->size);
+	{
+		data->flag[point] = 0;
+		data->index += ft_nbrlen(atoi(&format[data->index]));
+	}
+//	printf("size get : %s && format[index] : %c\n", ft_itoa(data->size), format[data->index]);
 }
 
 int		dispatcher(t_data *data)

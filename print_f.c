@@ -6,11 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/08/15 18:52:54 by fgarault         ###   ########.fr       */
-=======
 /*   Updated: 2019/08/31 15:24:50 by fgarault         ###   ########.fr       */
->>>>>>> dev
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +35,6 @@ char	*get_mantissa(double nb, char *tab)
 	double		facto;
 	int			i;
 	
-<<<<<<< HEAD
-	n *= 1000000;
-	nb = itoa_base(n, 10);
-	i = ft_strlen(nb);
-	i -= 6;
-	ft_strcat(data->buffer, &nb[i]); 
-		
-=======
 	facto = (nb / ft_power(2, ft_log(nb)) -1); //	calcul du mantisse x = nb/2^log
 	i = 0;
 	while (i < 52) // a changer apres pour les double = 52bits
@@ -87,6 +75,5 @@ int		print_f(t_data *data)
 	nb->mantissa = get_mantissa(n, nb->mantissa);
 //	printf("mantissa = %s\n", nb->mantissa);
 	ft_ftoa(nb);
->>>>>>> dev
 	return (0);
 }

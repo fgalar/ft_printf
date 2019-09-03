@@ -47,14 +47,27 @@ int		get_flag(const char *format, t_data *data)
 			data->flag[y] = 1;
 			if (data->flag[percent])
 			{
-				ft_strcat(data->buffer, "%");
-				data->len++;
+				if (data->flag[less]) 
+				{	
+					ft_strcat(data->buffer, "%");
+					data->len++;
+					manage_size(data, "%");
+				}
+				if (!data->flag[less])
+				{
+					manage_size(data, "%");
+					ft_strcat(data->buffer, "%");
+					data->len++;
+				}
 			}
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
 		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+		{
 			get_size(data, format);
+			y = 0;
+		}
 		y++;
 	}
 	return (0);

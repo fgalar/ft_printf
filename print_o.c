@@ -27,7 +27,7 @@ int		print_o(t_data *data)
 		oct = itoa_base(va_arg(data->arg, unsigned long), 8);
 	else	
 		oct = itoa_base(va_arg(data->arg, unsigned), 8);
-	if (!data->size && !ft_strcmp(oct, "0"))
+	if (!data->size && !ft_strcmp(oct, "0") && data->flag[point])
 		return (0);	
 	if (data->size && !data->flag[less])
 		manage_size(data, oct);	

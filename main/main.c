@@ -6,11 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2019/08/14 19:14:30 by fgarault         ###   ########.fr       */
-=======
-/*   Updated: 2019/08/31 16:48:02 by fgarault         ###   ########.fr       */
->>>>>>> dev
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +135,8 @@ int main()
 	y = printf("2. hh = %hhX\t%hhX\n", LONG_MAX, LONG_MIN);
 	print_len(i, y);
 
-	i = ft_printf("1. h = %hX\t%hX\n", LONG_MAX, LONG_MIN);
-	y = printf("2. h = %hX\t%hX\n", LONG_MAX, LONG_MIN);
+	i = ft_printf("1. h = %hX\t%hX\n", 0, USHRT_MAX);
+	y = printf("2. h = %hX\t%hX\n", 0, USHRT_MAX);
 	print_len(i, y);
 
 	i = ft_printf("1. ll = %llX\t%llX\n", LLONG_MAX, LLONG_MIN);
