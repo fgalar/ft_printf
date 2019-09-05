@@ -268,7 +268,7 @@ printf("/*******************************octal*********************************/\
 	print_len(i, y);
 
 	i = ft_printf("1. + et largeur de champs : %+10u|\n", INT_MIN);
-	y = printf("2. + et largeur de champs : %+10u|\n", INT_MIN);
+	y = printf("2. + et largeur de champs : %+10u|\n", INT_MAX);
 	print_len(i, y);
 	
 	i = ft_printf("1. space et largeur de champs:  |% 10u|\n", LLONG_MIN);

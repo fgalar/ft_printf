@@ -45,6 +45,16 @@ int		get_flag(const char *format, t_data *data)
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
 			data->flag[y] = 1;
+			if (!ft_strcmp(flags[y], ".") && format[data->index + 1] == '0')
+			{
+				data->flag[point] = 0;
+				data->flag[zero] = 0;
+				data->no_conv = 1;
+				data->index ++;
+				
+			}
+			ft_putstr(flags[y]);
+			ft_putendl("  ");	
 			if (data->flag[percent])
 			{
 				if (data->flag[less]) 
@@ -63,7 +73,7 @@ int		get_flag(const char *format, t_data *data)
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
-		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+		else if (ft_isdigit(format[data->index]) && format[data->index] != '0')
 		{
 			get_size(data, format);
 			y = 0;

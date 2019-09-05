@@ -43,6 +43,7 @@ typedef struct			s_data
 	char			*argument;
 	char			conv;
 	int			flag[NB_FLAGS];
+	int			no_conv;
 }				t_data;
 
 typedef struct			s_float

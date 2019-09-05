@@ -18,12 +18,13 @@ void		manage_size(t_data *data, char *arg)
 	int		len;
 
 	len = data->size - ft_strlen(arg);
-//	int i = 0;
-//	while (i < NB_FLAGS)
-//	{
-//		ft_putnbr(data->flag[i]);
-//		i++;
-//	}
+	int i = 0;
+	while (i < NB_FLAGS)
+	{
+		ft_putnbr(data->flag[i]);
+		ft_putchar('\n');
+		i++;
+	}
 	if (len < 0)
 		return ;
 //	ft_putnbr(data->flag[point]);
@@ -41,22 +42,17 @@ void		manage_size(t_data *data, char *arg)
 void	get_size(t_data *data, const char *format)
 {
 	int		i;
+	int		n_size;
 
 	i  = 0;
-	if (data->size == 0)
-	{
-		if (data->flag[point])
-			data->size = ft_atoi(&format[data->index]);
-		else
-			data->size = ft_atoi(&format[data->index]);
-		data->index += ft_nbrlen(data->size);
-	}
+	n_size = ft_atoi(&format[data->index]);
+	if ((data->size == 0) || (data->size <= n_size))
+		data->size = n_size;
 	else
-	{
 		data->flag[point] = 0;
-		data->index += ft_nbrlen(atoi(&format[data->index]));
-	}
-//	printf("size get : %s && format[index] : %c\n", ft_itoa(data->size), format[data->index]);
+	data->index += ft_nbrlen(n_size);
+
+	printf("size get : %s && format[index] : %c\n", ft_itoa(data->size), format[data->index]);
 }
 
 int		dispatcher(t_data *data)

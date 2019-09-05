@@ -15,6 +15,7 @@ int		print_u(t_data *data)
 {
 	char	*nb;
 
+	data->flag[most] = 0;
 	if (data->flag[hh])
 		nb = itoa_base((unsigned char)va_arg(data->arg, unsigned), 10);
 	else if (data->flag[h])
