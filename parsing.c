@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/29 15:02:11 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:43:54 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,31 @@ int		get_conv(const char *format, t_data *data)
 	return (-1);
 }
 
-int		get_flag(const char *format, t_data *data)
+void	get_size(t_data *data, const char *format)
+{
+	int		n_size;
+	
+	n_size = ft_atoi(&format[data->index]);
+	if (data->flag[point])
+		data->precis = n_size;
+	else
+		data->widthness = n_size;
+	data->index += ft_nbrlen(n_size);
+	if (data->precis == 0)
+	{
+		data->flag[point] = 0;
+		data->flag[zero] = 0;
+	}
+	if (data->precis && data->widthness)
+	{
+		if (data->widthness > data->precis)
+			data->width_max = data->widthness;
+		else
+		   data->width_max = data->precis;
+	}
+}
+
+void		get_flag(const char *format, t_data *data)
 {
 	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-", "0", "%", "."};
 	int			y;
@@ -45,16 +69,8 @@ int		get_flag(const char *format, t_data *data)
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
 			data->flag[y] = 1;
-			if (!ft_strcmp(flags[y], ".") && format[data->index + 1] == '0')
-			{
-				data->flag[point] = 0;
-				data->flag[zero] = 0;
-				data->no_conv = 1;
-				data->index ++;
-				
-			}
-			ft_putstr(flags[y]);
-			ft_putendl("  ");	
+			if (data->flag[point])
+				get_size(data, format);
 			if (data->flag[percent])
 			{
 				if (data->flag[less]) 
@@ -80,11 +96,11 @@ int		get_flag(const char *format, t_data *data)
 		}
 		y++;
 	}
-	return (0);
 }
 
 void	parsing(const char *format, t_data *data)
 {
+	
 	while (format[data->index])
 	{
 		if (format[data->index] == '%')

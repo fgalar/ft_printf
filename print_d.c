@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/01 17:12:21 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:55:44 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -25,15 +25,15 @@ int		print_d(t_data *data)
 		nb = itoa_base(va_arg(data->arg, long), 10);
 	else 
 		nb = ft_itoa(va_arg(data->arg, int signed));
-	if (!ft_strcmp(nb, "0") && data->flag[point] && !data->size)
+	if (!ft_strcmp(nb, "0") && !data->precis && data->flag[point])
 		return (0);
-	if (data->size && !data->flag[less])
+	if (data->width_max && !data->flag[less])
 		manage_size(data, nb);
 	if (nb[0] != '-' && (data->flag[most] || data->flag[space]))
-		data->flag[most] ? ft_strcat(data->buffer,"+") : ft_strcat(data->buffer," ");
+		data->flag[most] ? ft_strcat(data->buffer, "+") : ft_strcat(data->buffer," ");
 	ft_strcat(data->buffer, nb);
 	data->len = ft_strlen(data->buffer);
-	if (data->flag[less] && data->size)
+	if (data->flag[less] && data->width_max)
 		manage_size(data, nb);
 	data->conv = 0;
 	return (0);

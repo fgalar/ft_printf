@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/15 18:58:57 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:44:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,9 @@ void		manage_size(t_data *data, char *arg)
 {
 	int		len;
 
-	len = data->size - ft_strlen(arg);
-	int i = 0;
-	while (i < NB_FLAGS)
-	{
-		ft_putnbr(data->flag[i]);
-		ft_putchar('\n');
-		i++;
-	}
+	len = data->width_max - ft_strlen(arg);
 	if (len < 0)
 		return ;
-//	ft_putnbr(data->flag[point]);
 	if (data->flag[most] || data->flag[diese] || data->flag[space])
 		len--;
 	if ((data->conv == 'x' || data->conv == 'X') && data->flag[diese])
@@ -37,22 +29,6 @@ void		manage_size(t_data *data, char *arg)
 	else
 		ft_memset(&data->buffer[data->len],' ', len);
 	data->len += len;
-}
-
-void	get_size(t_data *data, const char *format)
-{
-	int		i;
-	int		n_size;
-
-	i  = 0;
-	n_size = ft_atoi(&format[data->index]);
-	if ((data->size == 0) || (data->size <= n_size))
-		data->size = n_size;
-	else
-		data->flag[point] = 0;
-	data->index += ft_nbrlen(n_size);
-
-	printf("size get : %s && format[index] : %c\n", ft_itoa(data->size), format[data->index]);
 }
 
 int		dispatcher(t_data *data)

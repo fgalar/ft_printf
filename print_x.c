@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/31 18:02:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:57:58 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int		print_x(t_data *data)
 		nb = itoa_base(va_arg(data->arg, unsigned long), 16);
 	else
 		nb = itoa_base(va_arg(data->arg, unsigned), 16);
-	if (!data->size && !ft_strcmp(nb, "0") && data->flag[point])
+	if (!data->precis && !ft_strcmp(nb, "0") && data->flag[point])
 		return (0);	
-	if (data->size && !data->flag[less])
+	if (data->width_max && !data->flag[less])
 		manage_size(data, nb);
 	if (data->flag[diese] && ft_strcmp(nb, "0"))
 		data->conv == 'X'? ft_strcat(data->buffer, "0X") : ft_strcat(data->buffer, "0x");
@@ -50,7 +50,7 @@ int		print_x(t_data *data)
 		nb = print_majhex(nb);
 	ft_strcat(data->buffer, nb);
 	data->len = ft_strlen(data->buffer);
-	if (data->flag[less] && data->size)
+	if (data->flag[less] && data->width_max)
 		manage_size(data, nb);
 	data->conv = 0;
 	return (0);
