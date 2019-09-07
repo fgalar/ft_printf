@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/06 13:03:22 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/07 20:17:17 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,26 @@
 
 void		manage_size(t_data *data, char *arg)
 {
-	printf("widthness = %d|| precision = %d || width_max = %d\ndata->flag[point] = %d && data->precision = %d && data->conv = %c\n", data->widthness, data->precis, data->width_max, data->flag[point], data->precis, data->conv);
+	printf("widthness = %d|| precision = %d || width_max = %d\ndata->flag[point] = %d && data->precision = %d && data->conv = %c data->zero = %d\n", data->widthness, data->precis, data->width_max, data->flag[point], data->precis, data->conv, data->flag[zero]);
 	
-	char	tab[data->width_max];
 	int		len;
-	char	sign;
 	
 	len = ft_strlen(arg);
-	if (arg[0] != '-' && data->flag[most])
-		sign = '+';
+	printf("%d\n", len);
 	if (data->width_max < len)
+	{
 		data->width_max = len;
-	
-	if (data->widthness)
-		ft_memset(tab,'-', (data->widthness - 1));	
-	if (data->precis|| data->flag[zero])
-		ft_memset(&tab[data->width_max - data->precis], '0', data->precis);
+	}
+	if (data->widthness && !data->flag[zero])
+		ft_memset(data->argument,'-', (data->widthness - 1));	
+	if (data->precis || data->flag[zero])
+	{
+		data->precis ? ft_memset(&data->argument[data->width_max - data->precis], '0', data->precis) : ft_memset(data->argument, '0', (data->width_max - len));
+	}
+	if (data->flag[most])
+		data->argument[data->width_max - (len + 1)] = '+';
 	if (ft_strcmp(arg, "0") || !data->flag[point])
-			ft_strcat(&tab[data->width_max - len], arg);
-	if (sign && !data->precis)
-		ft_strcat(&tab[(data->width_max-1) - len], &sign);
-
-	
-	/*test*********/
-	/*ft_putstr("mon tableau :\t|");*/
-	/*ft_putstr(tab);*/
-	/*ft_putstr("|\n");*/
-	/*end of test*/
-	ft_strcat(data->buffer, tab);
-	data->len += data->width_max;
+		ft_strcpy(&data->argument[data->width_max - len], arg);
 }
 
 int		dispatcher(t_data *data)

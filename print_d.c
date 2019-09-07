@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/06 13:03:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/07 19:23:28 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,6 +14,7 @@
 int		print_d(t_data *data)
 {
 	char	*nb;
+	char	*tab;
 	
 	if (data->flag[hh])
 		nb = ft_itoa((char)va_arg(data->arg, int));
@@ -25,15 +26,9 @@ int		print_d(t_data *data)
 		nb = itoa_base(va_arg(data->arg, long), 10);
 	else 
 		nb = ft_itoa(va_arg(data->arg, int signed));
-		//if (!ft_strcmp(nb, "0") && !data->precis && data->flag[point])
-	//	return (0);
-	//if (data->width_max && !data->flag[less])
-	
 	manage_size(data, nb);
-	
+	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
-//	if (data->flag[less] && data->width_max)
-//		manage_size(data, nb);
 	data->conv = 0;
 	return (0);
 }

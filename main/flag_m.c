@@ -30,32 +30,32 @@ int	main()
 	y = printf("'|+21d|' : |%+21d|\n", 0);
 	print_len(i, y);
 
-	/*ft_putstr("IV\n");*/
-	/*i = ft_printf("|%%|\n");*/
-	/*y = printf("|%%|\n");*/
-	/*print_len(i, y);*/
+	ft_putstr("IV\n");
+	i = ft_printf("|%%|\n");
+	y = printf("|%%|\n");
+	print_len(i, y);
 
-	/*ft_putstr("V\n");*/
-	/*i = ft_printf("|%010x|\n", 542);*/
-	/*y = printf("|%010x|\n", 542);*/
-	/*print_len(i, y);*/
-
-
-	/*ft_putstr("VI\n");*/
-	/*i = ft_printf("|%5.2x|\n", 5427);*/
-	/*y = printf("|%5.2x|\n", 5427);*/
-	/*print_len(i, y);*/
-
-	/*ft_putstr("VII\n");*/
-	/*ft_printf("|%#x|\n", 0);*/
-	/*printf("|%#x|\n", 0);*/
-	/*print_len(i, y);*/
+	ft_putstr("V\n");
+	i = ft_printf("|%010x|\n", 542);
+	y = printf("|%010x|\n", 542);
+	print_len(i, y);
 
 
-	/*ft_putstr("VIII\n");*/
-	/*ft_printf("|%#8x|\n", 42);*/
-	/*printf("|%#8x|\n", 42);*/
-	/*print_len(i, y);*/
+	ft_putstr("VI\n");
+	i = ft_printf("|%5.2x|\n", 5427);
+	y = printf("|%5.2x|\n", 5427);
+	print_len(i, y);
+
+	ft_putstr("VII\n");
+	ft_printf("|%#x|\n", 0);
+	printf("|%#x|\n", 0);
+	print_len(i, y);
+
+
+	ft_putstr("VIII\n");
+	ft_printf("|%#8x|\n", 42);
+	printf("|%#8x|\n", 42);
+	print_len(i, y);
 
 
 	/*ft_putstr("IX\n");*/
