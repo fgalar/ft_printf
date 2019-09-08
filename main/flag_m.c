@@ -47,38 +47,38 @@ int	main()
 	print_len(i, y);
 
 	ft_putstr("VII\n");
-	ft_printf("|%#x|\n", 0);
-	printf("|%#x|\n", 0);
+	i = ft_printf("|%#x|\n", 0);
+	y = printf("|%#x|\n", 0);
 	print_len(i, y);
 
 
 	ft_putstr("VIII\n");
-	ft_printf("|%#8x|\n", 42);
-	printf("|%#8x|\n", 42);
+	i = ft_printf("|%#8x|\n", 42);
+	y = printf("|%#8x|\n", 42);
 	print_len(i, y);
 
 
-	/*ft_putstr("IX\n");*/
-	/*ft_printf("|%#-08x|\n", 42);*/
-	/*printf("|%#-08x|\n", 42);*/
-	/*print_len(i, y);*/
+	ft_putstr("IX\n");
+	i = ft_printf("|%#-08x|\n", 42);
+	y = printf("|%#-08x|\n", 42);
+	print_len(i, y);
 
 
-	/*ft_putstr("X\n");*/
-	/*ft_printf("@moulitest: %5.x %5.0x\n", 0, 0);*/
-	/*printf("@moulitest: %5.x %5.0x\n", 0, 0);*/
-	/*print_len(i, y);*/
+	ft_putstr("X\n");
+	i = ft_printf("@moulitest: |%5.x| |%5.0x|\n", 0, 0);
+	y = printf("@moulitest: |%5.x| |%5.0x|\n", 0, 0);
+	print_len(i, y);
 
 
-	/*ft_putstr("XI\n");*/
-	/*ft_printf("%10s is a string\n", "this");*/
-	/*printf("%10s is a string\n", "this");*/
-	/*print_len(i, y);*/
+	ft_putstr("XI\n");
+	i = ft_printf("%10s is a string\n", "this");
+	y = printf("%10s is a string\n", "this");
+	print_len(i, y);
 
-	/*ft_putstr("XII\n");*/
-	/*ft_printf("%.2s is a string\n", "this");*/
-	/*printf("%.2s is a string\n", "this");*/
-	/*print_len(i, y);*/
+	ft_putstr("XII\n");
+	i = ft_printf("%10.2s is a string\n", "coucou");
+	y = printf("%10.2s is a string\n", "coucou");
+	print_len(i, y);
 
 	/*ft_printf("precision = 0 && d = 0                      ==> |%.0d|\n", 0);*/
 	/*ft_printf("larg de chmp = 15 && precision = 0 && d = 0 ==> |%15.0d|\n", 0);*/

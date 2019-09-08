@@ -40,7 +40,7 @@ void	get_size(t_data *data, const char *format)
 	int		n_size;
 	
 	n_size = ft_atoi(&format[data->index]);
-	if (data->flag[point])
+	if (format[data->index - 1] == '.')
 		data->precis = n_size;
 	else
 		data->widthness = n_size;

@@ -14,7 +14,6 @@
 int		print_d(t_data *data)
 {
 	char	*nb;
-	char	*tab;
 	
 	if (data->flag[hh])
 		nb = ft_itoa((char)va_arg(data->arg, int));

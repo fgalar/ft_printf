@@ -43,8 +43,8 @@ int		print_x(t_data *data)
 	/*if (!data->precis && !ft_strcmp(nb, "0") && data->flag[point])*/
 		/*return (0);	*/
 	manage_size(data, nb);
-	if (data->flag[diese] && ft_strcmp(nb, "0"))   _____________ICI_________
-		data->conv == 'X'? ft_strcat(data->buffer, "0X") : ft_strcat(data->buffer, "0x");
+	//if (data->flag[diese] && ft_strcmp(nb, "0") && (data->flag[point] || data->flag[zero]))
+	//	data->conv == 'X'? ft_strcat(data->buffer, "0X") : ft_strcat(data->buffer, "0x");
 	/*if (data->conv == 'X')*/
 		/*nb = print_majhex(nb);*/
 	ft_strcat(data->buffer, data->argument);
