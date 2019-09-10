@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/07 19:23:28 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/10 07:56:01 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -26,7 +26,8 @@ int		print_d(t_data *data)
 	else 
 		nb = ft_itoa(va_arg(data->arg, int signed));
 	manage_size(data, nb);
-	ft_strcat(data->buffer, data->argument);
+	if (data->width_max || ft_strcmp(nb, "0") || (!ft_strcmp(nb, "0") && !data->flag[point]))
+		ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
 	data->conv = 0;
 	return (0);

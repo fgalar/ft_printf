@@ -6,14 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/07 20:17:17 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/10 07:43:34 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void		print_prefix(t_data *d, int arg_size, int max_size, char *arg)
+void		print_prefix(t_data *d, int arg_size, char *arg)
 {
 	int	space;
 	char	*prefix;
@@ -65,8 +65,8 @@ void		manage_size(t_data *d, char *arg)
 	if ((d->flag[point] && precis) || d->flag[zero])
 		precis ? ft_memset(&d->argument[m_size - precis], '0', precis) 
 : ft_memset(d->argument, '0', (m_size - len));
-	if (d->flag[diese] || (d->flag[most] && ft_strcmp(arg, "0")))
-		print_prefix(d, len, m_size, arg);
+	if (d->flag[diese] || (d->flag[most] && !ft_strcmp(arg, "0") && d->conv == 'd'))
+		print_prefix(d, len, arg);
 	if ((ft_strcmp(arg, "0") || !d->flag[point]) && !d->flag[less])
 		ft_strcpy(&d->argument[m_size - len], arg);
 }
