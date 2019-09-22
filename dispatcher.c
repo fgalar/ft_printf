@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/10 07:43:34 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/22 19:51:24 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,31 @@
 
 void		print_prefix(t_data *d, int arg_size, char *arg)
 {
-	int	space;
+	int		space;
 	char	*prefix;
 
-	space = 0;
+	space = 1;
+	printf("");
 	if (d->conv == 'd')
 		prefix = "+";
 	if (d->conv == 'x' || d->conv == 'X')
-		prefix = "0x";
+	{
+		if (d->conv == 'x')
+			prefix = "0x";
+		else
+			prefix = "0X";
+	}
 	if (d->conv == 'o')
 		prefix = "0";
-	while (d->argument[space] == '-' && d->argument[space])
+	while (d->argument[space] == ' ' && d->argument[space])
 		space++;
 	space -= ft_strlen(prefix);
 	arg_size > 1 ? space -=1 : space;
-	if (d->flag[less])
+	if ((d->flag[less] || space <= 0))
 	{
 		ft_strcat(d->buffer, prefix);
 		ft_strcat(arg, d->argument);
-		arg[space + arg_size] = '\0';
+		arg[d->width_max - ft_strlen(prefix)] = '\0';
 		ft_strcpy(d->argument, arg);
 	}
 	if (!d->flag[less])	
@@ -42,8 +48,6 @@ void		print_prefix(t_data *d, int arg_size, char *arg)
 
 void		manage_size(t_data *d, char *arg)
 {
-//	printf("widthness = %d|| precision = %d || width_max = %d\ndata->flag[point] = %d\ndata->precision = %d\ndata->conv = %c\ndata->zero = %d\ndata->less = %d\n", d->widthness, d->precis, d->width_max, d->flag[point], d->precis, d->conv, d->flag[zero], d->flag[less]);
-	
 	int		len;
 	int		m_size;
 	int		field;
@@ -55,17 +59,22 @@ void		manage_size(t_data *d, char *arg)
 	precis = d->precis;
 	if (m_size < len)
 		m_size = len;
-	if ((d->flag[zero] && d->flag[less])
+	if (d->conv == 'd' && d->flag[space] && !field && !d->flag[most])
+	{
+		field = len + 1;
+		m_size++;
+	}
+	if ((d->flag[zero] && (d->flag[less] || (d->flag[point] && !precis)))
 		|| (d->flag[point] && !ft_strcmp(arg, "0") && !precis))
 		d->flag[zero] = 0;
 	if (d->flag[point] && !ft_strcmp(arg, "0") && !precis)
 		arg = " ";
 	if (field && !d->flag[zero])
-		ft_memset(d->argument,'-', (field - 1));	
+		ft_memset(d->argument,' ', (field - 1));
 	if ((d->flag[point] && precis) || d->flag[zero])
 		precis ? ft_memset(&d->argument[m_size - precis], '0', precis) 
 : ft_memset(d->argument, '0', (m_size - len));
-	if (d->flag[diese] || (d->flag[most] && !ft_strcmp(arg, "0") && d->conv == 'd'))
+	if ((d->flag[diese] && ft_strcmp(arg, "0"))|| (d->flag[most] && d->conv == 'd' && arg[0] != '-'))
 		print_prefix(d, len, arg);
 	if ((ft_strcmp(arg, "0") || !d->flag[point]) && !d->flag[less])
 		ft_strcpy(&d->argument[m_size - len], arg);

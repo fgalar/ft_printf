@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/08/14 19:14:30 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/22 19:32:17 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ printf("/*******************************octal*********************************/\
 	print_len(i, y);
 
 	i = ft_printf("1. + et largeur de champs : %+10u|\n", INT_MIN);
-	y = printf("2. + et largeur de champs : %+10u|\n", INT_MAX);
+	y = printf("2. + et largeur de champs : %+10u|\n", INT_MIN);
 	print_len(i, y);
 	
 	i = ft_printf("1. space et largeur de champs:  |% 10u|\n", LLONG_MIN);
@@ -351,5 +351,14 @@ printf("/*******************************octal*********************************/\
 	i = ft_printf("|%.0X|\n", 0);
 	y = printf("|%.0X|\n", 0);
 	print_len(i, y);
+
+	i = ft_printf("1. %5%\n");
+	y = printf("2. %5%\n");
+	print_len(i, y);
+
+	i = ft_printf("1. %-5%\n");
+	y = printf("2. %-5%\n");
+	print_len(i, y);
+
 	return 0;
 }

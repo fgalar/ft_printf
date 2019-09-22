@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/07 18:19:49 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/10 16:22:08 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				print_u(t_data *data);
 int				print_x(t_data *data);
 int				print_f(t_data *data);
 char			*ft_ftoa(t_float *nb);
-char			*print_majhex(char *nb);
+void			print_majhex(char *nb);
 
 int				get_conv(const char *format, t_data *data);
 int				get_flags(const char *format, t_data *data);

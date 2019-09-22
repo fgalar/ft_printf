@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/07 20:17:19 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/22 19:42:57 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ void		get_flag(const char *format, t_data *data)
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
 			data->flag[y] = 1;
-			if (data->flag[percent] && !data->width_max)
+			if (data->flag[percent])
 			{
-				strcat(data->buffer, "%");
-				data->len++;
-				break ;
+				if (data->flag[less])
+					ft_strcat(data->buffer, "%");
+				manage_size(data, "%");
+				strcat(data->buffer, data->argument);
+				data->len = ft_strlen(data->buffer);
 			}
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
