@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/10 18:08:16 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/23 18:44:25 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -25,6 +25,11 @@ int		print_d(t_data *data)
 		nb = itoa_base(va_arg(data->arg, long), 10);
 	else 
 		nb = ft_itoa(va_arg(data->arg, int signed));
+	if (nb[0] == '-')
+	{
+		data->neg = 1;
+		nb = &nb[1];
+	}
 	if (data->flag[less] && data->width_max)
 		data->width_max -= ft_strlen(nb);
 	if (data->flag[less] && !data->flag[diese])

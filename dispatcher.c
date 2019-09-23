@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/22 19:51:24 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/23 20:45:11 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@ void		print_prefix(t_data *d, int arg_size, char *arg)
 	char	*prefix;
 
 	space = 1;
-	printf("");
-	if (d->conv == 'd')
+	if (d->conv == 'd' && d->neg)
+		prefix = "-";
+	if (d->conv == 'd' && !d->neg)
 		prefix = "+";
-	if (d->conv == 'x' || d->conv == 'X')
-	{
-		if (d->conv == 'x')
-			prefix = "0x";
-		else
-			prefix = "0X";
-	}
+	if (d->conv == 'x')
+		prefix = "0x";
+	if (d->conv == 'X')
+		prefix = "0X";
 	if (d->conv == 'o')
 		prefix = "0";
 	while (d->argument[space] == ' ' && d->argument[space])
@@ -59,7 +57,7 @@ void		manage_size(t_data *d, char *arg)
 	precis = d->precis;
 	if (m_size < len)
 		m_size = len;
-	if (d->conv == 'd' && d->flag[space] && !field && !d->flag[most])
+	if (d->conv == 'd' && !d->neg && d->flag[space] && !field && !d->flag[most])
 	{
 		field = len + 1;
 		m_size++;
@@ -67,14 +65,17 @@ void		manage_size(t_data *d, char *arg)
 	if ((d->flag[zero] && (d->flag[less] || (d->flag[point] && !precis)))
 		|| (d->flag[point] && !ft_strcmp(arg, "0") && !precis))
 		d->flag[zero] = 0;
+	
 	if (d->flag[point] && !ft_strcmp(arg, "0") && !precis)
 		arg = " ";
+
 	if (field && !d->flag[zero])
 		ft_memset(d->argument,' ', (field - 1));
 	if ((d->flag[point] && precis) || d->flag[zero])
 		precis ? ft_memset(&d->argument[m_size - precis], '0', precis) 
 : ft_memset(d->argument, '0', (m_size - len));
-	if ((d->flag[diese] && ft_strcmp(arg, "0"))|| (d->flag[most] && d->conv == 'd' && arg[0] != '-'))
+
+	if ((d->flag[diese] && ft_strcmp(arg, "0"))|| ((d->flag[most] || d->neg) && d->conv == 'd'))
 		print_prefix(d, len, arg);
 	if ((ft_strcmp(arg, "0") || !d->flag[point]) && !d->flag[less])
 		ft_strcpy(&d->argument[m_size - len], arg);

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/09/09 13:21:27 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/23 18:53:23 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int		print_s(t_data *data)
 	char	*s;
 
 	s = va_arg(data->arg, char*);
+	if (!s)
+		s = "(null)";
 	if (data->precis && data->flag[point] )
 		s = precis_str(data, s);	
 

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/09/22 19:32:17 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/23 17:32:19 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 	int			i;
 	int			y;
 
-	ft_printf("***** FAKING PRINTF **********************************************\n");
+/*	ft_printf("***** FAKING PRINTF **********************************************\n");
 	i = ft_printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');
 	printf("***** TRUE PRINTF ******\n");
 	y = printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');
@@ -146,7 +146,7 @@ int main()
 	i = ft_printf("1. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);
 	y = printf("2. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);
 	print_len(i, y);
-	
+*/	
 	i = ft_printf("1. affiche le pourcent: %%\n");
 	y = printf("2. affiche le pourcent: %%\n");
 	print_len(i, y);
@@ -352,12 +352,73 @@ printf("/*******************************octal*********************************/\
 	y = printf("|%.0X|\n", 0);
 	print_len(i, y);
 
+	ft_printf("\t\t\t\t*** Test 42fileschecker ***\n");
 	i = ft_printf("1. %5%\n");
 	y = printf("2. %5%\n");
 	print_len(i, y);
 
 	i = ft_printf("1. %-5%\n");
 	y = printf("2. %-5%\n");
+	print_len(i, y);
+
+	ft_printf("l.364# 0104 (int)\n");
+  	i = ft_printf("1. % d\n", -42);
+	y = printf("2. % d\n", -42);
+	print_len(i, y);
+
+	ft_printf("# 0125 (int)\n");
+  	i = ft_printf("%0+5d\n", 42);
+  	y = printf("%0+5d\n", 42);
+	print_len(i, y);
+
+	ft_printf("# 0127 (int)\n");
+  	i = ft_printf("%05d\n", -42);
+  	y = printf("%05d\n", -42);
+	print_len(i, y);
+
+	ft_printf("# 0128 (int)\n");
+  	i = ft_printf("%0+5d\n", -42);
+  	y = printf("%0+5d\n", -42);
+	print_len(i, y);
+
+	ft_printf("# 0156 (int)\n");
+  	i = ft_printf("%-10.5d\n", 4242);
+  	y = printf("%-10.5d\n", 4242);
+	print_len(i, y);
+
+	ft_printf("# 0158 (int\n");
+	i = ft_printf("%+10.5d\n", 4242);
+	y = printf("%+10.5d\n", 4242);
+	print_len(i, y);
+
+	ft_printf("# 0159 (int)\n");
+	i = ft_printf("%-+10.5d\n", 4242);
+	y = printf("%-+10.5d\n", 4242);
+	print_len(i, y);
+
+	ft_printf("# 0160 (int)\n");
+	i = ft_printf("%03.2d\n", 0);
+	y = printf("%03.2d\n", 0);
+	print_len(i, y);
+
+	ft_printf("# 0161 (int)\n");
+	i = ft_printf("%03.2d\n", 1);
+	y = printf("%03.2d\n", 1);
+	print_len(i, y);
+
+	ft_printf("# 0162 (int)\n");
+	i = ft_printf("%03.2d\n", -1);
+	y = printf("%03.2d\n", -1);
+	print_len(i, y);
+
+	ft_printf("# 0163 (int)\n");
+	i = ft_printf("@moulitest: %.10d\n", -42);
+	y = printf("@moulitest: %.10d\n", -42);
+	print_len(i, y);
+
+	ft_printf("# 0180 (unsigned long)\n");
+	i = ft_printf("%lu\n", -42);
+	y = printf("%lu\n", -42);
 	print_len(i, y);
 
 	return 0;

@@ -31,6 +31,9 @@ int	main()
 	printf("+ et int > 0 = \t\t\t\t\t|%+d\n", 42);
 	printf("+ et int == 0 = \t\t\t\t|%+d\n", 0);
 	printf("+ et int < 0 = \t\t\t\t\t|%+d\n", -42);
-	printf("+ et hexa = \t\t\t\t\t|%+x", 42);
+	printf("+ et hexa = \t\t\t\t\t|%+x\n", 42);
+	
+	printf("\nNEGATIFS\nconv o = %o\tconv u = %u\tconv x = %x\n", -42, -42, -42);
+	printf("#neg\nconv d = %#d\tconv o = %#o\tconv u = %#u\tconv x = %#x\n", -42, -42, -42, -42);
 	return 0;
 }

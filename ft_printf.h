@@ -6,12 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/10 16:22:08 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/23 17:25:07 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+# include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include "libft/libft.h"
@@ -47,7 +48,7 @@ typedef struct	s_data
 	int			widthness;
 
 	char		argument[100];
-	int			no_conv;
+	int			neg;
 
 }				t_data;
 
