@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/22 19:42:57 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/24 17:07:44 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void		get_flag(const char *format, t_data *data)
 			data->flag[y] = 1;
 			if (data->flag[percent])
 			{
-				if (data->flag[less])
-					ft_strcat(data->buffer, "%");
 				manage_size(data, "%");
 				strcat(data->buffer, data->argument);
 				data->len = ft_strlen(data->buffer);

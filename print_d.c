@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/23 18:44:25 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/24 19:07:10 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -30,19 +30,10 @@ int		print_d(t_data *data)
 		data->neg = 1;
 		nb = &nb[1];
 	}
-	if (data->flag[less] && data->width_max)
-		data->width_max -= ft_strlen(nb);
-	if (data->flag[less] && !data->flag[diese])
-	{
-		strcat(data->buffer, nb);
-		if (data->widthness)
-			data->widthness -= (ft_strlen(nb) - 1);
-	}
 
 	manage_size(data, nb);
 	
-	if (data->width_max || ft_strcmp(nb, "0") || (!ft_strcmp(nb, "0") && !data->flag[point]))
-		ft_strcat(data->buffer, data->argument);
+	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
 	data->conv = 0;
 	return (0);

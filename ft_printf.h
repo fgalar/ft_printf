@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/23 17:25:07 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/24 17:49:27 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ typedef struct	s_data
 	char		conv;
 	int			flag[NB_FLAGS];
 
-	int			width_max;
 	int			precis;
 	int			widthness;
+	int			width_max;
 
 	char		argument[100];
+	char		prefix[3];
 	int			neg;
 
 }				t_data;

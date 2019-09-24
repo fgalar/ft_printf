@@ -16,5 +16,7 @@ int main()
 	/*test autour du flag 0 vs largeur de champ vs precision*/
 	printf("avant le d : |%0d|\n", 42);
 	printf("apres largeur de champ : |%.45d|\n", 42);
+	printf("neg + flag 0 + champ = 	  |%010d|\n", -42);
+	printf("neg + precision + champ = |%10.10d|\n", -42);
 	return (0);
 }
