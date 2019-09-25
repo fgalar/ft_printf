@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/24 17:07:44 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/25 16:03:46 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	get_size(t_data *data, const char *format)
 	if (format[data->index - 1] == '.')
 		data->precis = n_size;
 	else
-		data->widthness = n_size;
+		data->field = n_size;
 	data->index += ft_nbrlen(n_size);
-	if (data->precis || data->widthness)
+	if (data->precis || data->field)
 	{
-		if (data->widthness > data->precis)
-			data->width_max = data->widthness;
+		if (data->field > data->precis)
+			data->width_max = data->field;
 		else
 		   data->width_max = data->precis;
 	}

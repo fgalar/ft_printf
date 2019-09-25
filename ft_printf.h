@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/24 17:49:27 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/25 15:58:40 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_data
 	int			flag[NB_FLAGS];
 
 	int			precis;
-	int			widthness;
+	int			field;
 	int			width_max;
 
 	char		argument[100];

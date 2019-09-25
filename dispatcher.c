@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/24 20:56:09 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/25 16:36:17 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,17 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 	if (d->conv == 'x' || d->conv == 'X')
 		d->conv == 'x'? ft_strcpy(d->prefix, "0x") : ft_strcpy(d->prefix, "0X");
 	len_p = ft_strlen(d->prefix);
-	//localisation du prefix
+	/*localisation du prefix*/
+	printf("len_total = %d\tlen_arg = %d\t\t", len_t, len_arg);
+	if (d->flag[less] || d->flag[zero])
+		ft_strncpy(d->argument, d->prefix, len_p);
+	else if (d->precis)
+		ft_strncpy(&d->argument[(len_t - 1) - d->precis], d->prefix , len_p);
+	else
+	{
+		ft_strncpy(&d->argument[len_t - (len_arg + len_p)], d->prefix, len_p);
+		printf("%d && arg = %s\n", len_t - (len_arg + len_p), d->argument);
+	}
 	
 }
 
@@ -69,13 +79,20 @@ void		manage_size(t_data *d, char *arg)
 	int		len;
 	int		len_brut;
 	
-	if (!(len = get_arg_size(d, arg)))
-		return ;
+	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
 	d->argument[len] = '\0';
+	if (d->flag[zero] && d->flag[less])
+		d->flag[zero] = 0;
+	if (d->flag[space] && !d->field)
+		d->field = d->precis + 1;
+
 	memset(d->argument, '_', len);
-	get_prefix(d, len, len_brut);
-	printf("d->prefix = %s\n", d->prefix);
+	
+	if ((d->flag[diese] && ft_strcmp(arg, "0")) 
+				|| ((d->flag[most] || d->neg) && d->conv == 'd'))
+		get_prefix(d, len, len_brut);
+	printf("d->prefix = %s et len = %d\n", d->prefix, len);
 //	if (d->conv == 'd' && !d->neg && d->flag[space] && !field && !d->flag[most])
 //	{
 //		field = len + 1;
