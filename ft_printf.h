@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 15:58:40 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/25 18:02:30 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ typedef enum		e_flags
 typedef struct	s_data
 {
 	va_list		arg;
+	int			index;
+	
 	char		buffer[4096];
 	int			len;
-	int			index;
+	
 	char		conv;
 	int			flag[NB_FLAGS];
 
@@ -48,8 +50,10 @@ typedef struct	s_data
 	int			width_max;
 
 	char		argument[100];
-	char		prefix[3];
 	int			neg;
+	
+	char		prefix[3];
+	int			prfx;
 
 }				t_data;
 

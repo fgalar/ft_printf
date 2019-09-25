@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 16:36:17 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/25 19:31:33 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 	if (d->conv == 'x' || d->conv == 'X')
 		d->conv == 'x'? ft_strcpy(d->prefix, "0x") : ft_strcpy(d->prefix, "0X");
 	len_p = ft_strlen(d->prefix);
-	/*localisation du prefix*/
+	/*localisation et placement du prefix*/
 	printf("len_total = %d\tlen_arg = %d\t\t", len_t, len_arg);
 	if (d->flag[less] || d->flag[zero])
 		ft_strncpy(d->argument, d->prefix, len_p);
@@ -38,7 +38,6 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 		ft_strncpy(&d->argument[len_t - (len_arg + len_p)], d->prefix, len_p);
 		printf("%d && arg = %s\n", len_t - (len_arg + len_p), d->argument);
 	}
-	
 }
 
 // get_arg_size : defini la taille complete de l'argument avec flag et prefix.
@@ -51,23 +50,20 @@ int			get_arg_size(t_data *d, char *arg)
 	prefix = 0;
 	if (d->flag[point] && !d->width_max && !ft_strcmp(arg, "0"))
 		return (0);
-	if (d->conv == 'd' && ((d->flag[most]) ||  d->flag[space] || d->neg))
-	{
+	if ((d->conv == 'd' && ((d->flag[most]) ||  d->flag[space] || d->neg)
+			&& (d->prfx = 1)))
 		len++;
-		prefix = 1;
-	}
-	if (d->flag[diese] && ft_strcmp(arg, "0") 
-		&& (d->conv == 'd' || d->conv == 'o' || d->conv == 'x' || d->conv == 'X'))
+	if (d->flag[diese] && ft_strcmp(arg, "0") && !(d->conv == 'u'))
 	{
 		if (d->conv == 'x' || d->conv == 'X')
 			len += 2;
-		else if (d->conv == 'd' || d->conv == 'o')
+		else
 			len++;
-		prefix = 1;
+		d->prfx = 1;
 	}
 	if (len < d->width_max)
 		len = d->width_max;
-	if (d->precis && d->precis == d->width_max && prefix)
+	if (d->precis && d->precis == d->width_max && d->prfx)
 		d->conv == 'x' | d->conv == 'X' ? len += 2 : len++;
 	return (len);
 }
@@ -82,31 +78,33 @@ void		manage_size(t_data *d, char *arg)
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
 	d->argument[len] = '\0';
-	if (d->flag[zero] && d->flag[less])
+	//gestion des exclusions
+	if ((d->flag[zero] && d->flag[less]) || d->flag[point]) 
 		d->flag[zero] = 0;
-	if (d->flag[space] && !d->field)
+	if (d->flag[space] && !d->field && (d->prfx = 1) && (d->prefix[0] = ' '))
 		d->field = d->precis + 1;
 
 	memset(d->argument, '_', len);
+
+	// remplissage du champs
+	if (d->field && !d->flag[zero])
+		ft_memset(d->argument,'*', sizeof(char) * d->field);
 	
-	if ((d->flag[diese] && ft_strcmp(arg, "0")) 
-				|| ((d->flag[most] || d->neg) && d->conv == 'd'))
+	// remplissage du prefix
+	if ((d->flag[diese] && ft_strcmp(arg, "0"))
+				|| d->neg || (d->flag[most] && d->conv == 'd')) // pourquoi chiffre -42 ne rentre pas %.10d ex:163/main
 		get_prefix(d, len, len_brut);
+	
+	/*remplissage de la precision*/
+	if (d->precis)
+		ft_memset(&d->argument[ft_strlen(d->prefix)], '0', d->precis);
+	
 	printf("d->prefix = %s et len = %d\n", d->prefix, len);
-//	if (d->conv == 'd' && !d->neg && d->flag[space] && !field && !d->flag[most])
-//	{
-//		field = len + 1;
-//		m_size++;
-//	}
+
 //	if ((d->flag[zero] && (d->flag[less] || (d->flag[point] && !d->precis)))
 //		|| (d->flag[point] && !ft_strcmp(arg, "0") && !d->precis))
 //		d->flag[zero] = 0;
 //	
-//	if (d->flag[point] && !ft_strcmp(arg, "0") && !precis)
-//		arg = " ";
-//
-//	if (d->widthness && !d->flag[zero])
-//		ft_memset(d->argument,' ', (d->widthness - 1));
 //	if ((d->flag[point] && d->precis) || d->flag[zero])
 //		d->precis ? ft_memset(&d->argument[d->width_max - d->precis], '0', d->precis) 
 //: ft_memset(d->argument, '0', (d->width_max - len));

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/09/25 16:38:03 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/25 19:26:15 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -417,9 +417,11 @@ printf("/*******************************octal*********************************/\
 	print_len(i, y);
 
 	ft_printf("# 0180 (unsigned long)\n");
-	i = ft_printf("%lu\n", -42);
-	y = printf("%lu\n", -42);
+	i = ft_printf("%u\n", -42);
+	y = printf("%u\n", -42);
 	print_len(i, y);
+
+	i = printf("%.10d\n", 42);
 
 	return 0;
 }
