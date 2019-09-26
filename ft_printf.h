@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 18:02:30 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/26 11:32:27 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_data
 	
 	char		prefix[3];
 	int			prfx;
+	int			ad_pf;
 
 }				t_data;
 

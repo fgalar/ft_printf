@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 15:31:08 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/26 12:20:44 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -30,7 +30,6 @@ int		print_d(t_data *data)
 		data->neg = 1;
 		nb = &nb[1];
 	}
-
 	manage_size(data, nb);
 	
 	ft_strcat(data->buffer, data->argument);

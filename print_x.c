@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 16:44:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/26 13:51:22 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	print_majhex(char *nb)
 int		print_x(t_data *data)
 {
 	char	*nb;
-	char	*prefix;
 
-	prefix = "0x";
 	if (data->flag[hh])
 		nb = itoa_base((unsigned char)va_arg(data->arg, unsigned), 16);
 	else if (data->flag[h])

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 16:03:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/26 12:35:14 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,13 @@ void		get_flag(const char *format, t_data *data)
 
 void	parsing(const char *format, t_data *data)
 {
-	
 	while (format[data->index])
 	{
+		
 		if (format[data->index] == '%')
 		{
+			
+			data->width_max = 0;/// solution tmporaire _ faire deux struct distinctes pour reinit
 			data->index++;
 			get_flag(format, data);
 			get_conv(format, data);
