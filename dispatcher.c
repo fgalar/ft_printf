@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/26 13:55:55 by fanny            ###   ########.fr       */
+/*   Updated: 2019/09/26 19:16:09 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 	if (d->conv == 'o')
 		ft_strcpy(d->prefix, "0");
 	if (d->conv == 'x' || d->conv == 'X')
-		d->conv == 'x'? ft_strcpy(d->prefix, "0x") : ft_strcpy(d->prefix, "0X");
+		ft_strcpy(d->prefix, "0x");
 	len_p = ft_strlen(d->prefix);
 	/*localisation et placement du prefix*/
-	printf("flag[less] = %d\tflag[zero] = %d\nd->precis = %d\tlen_t = %d\tlen_p = %d\tlen_arg= %d\n", d->flag[less], d->flag[zero], d->precis, len_t, len_p, len_arg);
+	/*printf("flag[less] = %d\tflag[zero] = %d\nd->precis = %d\tlen_t = %d\tlen_p = %d\tlen_arg= %d\n", d->flag[less], d->flag[zero], d->precis, len_t, len_p, len_arg);*/
 	if (d->flag[less] || d->flag[zero])
 	{
 		ft_strncpy(d->argument, d->prefix, len_p);
@@ -96,11 +96,11 @@ void		manage_size(t_data *d, char *arg)
 		 && (d->prfx = 1) && (d->prefix[0] = ' ') && (d->ad_pf = 1))
 		d->field = d->precis + 1;
 
-	memset(d->argument, '_', len);
+	memset(d->argument, ' ', len);
 
-	// remplissage du champs
-	if (d->field && !d->flag[zero])
-		ft_memset(d->argument,'*', sizeof(char) * d->field);
+	 /*remplissage du champs*/
+	/*if (d->field && !d->flag[zero])*/
+		/*ft_memset(d->argument,'*', sizeof(char) * d->field);*/
 	
 	// remplissage du prefix
 	if ((d->flag[diese] && ft_strcmp(arg, "0"))
@@ -108,31 +108,36 @@ void		manage_size(t_data *d, char *arg)
 		get_prefix(d, len, len_brut);
 	len_p = ft_strlen(d->prefix);	
 	/*remplissage de la precision*/
+	int	width_z;
 	if (d->precis >= (len_brut + len_p) || d->flag[zero])
 	{
-		if (!d->ad_pf && !d->flag[less])
+		if (!d->prfx && !d->flag[less] && d->precis)
 			d->ad_pf = len - d->precis;
 		if (!d->precis && d->flag[zero])
-			d->precis = d->field - len_p;
-		printf("d->flag[less] = %d\td->flag[zero]= %d\nd->ad_pf = %d\n", d->flag[less], d->flag[zero], d->ad_pf);
-		ft_memset(&d->argument[d->ad_pf], '0', d->precis);
-	}	
+			width_z = d->field - len_p;
+		else
+			width_z = d->precis;
+		/*printf("d->flag[less] = %d\td->flag[zero]= %d\nd->ad_pf = %d len = %d\n", d->flag[less], d->flag[zero], d->ad_pf, len);*/
+		ft_memset(&d->argument[d->ad_pf], '0', width_z);
+		d->ad_pf += width_z; // place du pointeur apres ajout des 0000
+		/*printf("ad_pf + width ===>>%d\n", d->ad_pf);*/
+	}
 
-
-
-
-//	if ((d->flag[zero] && (d->flag[less] || (d->flag[point] && !d->precis)))
-//		|| (d->flag[point] && !ft_strcmp(arg, "0") && !d->precis))
-//		d->flag[zero] = 0;
-//	
-//	if ((d->flag[point] && d->precis) || d->flag[zero])
-//		d->precis ? ft_memset(&d->argument[d->width_max - d->precis], '0', d->precis) 
-//: ft_memset(d->argument, '0', (d->width_max - len));
-//
-//	if ((d->flag[diese] && ft_strcmp(arg, "0"))|| ((d->flag[most] || d->neg) && d->conv == 'd'))
-//		print_prefix(d, len, arg);
-//	if ((ft_strcmp(arg, "0") || !d->flag[point]) && !d->flag[less])
-//		ft_strcpy(&d->argument[m_size - len], arg);
+	/*Placement argument*/
+	//printf("d->precis = %d\t len= %d\tlen_brut = %d\t\n",d->precis,len, len_brut);
+	if (!(!ft_strcmp(arg, "0") && d->flag[point] && !d->precis))
+	{	
+		if (d->flag[less])
+		{
+			if (!d->precis)             // car si pas precision va ecrire sur prefix
+				len_p += len_brut;
+			ft_strncpy(&d->argument[(len_p+d->precis) - len_brut], arg, len_brut);
+		}
+		else if (d->precis > (len_brut + len_p))
+			ft_strncpy(&d->argument[d->ad_pf - len_brut], arg, len_brut);
+		else
+			ft_strncpy(&d->argument[(len) - len_brut], arg, len_brut);
+	}
 }
 
 int		dispatcher(t_data *data)
