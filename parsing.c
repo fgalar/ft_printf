@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/26 18:30:32 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:03:04 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,19 @@ void		get_flag(const char *format, t_data *data)
 	}
 }
 
+void	init_new_arg(t_data *data)
+{
+	data->conv = '0';
+	data->precis = 0;
+	data->field = 0;
+	data->width_max = 0;
+	data->neg = 0;
+	data->prfx = 0;
+	ft_bzero(data->flag, sizeof(data->flag));
+	ft_bzero(data->argument, sizeof(data->argument));
+	ft_bzero(data->prefix, sizeof(data->prefix));
+}
+
 void	parsing(const char *format, t_data *data)
 {
 	while (format[data->index])
@@ -90,11 +103,8 @@ void	parsing(const char *format, t_data *data)
 		
 		if (format[data->index] == '%')
 		{
-			
-			data->width_max = 0;/*****************************************************************/
-			data->precis = 0;   /* solution tmporaire _ faire deux struct distinctes pour reinit */ 
-			data->neg = 0;		/*****************************************************************/
 			data->index++;		
+			init_new_arg(data);
 			get_flag(format, data);
 			get_conv(format, data);
 			dispatcher(data);
