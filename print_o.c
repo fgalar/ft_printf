@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/25 16:42:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/27 16:50:57 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,9 +14,7 @@
 int		print_o(t_data *data)
 {
 	char	*oct;
-	char	*prefix;
 
-	prefix = "0";
 	if (data->flag[hh])
 		oct = itoa_base((char)va_arg(data->arg, unsigned), 8);
 	else if (data->flag[h])

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/09/26 20:44:09 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/27 19:50:26 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,431 +31,477 @@ int main()
 	int			i;
 	int			y;
 
-	/*ft_printf("***** FAKING PRINTF **********************************************\n");*/
-	/*i = ft_printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');*/
-	/*print_len(i, y);*/
-
-
-	/*ft_printf("***** FAKING PRINTF CONVERSION d ********************************\n");*/
-	/*i = ft_printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF *****\n");*/
-	/*y = printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);*/
+	ft_printf("***** FAKING PRINTF **********************************************\n");
+	i = ft_printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');
+	print_len(i, y);
 	
-	/*ft_printf("****** FAKING PRINTF CONVERSION i ********************************\n");*/
-	/*i = ft_printf("%i\t%i\t%i\t%i\t%i\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("%i\t%i\t%i\t%i\t%i\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("***** FAKING PRINTF CONVERSION o *********************************\n");*/
-	/*i = ft_printf("%o\t%o\t%o\t%o\t%o\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("%o\t%o\t%o\t%o\t%o\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);	*/
 	
-	/*ft_printf("***** FAKING PRINTF CONVERSION u *******************************\n");*/
-	/*i = ft_printf("%u\t%u\t%u\t%u\t%u\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("%u\t%u\t%u\t%u\t%u\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("***** FAKING PRINTF CONVERSION x *********************************\n");*/
-	/*i = ft_printf("%x\t%x\t%x\t%x\t%x\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("%x\t%x\t%x\t%x\t%x\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("***** FAKING PRINTF CONVERSION X *********************************\n");*/
-	/*i = ft_printf("%X\t%X\t%X\t%X\t%X\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*printf("***** TRUE PRINTF ******\n");*/
-	/*y = printf("%X\t%X\t%X\t%X\t%X\n", INT_MIN, INT_MAX, 0, 42, -56);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("*****        flags       ****\n1.my_printf\n2.true printf\n\n");*/
+	ft_printf("***** FAKING PRINTF CONVERSION d ********************************\n");
+	i = ft_printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF *****\n");
+	y = printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*ft_printf("\t\t CONV d ! \t\t\n\n");*/
-	/*i = ft_printf("1. hh = %hhd\t%hhd\n", SHRT_MAX, SHRT_MIN);*/
-	/*y = printf("2. hh = %hhd\t%hhd\n", SHRT_MAX, SHRT_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. h = %hd\t%hd\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*y = printf("2. h = %hd\t%hd\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. ll = %lld\t%lld\n", LLONG_MAX, LLONG_MIN);*/
-	/*y = printf("2. ll = %lld\t%lld\n", LLONG_MAX, LLONG_MIN);*/
-	/*print_len(i, y);*/
+	ft_printf("****** FAKING PRINTF CONVERSION i ********************************\n");
+	i = ft_printf("%i\t%i\t%i\t%i\t%i\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("%i\t%i\t%i\t%i\t%i\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. l = %ld\t%ld\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. l = %ld\t%ld\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("\t\t CONV u ! \t\t\n\n");*/
+	ft_printf("***** FAKING PRINTF CONVERSION o *********************************\n");
+	i = ft_printf("%o\t%o\t%o\t%o\t%o\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("%o\t%o\t%o\t%o\t%o\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. hh = %hhu\t%hhu\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*y = printf("2. hh = %hhu\t%hhu\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. h = %hu\t%hu\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*y = printf("2. h = %hu\t%hu\n", SCHAR_MAX, SCHAR_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. ll = %llu\t%llu\n", LLONG_MAX, LLONG_MIN);*/
-	/*y = printf("2. ll = %llu\t%llu\n", LLONG_MAX, LLONG_MIN);*/
-	/*print_len(i, y);*/
+	ft_printf("***** FAKING PRINTF CONVERSION u *******************************\n");
+	i = ft_printf("%u\t%u\t%u\t%u\t%u\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("%u\t%u\t%u\t%u\t%u\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. l = %lu\t%lu\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. l = %lu\t%lu\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
+	ft_printf("***** FAKING PRINTF CONVERSION x *********************************\n");
+	i = ft_printf("%x\t%x\t%x\t%x\t%x\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("%x\t%x\t%x\t%x\t%x\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*ft_printf("\t\t CONV x ! \t\t\n\n");*/
+	ft_printf("***** FAKING PRINTF CONVERSION X *********************************\n");
+	i = ft_printf("%X\t%X\t%X\t%X\t%X\n", INT_MIN, INT_MAX, 0, 42, -56);
+	printf("***** TRUE PRINTF ******\n");
+	y = printf("%X\t%X\t%X\t%X\t%X\n", INT_MIN, INT_MAX, 0, 42, -56);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. hh = %hhx\t%hhx\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. hh = %hhx\t%hhx\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. h = %hx\t%hx\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. h = %hx\t%hx\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. ll = %llx\t%llx\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. ll = %llx\t%llx\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
+	ft_printf("*****        flags       ****\n1.my_printf\n2.true printf\n\n");
 	
-	/*i = ft_printf("1. l = %lx\t%lx\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. l = %lx\t%lx\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("\t\t CONV X ! \t\t\n\n");*/
+	ft_printf("\t\t CONV d ! \t\t\n\n");
+	i = ft_printf("1. hh = %hhd\t%hhd\n", SHRT_MAX, SHRT_MIN);
+	y = printf("2. hh = %hhd\t%hhd\n", SHRT_MAX, SHRT_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. hh = %hhX\t%hhX\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. hh = %hhX\t%hhX\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. h = %hX\t%hX\n", 0, USHRT_MAX);*/
-	/*y = printf("2. h = %hX\t%hX\n", 0, USHRT_MAX);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. ll = %llX\t%llX\n", LLONG_MAX, LLONG_MIN);*/
-	/*y = printf("2. ll = %llX\t%llX\n", LLONG_MAX, LLONG_MIN);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. h = %hd\t%hd\n", SCHAR_MAX, SCHAR_MIN);
+	y = printf("2. h = %hd\t%hd\n", SCHAR_MAX, SCHAR_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);*/
-	/*y = printf("2. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. ll = %lld\t%lld\n", LLONG_MAX, LLONG_MIN);
+	y = printf("2. ll = %lld\t%lld\n", LLONG_MAX, LLONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. affiche le pourcent: %%\n");*/
-	/*y = printf("2. affiche le pourcent: %%\n");*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. int to X (#) = |%#X\n", 42);*/
-	/*y = printf("2. int to X (#) = |%#X\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. +int = |%+d\n", 42);*/
-	/*y = printf("2. +int = |%+d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. l = %ld\t%ld\n", LONG_MAX, LONG_MIN);
+	y = printf("2. l = %ld\t%ld\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. spaceint = |% d\n", 42);*/
-	/*y = printf("2. spaceint = |% d\n", 42);*/
-	/*print_len(i, y);*/
+	ft_printf("\t\t CONV u ! \t\t\n\n");
 	
-	/*i = ft_printf("1. -int = |%-d\n", 42);*/
-	/*y = printf("2. -int = |%-d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. hh = %hhu\t%hhu\n", SCHAR_MAX, SCHAR_MIN);
+	y = printf("2. hh = %hhu\t%hhu\n", SCHAR_MAX, SCHAR_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. 0int = |%0d\n", 42);*/
-	/*y = printf("2. 0int = |%0d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. h = %hu\t%hu\n", SCHAR_MAX, SCHAR_MIN);
+	y = printf("2. h = %hu\t%hu\n", SCHAR_MAX, SCHAR_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. prct = |%%\n");*/
-	/*y = printf("2. prct = |%%\n");*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. largeur de champs a 10: |%10d\n", 42);*/
-	/*y = printf("2. largeur de champs a 10: |%10d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. ll = %llu\t%llu\n", LLONG_MAX, LLONG_MIN);
+	y = printf("2. ll = %llu\t%llu\n", LLONG_MAX, LLONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. precision a 10: |%.21d\n", 42);*/
-	/*y = printf("2. precision a 10: |%.21d\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. largeur de champs + precision: |%10.10d\n", 42);*/
-	/*y = printf("2. largeur de champs + precision: |%10.10d\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. + et largeur de champs : %+10d\n", 42);*/
-	/*y = printf("2. + et largeur de champs : %+10d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. l = %lu\t%lu\n", LONG_MAX, LONG_MIN);
+	y = printf("2. l = %lu\t%lu\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. space et largeur de champs:  |% 10d|\n", 42);*/
-	/*y = printf("2. space et largeur de champs:  |% 10d|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. - et largeur de champs : |%-10d|\n", 42);*/
-	/*y = printf("2. - et largeur de champs : |%-10d|\n", 42);*/
-	/*print_len(i, y);*/
+	ft_printf("\t\t CONV x ! \t\t\n\n");
 	
-	/*i = ft_printf("1. + et largeur de champs: |%+10d|\n", 42);*/
-	/*y = printf("2. + et largeur de champs: |%+10d|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("- et 0 et largeur de champs :|%-010d|\n", 42);*/
-	/*y = printf("- et 0 et largeur de champs :|%-010d|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. |%3d|<--largeur trop petite\n", 123456789);*/
-	/*y = printf("2. |%3d|<--largeur trop petite\n", 123456789);*/
-
-	/*i = ft_printf("1. |%.3d|<-- precision trop petite\n", 123456789);*/
-	/*y = printf("2. |%.3d|<-- precision trop petite\n", 123456789);*/
+	i = ft_printf("1. hh = %hhx\t%hhx\n", LONG_MAX, LONG_MIN);
+	y = printf("2. hh = %hhx\t%hhx\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*printf("*******************************octal*********************************\n");*/
-	/*i = ft_printf("1. largeur de champs a 10: |%10o|\n", 42);*/
-	/*y = printf("2. largeur de champs a 10: |%10o|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. h = %hx\t%hx\n", LONG_MAX, LONG_MIN);
+	y = printf("2. h = %hx\t%hx\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. precision a 10: |%.21o|\n", 42);*/
-	/*y = printf("2. precision a 10: |%.21o|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. largeur de champs + precision: |%10.10o|\n", 42);*/
-	/*y = printf("2. largeur de champs + precision: |%10.10o|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. + et largeur de champs : %+10o|\n", 42);*/
-	/*y = printf("2. + et largeur de champs : %+10o|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. ll = %llx\t%llx\n", LONG_MAX, LONG_MIN);
+	y = printf("2. ll = %llx\t%llx\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. space et largeur de champs:  |% 10o|\n", 42);*/
-	/*y = printf("2. space et largeur de champs:  |% 10o|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. - et largeur de champs : |%-10o|\n", 42);*/
-	/*y = printf("2. - et largeur de champs : |%-10o|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. l = %lx\t%lx\n", LONG_MAX, LONG_MIN);
+	y = printf("2. l = %lx\t%lx\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. + et largeur de champs: |%+10o|\n", 42);*/
-	/*y = printf("2. + et largeur de champs: |%+10o|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("- et 0 et largeur de champs :|%-010o|\n", 42);*/
-	/*y = printf("- et 0 et largeur de champs :|%-010o|\n", 42);*/
-	/*print_len(i, y);*/
+	ft_printf("\t\t CONV X ! \t\t\n\n");
 	
-	/*i = ft_printf("1. |%3o|<--largeur trop petite\n", 123456789);*/
-	/*y = printf("2. |%3o|<--largeur trop petite\n", 123456789);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. hh = %hhX\t%hhX\n", LONG_MAX, LONG_MIN);
+	y = printf("2. hh = %hhX\t%hhX\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);*/
-	/*y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);*/
-	/*print_len(i, y);*/
-
-	/*printf("***************************unsigned*******************************\n");*/
-	/*i = ft_printf("1. largeur de champs a 10: |%10u|\n", 42);*/
-	/*y = printf("2. largeur de champs a 10: |%10u|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. h = %hX\t%hX\n", 0, USHRT_MAX);
+	y = printf("2. h = %hX\t%hX\n", 0, USHRT_MAX);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. precision a 10: |%.21u|\n", -100);*/
-	/*y = printf("2. precision a 10: |%.21u|\n", -100);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);*/
-	/*y = printf("2. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. + et largeur de champs : %+10u|\n", INT_MIN);*/
-	/*y = printf("2. + et largeur de champs : %+10u|\n", INT_MIN);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. ll = %llX\t%llX\n", LLONG_MAX, LLONG_MIN);
+	y = printf("2. ll = %llX\t%llX\n", LLONG_MAX, LLONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. space et largeur de champs:  |% 10u|\n", LLONG_MIN);*/
-	/*y = printf("2. space et largeur de champs:  |% 10u|\n", LLONG_MIN);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. - et largeur de champs : |%-10u|\n", 42);*/
-	/*y = printf("2. - et largeur de champs : |%-10u|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);
+	y = printf("2. l = %lX\t%lX\n", LONG_MAX, LONG_MIN);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. + et largeur de champs: |%+10u|\n", 42);*/
-	/*y = printf("2. + et largeur de champs: |%+10u|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("- et 0 et largeur de champs :|%-010u|\n", 42);*/
-	/*y = printf("- et 0 et largeur de champs :|%-010u|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. |%3u|<--largeur trop petite\n", 123456789);*/
-	/*y = printf("2. |%3u|<--largeur trop petite\n", 123456789);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. affiche le pourcent: %%\n");
+	y = printf("2. affiche le pourcent: %%\n");
+	print_len(i, y);
 	
-	/*i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);*/
-	/*y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);*/
-	/*print_len(i, y);*/
-
-	/*printf("***************************HEXxA*******************************\n");*/
-	/*i = ft_printf("1. largeur de champs a 10: |%10x|\n", 42);*/
-	/*y = printf("2. largeur de champs a 10: |%10x|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. int to X (#) = |%#X\n", 42);
+	y = printf("2. int to X (#) = |%#X\n", 42);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. precision a 10: |%.21x|\n", -100);*/
-	/*y = printf("2. precision a 10: |%.21x|\n", -100);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. largeur de champs + precision: |%10.10x|\n", 42);*/
-	/*y = printf("2. largeur de champs + precision: |%10.10x|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. + et largeur de champs : %+10X|\n", -42);*/
-	/*y = printf("2. + et largeur de champs : %+10X|\n", -42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. +int = |%+d\n", 42);
+	y = printf("2. +int = |%+d\n", 42);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. space et largeur de champs:  |% 10X|\n", 77);*/
-	/*y = printf("2. space et largeur de champs:  |% 10X|\n", 77);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. - et largeur de champs : |%-10x|\n", 42);*/
-	/*y = printf("2. - et largeur de champs : |%-10x|\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. spaceint = |% d\n", 42);
+	y = printf("2. spaceint = |% d\n", 42);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. + et largeur de champs: |%+10X|\n", 42);*/
-	/*y = printf("2. + et largeur de champs: |%+10X|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("- et 0 et largeur de champs :|%-010x|\n", 42);*/
-	/*y = printf("- et 0 et largeur de champs :|%-010x|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. |%3llX|<--largeur trop petite\n", LLONG_MIN);*/
-	/*y = printf("2. |%3llX|<--largeur trop petite\n", LLONG_MIN);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. -int = |%-d\n", 42);
+	y = printf("2. -int = |%-d\n", 42);
+	print_len(i, y);
 	
-	/*i = ft_printf("1. |%.3llx|<-- precision trop petite\n", LLONG_MAX);*/
-	/*y = printf("2. |%.3llx|<-- precision trop petite\n", LLONG_MAX);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. |%.0u|\n", 0);*/
-	/*y = printf("2. |%.0u|\n", 0);*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. %012.0d\n", 42);*/
-	/*y = printf("2. %012.0d\n", 42);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. 0int = |%0d\n", 42);
+	y = printf("2. 0int = |%0d\n", 42);
+	print_len(i, y);
 	
-	/*i = ft_printf("|%0.5X|\n", 0);*/
-	/*y = printf("|%0.5X|\n", 0);*/
-	/*print_len(i, y);*/
+	i = ft_printf("1. prct = |%%\n");
+	y = printf("2. prct = |%%\n");
+	print_len(i, y);
+	
+	i = ft_printf("1. largeur de champs a 10: |%10d\n", 42);
+	y = printf("2. largeur de champs a 10: |%10d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21d\n", 42);
+	y = printf("2. precision a 10: |%.21d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. largeur de champs + precision: |%10.10d\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs : %+10d\n", 42);
+	y = printf("2. + et largeur de champs : %+10d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10d|\n", 42);
+	y = printf("2. space et largeur de champs:  |% 10d|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. - et largeur de champs : |%-10d|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10d|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10d|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10d|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("- et 0 et largeur de champs :|%-010d|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010d|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%3d|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3d|<--largeur trop petite\n", 123456789);
+	
+	i = ft_printf("1. |%.3d|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3d|<-- precision trop petite\n", 123456789);
+	
+	printf("*******************************octal*********************************\n");
+	i = ft_printf("1. largeur de champs a 10: |%10o|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21o|\n", 42);
+	y = printf("2. precision a 10: |%.21o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. largeur de champs + precision: |%10.10o|\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs : %+10o|\n", 42);
+	y = printf("2. + et largeur de champs : %+10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10o|\n", 42);
+	y = printf("2. space et largeur de champs:  |% 10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. - et largeur de champs : |%-10o|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10o|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("- et 0 et largeur de champs :|%-010o|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010o|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%3o|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3o|<--largeur trop petite\n", 123456789);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);
+	print_len(i, y);
+	
+	printf("***************************unsigned*******************************\n");
+	i = ft_printf("1. largeur de champs a 10: |%10u|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21u|\n", -100);
+	y = printf("2. precision a 10: |%.21u|\n", -100);
+	print_len(i, y);
+	
+	i = ft_printf("1. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);
+	y = printf("2. largeur de champs + precision: |%10.10llu|\n", LLONG_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs : %+10u|\n", INT_MIN);
+	y = printf("2. + et largeur de champs : %+10u|\n", INT_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10u|\n", LLONG_MIN);
+	y = printf("2. space et largeur de champs:  |% 10u|\n", LLONG_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. - et largeur de champs : |%-10u|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10u|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("- et 0 et largeur de champs :|%-010u|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010u|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%3u|<--largeur trop petite\n", 123456789);
+	y = printf("2. |%3u|<--largeur trop petite\n", 123456789);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3o|<-- precision trop petite\n", 123456789);
+	y = printf("2. |%.3o|<-- precision trop petite\n", 123456789);
+	print_len(i, y);
+	
+	printf("***************************HEXxA*******************************\n");
+	i = ft_printf("1. largeur de champs a 10: |%10x|\n", 42);
+	y = printf("2. largeur de champs a 10: |%10x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. precision a 10: |%.21x|\n", -100);
+	y = printf("2. precision a 10: |%.21x|\n", -100);
+	print_len(i, y);
+	
+	i = ft_printf("1. largeur de champs + precision: |%10.10x|\n", 42);
+	y = printf("2. largeur de champs + precision: |%10.10x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs : %+10X|\n", -42);
+	y = printf("2. + et largeur de champs : %+10X|\n", -42);
+	print_len(i, y);
+	
+	i = ft_printf("1. space et largeur de champs:  |% 10X|\n", 77);
+	y = printf("2. space et largeur de champs:  |% 10X|\n", 77);
+	print_len(i, y);
+	
+	i = ft_printf("1. - et largeur de champs : |%-10x|\n", 42);
+	y = printf("2. - et largeur de champs : |%-10x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. + et largeur de champs: |%+10X|\n", 42);
+	y = printf("2. + et largeur de champs: |%+10X|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("- et 0 et largeur de champs :|%-010x|\n", 42);
+	y = printf("- et 0 et largeur de champs :|%-010x|\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%3llX|<--largeur trop petite\n", LLONG_MIN);
+	y = printf("2. |%3llX|<--largeur trop petite\n", LLONG_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.3llx|<-- precision trop petite\n", LLONG_MAX);
+	y = printf("2. |%.3llx|<-- precision trop petite\n", LLONG_MAX);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%.0u|\n", 0);
+	y = printf("2. |%.0u|\n", 0);
+	print_len(i, y);
+	
+	i = ft_printf("1. %012.0d\n", 42);
+	y = printf("2. %012.0d\n", 42);
+	print_len(i, y);
+	
+	i = ft_printf("|%0.5X|\n", 0);
+	y = printf("|%0.5X|\n", 0);
+	print_len(i, y);
+	
+	i = ft_printf("|%.0X|\n", 0);
+	y = printf("|%.0X|\n", 0);
+	print_len(i, y);
+	
+	ft_printf("\t\t\t\t*** Test 42fileschecker ***\n");
+	i = ft_printf("1. |%5%|\n");
+	y = printf("2. |%5%|\n");
+	print_len(i, y);
+	
+	i = ft_printf("1. |%-5%|\n");
+	y = printf("2. |%-5%|\n");
+	print_len(i, y);
+	
+	ft_printf("# 0104 (int)\tspaced =\n");
+	i = ft_printf("1. |% d|\n", -42);
+	y = printf("2. |% d|\n", -42);
+	print_len(i, y);
+	
+	ft_printf("# 0125 (int)\t0+5d\n");
+	i = ft_printf("|%0+5d|\n", 42);
+	y = printf("|%0+5d|\n", 42);
+	print_len(i, y);
+	
+	ft_printf("# 0127 (int)\n");
+	i = ft_printf("|%05d|\n", -42);
+	y = printf("|%05d|\n", -42);
+	print_len(i, y);
+	
+	ft_printf("# 0128 (int)\n");
+	i = ft_printf("|%0+5d|\n", -42);
+	y = printf("|%0+5d|\n", -42);
+	print_len(i, y);
+	
+	ft_printf("# 0156 (int)\n");
+	i = ft_printf("%-10.5d\n", 4242);
+	y = printf("%-10.5d\n", 4242);
+	print_len(i, y);
 
-	/*i = ft_printf("|%.0X|\n", 0);*/
-	/*y = printf("|%.0X|\n", 0);*/
-	/*print_len(i, y);*/
+	ft_printf("# 0158 (int)\n");
+	i = ft_printf("%+10.5d\n", 4242);
+	y = printf("%+10.5d\n", 4242);
+	print_len(i, y);
+	
+	ft_printf("# 0159 (int)\n");
+	i = ft_printf("%-+10.5d\n", 4242);
+	y = printf("%-+10.5d\n", 4242);
+	print_len(i, y);
+	
+	ft_printf("# 0160 (int)\n");
+	i = ft_printf("%03.2d\n", 0);
+	y = printf("%03.2d\n", 0);
+	print_len(i, y);
+	
+	ft_printf("# 0161 (int)\n");
+	i = ft_printf("%03.2d\n", 1);
+	y = printf("%03.2d\n", 1);
+	print_len(i, y);
+	
+	ft_printf("# 0162 (int)\n");
+	i = ft_printf("%03.2d\n", -1);
+	y = printf("%03.2d\n", -1);
+	print_len(i, y);
+	
+	ft_printf("# 0163 (int)\n");
+	i = ft_printf("@moulitest: %.10d\n", -42);
+	y = printf("@moulitest: %.10d\n", -42);
+	print_len(i, y);
+	
+	ft_printf("# 0180 (unsigned long)\n");
+	i = ft_printf("%u\n", -42);
+	y = printf("%u\n", -42);
+	print_len(i, y);
 
-	/*ft_printf("\t\t\t\t*** Test 42fileschecker ***\n");*/
-	/*i = ft_printf("1. |%5%|\n");*/
-	/*y = printf("2. |%5%|\n");*/
-	/*print_len(i, y);*/
-
-	/*i = ft_printf("1. |%-5%|\n");*/
-	/*y = printf("2. |%-5%|\n");*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0104 (int)\tspaced =\n");*/
-      /*i = ft_printf("1. |% d|\n", -42);*/
-	/*y = printf("2. |% d|\n", -42);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0125 (int)\t0+5d\n");*/
-      /*i = ft_printf("|%0+5d|\n", 42);*/
-      /*y = printf("|%0+5d|\n", 42);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0127 (int)\n");*/
-      /*i = ft_printf("|%05d|\n", -42);*/
-      /*y = printf("|%05d|\n", -42);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0128 (int)\n");*/
-      /*i = ft_printf("|%0+5d|\n", -42);*/
-      /*y = printf("|%0+5d|\n", -42);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0156 (int)\n");*/
-      /*i = ft_printf("%-10.5d\n", 4242);*/
-      /*y = printf("%-10.5d\n", 4242);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0158 (int)\n");*/
-	/*i = ft_printf("%+10.5d\n", 4242);*/
-	/*y = printf("%+10.5d\n", 4242);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0159 (int)\n");*/
-	/*i = ft_printf("%-+10.5d\n", 4242);*/
-	/*y = printf("%-+10.5d\n", 4242);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0160 (int)\n");*/
-	/*i = ft_printf("%03.2d\n", 0);*/
-	/*y = printf("%03.2d\n", 0);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0161 (int)\n");*/
-	/*i = ft_printf("%03.2d\n", 1);*/
-	/*y = printf("%03.2d\n", 1);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0162 (int)\n");*/
-	/*i = ft_printf("%03.2d\n", -1);*/
-	/*y = printf("%03.2d\n", -1);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0163 (int)\n");*/
-	/*i = ft_printf("@moulitest: %.10d\n", -42);*/
-	/*y = printf("@moulitest: %.10d\n", -42);*/
-	/*print_len(i, y);*/
-
-	/*ft_printf("# 0180 (unsigned long)\n");*/
-	/*i = ft_printf("%u\n", -42);*/
-	/*y = printf("%u\n", -42);*/
-	/*print_len(i, y);*/
-
-	/*i = printf("%.10d\n", 42);*/
-	puts("I.    56. FAIL %.2s is a string, "";\n");
+	puts("I.    56. FAIL %.2s is a string, "";");
 	i = ft_printf("|%.2s| is a string\n", "");
-	y = printf("|%.2s| is a string\n\n", "");
+	y = printf("|%.2s| is a string\n", "");
+	print_len(i, y);
 
-	puts("II.   57. FAIL %5.2s is a string, "";\n");
+	puts("II.   57. FAIL %5.2s is a string, "";");
 	i = ft_printf("|%5.2s| is a string\n", "");
-	y = printf("|%5.2s| is a string\n\n", "");
+	y = printf("|%5.2s| is a string\n", "");
+	print_len(i, y);
 
-	puts("III.  62. FAIL |%-.2s| is a string, "";           ->  is a string\n");
+	puts("III.  62. FAIL |%-.2s| is a string, "";");
 	i = ft_printf("|%-.2s| is a string\n", "");
-	y = printf("|%-.2s| is a string\n\n", "");
+	y = printf("|%-.2s| is a string\n", "");
+	print_len(i, y);
 	
-	puts("IV.  63. FAIL %-5.2s is a string, "";          ->       is a string\n");
+	puts("IV.  63. FAIL %-5.2s is a string, "";");
 	i = ft_printf("|%-5.2s| is a string\n", "");
-	y = printf("|%-5.2s| is a string\n\n", "");
+	y = printf("|%-5.2s| is a string\n", "");
+	print_len(i, y);
 	
 	puts("V.   70. FAIL %.2c, NULL;");
-	i = ft_printf("%.2c\n", NULL);
-	y = printf("%.2c\n\n", NULL);
+	i = ft_printf("|%.2c|\n", NULL);
+	y = printf("|%.2c|\n", NULL);
+	print_len(i, y);
 
-	puts("VI.  73. FAIL %5c, 42;\n");
-	i = ft_printf("%5c\n", 42);
-	y = printf("%5c\n\n", 42);
+	puts("VI.  73. FAIL %5c, 42;");
+	i = ft_printf("|%5c|\n", 42);
+	y = printf("|%5c|\n", 42);
+	print_len(i, y);
 
-	/*puts("VII. 74. FAIL %-5c, 42;                        -> "*    "");*/
-	/*puts("VIII.75. FAIL "@moulitest: %c", 0);               -> "@moulitest: ^@"");*/
-	/*puts("IX.  76. FAIL ("%2c", 0);                          -> " ^@"");*/
-	/*puts("X.   77. FAIL ("null %c and text", 0);             -> "null ^@ and text"");*/
-	/*puts("XI.  78. FAIL ("% c", 0);                          -> "^@"");*/
-	/*puts("XII. 91. FAIL ("@moulitest: %#.o %#.0o", 0, 0);    -> "@moulitest: 0 0"");*/
-	/*puts("XIII.121. FAIL("%0d", -42);                        -> "-42"");*/
-	/*puts("XIV.122. FAIL ("%00d", -42);                       -> "-42"");*/
-	/*puts("XV. 157. FAIL ("% 10.5d", 4242);                   -> "     04242"");*/
-	/*puts("XVI.180. FAIL ("%lu", -42);                        -> "18446744073709551574"");*/
+	puts("VII. 74. FAIL %-5c, 42;");
+	i = ft_printf("|%-5c|\n", 42 );
+	y = printf("|%-5c|\n", 42 );
+	print_len(i, y);
 
+	puts("VIII.75. FAIL @moulitest: %c, 0");
+	i = ft_printf("@moulitest: |%c|\n", 0);
+	y = printf("@moulitest: |%c|\n", 0);
+	print_len(i, y);
+
+	puts("IX.  76. FAIL (%2c, 0);");
+	i = ft_printf("1.|%2c|\n", 0);
+	y = printf("2.|%2c|\n", 0);
+	print_len(i, y);
+
+	puts("X.   77. FAIL (null %c and text, 0);");
+	i = ft_printf("null |%c| and text\n", 0);
+	y = printf("null |%c| and text\n", 0);
+	print_len(i, y);
+
+	puts("XI.  78. FAIL (% c, 0);"); 
+	i = ft_printf("|% c|\n", 0);
+	y = printf("|% c|\n", 0);
+	print_len(i, y);
+
+	puts("XII. 91. FAIL (@moulitest: %#.o %#.0o, 0, 0);");
+	i = ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	y = printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	print_len(i, y);
+
+	puts("XIII.121. FAIL(%0d, -42);");
+	i = ft_printf("|%0d|\n", -42);
+	y = printf("|%0d|\n", -42);
+	print_len(i, y);
+
+	puts("XIV.122. FAIL (%00d, -42);");
+	i = ft_printf("|%00d|\n", -42);
+	y = printf("|%00d|\n", -42);
+	print_len(i, y);
+
+	puts("XV. 157. FAIL (% 10.5d, 4242);");
+	i = ft_printf("|% 10.5d|\n", 4242);
+	y = printf("|% 10.5d|\n", 4242);
+	print_len(i, y);
+
+	puts("XVI.180. FAIL (%lu, -42);");
+	i = ft_printf("|%lu|\n", -42);
+	y = printf("|%lu|\n", -42);
+	print_len(i, y);
+	
+	y = printf("|%10c|\n", 0);
+	print_len(y,y);
 	return 0;
 }

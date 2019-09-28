@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/26 19:16:09 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/28 07:30:46 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 }
 
 // get_arg_size : defini la taille complete de l'argument avec flag et prefix.
-int			get_arg_size(t_data *d, char *arg)
+int			get_arg_size(t_data *d, void *arg)
 {
 	int len;
 	int	prefix;
@@ -77,7 +77,7 @@ int			get_arg_size(t_data *d, char *arg)
 
 // manage size => defini et entre le remplissage des 0 ou [SPCE] dans d->argument
 
-void		manage_size(t_data *d, char *arg)
+void		manage_size(t_data *d, void *arg)
 {
 	int		len;
 	int		len_brut;
@@ -97,7 +97,6 @@ void		manage_size(t_data *d, char *arg)
 		d->field = d->precis + 1;
 
 	memset(d->argument, ' ', len);
-
 	 /*remplissage du champs*/
 	/*if (d->field && !d->flag[zero])*/
 		/*ft_memset(d->argument,'*', sizeof(char) * d->field);*/
@@ -114,7 +113,7 @@ void		manage_size(t_data *d, char *arg)
 		if (!d->prfx && !d->flag[less] && d->precis)
 			d->ad_pf = len - d->precis;
 		if (!d->precis && d->flag[zero])
-			width_z = d->field - len_p;
+			width_z = len - len_p; // avant len = d->field
 		else
 			width_z = d->precis;
 		/*printf("d->flag[less] = %d\td->flag[zero]= %d\nd->ad_pf = %d len = %d\n", d->flag[less], d->flag[zero], d->ad_pf, len);*/
@@ -125,7 +124,7 @@ void		manage_size(t_data *d, char *arg)
 
 	/*Placement argument*/
 	//printf("d->precis = %d\t len= %d\tlen_brut = %d\t\n",d->precis,len, len_brut);
-	if (!(!ft_strcmp(arg, "0") && d->flag[point] && !d->precis))
+	if (!(!ft_strcmp(arg, "0") && d->flag[point] && !d->precis && (d->conv == 'x' || d->conv == 'X')))
 	{	
 		if (d->flag[less])
 		{
@@ -138,6 +137,7 @@ void		manage_size(t_data *d, char *arg)
 		else
 			ft_strncpy(&d->argument[(len) - len_brut], arg, len_brut);
 	}
+
 }
 
 int		dispatcher(t_data *data)

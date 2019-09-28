@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/28 20:32:32 by fanny            ###   ########.fr       */
+/*   Created: 2019/09/28 05:46:24 by fanny             #+#    #+#             */
+/*   Updated: 2019/09/28 20:42:29 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void	init_new_arg(t_data *d)
 {
-	t_data	*data;
-
-	if (!(data = (t_data*)malloc(sizeof(t_data))))
-		return (-1);
-	ft_bzero(data, sizeof(t_data));
-	va_start(data->arg, format);
-	while (format[data->index])
-	{
-		parsing(format, data);
-	}
-	write(1, data->buffer, data->len);
-	va_end(data->arg);
-	return (data->len);
+	d->conv = 0;
+	ft_bzero(d->flag, sizeof(d->flag));
+	d->precis = 0;
+	d->field = 0;
+	d->width_max = 0;
+	ft_bzero(d->argument, sizeof(d->argument));
+	d->neg = 0;
+	ft_bzero(d->prefix, sizeof(d->prefix));
+	d->prfx = 0;
+	d->ad_pf = 0;
 }

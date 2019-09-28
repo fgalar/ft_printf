@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/26 19:53:02 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/09/28 07:39:14 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include "libft/libft.h"
 # define NB_CONV 10
 # define NB_FLAGS 11
@@ -85,5 +86,7 @@ int				get_conv(const char *format, t_data *data);
 int				get_flags(const char *format, t_data *data);
 int				dispatcher(t_data *data);
 void			get_size(t_data *data, const char *format);
-void			manage_size(t_data *data, char *arg);
+void			manage_size(t_data *data, void *arg);
+void			print_char(char *arg, size_t size, t_data *data);
+void			init_new_arg(t_data *d);
 #endif
