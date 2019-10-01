@@ -43,9 +43,9 @@ int main()
 	y = printf("75.2.@moulitest: |%c|\n", 0);
 	print_len(i, y);
 
-	puts("IX.  76. FAIL (%2c, 0);");
-	i = ft_printf("76.1.|%2c|\n", 0);
-	y = printf("76.2.|%2c|\n", 0);
+	puts("IX.  76. FAIL (%5c, 0);");
+	i = ft_printf("76.1.|%5c|\n", 0);
+	y = printf("76.2.|%5c|\n", 0);
 	print_len(i, y);
 
 	puts("X.   77. FAIL (null %c and text, 0);");
@@ -57,6 +57,14 @@ int main()
 	i = ft_printf("78.1.|% c|\n", 0);
 	y = printf("78.2.|% c|\n", 0);
 	print_len(i, y);
-
+	
+	puts("XII (%-10c)");
+	i = ft_printf("XII. |%-10c|\n", 0);
+	y = printf("XII. |%-10c|\n", 0);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%05c|\n", 0); 
+	y = printf("2. |%05c|\n", 0);
+	print_len(i, y);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/01 12:29:38 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/01 15:43:05 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		manage_size(t_data *d, void *arg)
 	
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
-		//printf("len = %d\n", len);
+	/*printf("len = %d\n", len);*/
 	//gestion des exclusions
 	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point])
 		len_brut = 0; 
@@ -103,9 +103,9 @@ void		manage_size(t_data *d, void *arg)
 	len_p = ft_strlen(d->prefix);	
 	/*remplissage de la precision*/
 	int	width_z;
-	if (d->precis >= (len_brut + len_p) || d->flag[zero]) // condition a revoir !!!!!
+	if (d->precis > len_brut || d->flag[zero]) // condition a revoir !!!!!
 	{
-		if ((!d->prfx || d->precis < d->field) && !d->flag[less] && d->precis)
+		if (!d->flag[less] && d->precis)
 			d->ad_pf = len - d->precis;
 		if (d->flag[zero])
 			width_z = len - len_p; // avant len = d->field
@@ -128,6 +128,7 @@ void		manage_size(t_data *d, void *arg)
 		else
 			ft_strncpy(&d->argument[(len) - len_brut], arg, len_brut);
 	}
+	d->argument[len] = '\0';
 }
 
 int		dispatcher(t_data *data)
