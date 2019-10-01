@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/09/27 19:50:26 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/01 12:25:47 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -501,7 +501,8 @@ int main()
 	y = printf("|%lu|\n", -42);
 	print_len(i, y);
 	
-	y = printf("|%10c|\n", 0);
-	print_len(y,y);
+	i = ft_printf("|%#.5x|\n", 435);
+	y = printf("|%#.5x|\n", 435);
+	print_len(i, y);
 	return 0;
 }
