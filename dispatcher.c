@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/01 15:43:05 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/02 18:37:58 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,25 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 		d->neg ? ft_strcpy(d->prefix, "-") : ft_strcpy(d->prefix,"+");
 	if (d->conv == 'o')
 		ft_strcpy(d->prefix, "0");
-	if (d->conv == 'x' || d->conv == 'X')
+	if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
 		ft_strcpy(d->prefix, "0x");
 	len_p = ft_strlen(d->prefix);
-	//printf("prefix = |%s\n", d->prefix);
+	/*printf("prefix = |%s\n", d->prefix);*/
 	/*localisation et placement du prefix*/
 	if (d->flag[less] || d->flag[zero])
 	{
 		ft_strncpy(d->argument, d->prefix, len_p);
 		d->ad_pf = len_p;
 	}
-	else if (d->precis)
+	else if (d->precis >= len_arg)
 	{
+		/*printf("len_t = %d && d->precis = %d && len_p = %d ===>[%d]\n", len_t, d->precis, len_p, len_t - (d->precis + len_p));*/
 		ft_strncpy(&d->argument[(len_t) - (d->precis + len_p)], d->prefix , len_p);
 		d->ad_pf = ((len_t - 1) - d->precis) + len_p;
 	}
 	else
 	{
-		//printf("len_t = %d && len_arg = %d && len_p = %d\n", len_t, len_arg, len_p);
+		/*printf("len_t = %d && len_arg = %d && len_p = %d\n", len_t, len_arg, len_p);*/
 		ft_strncpy(&d->argument[(len_t) - (len_arg + len_p)], d->prefix, len_p);
 		d->ad_pf = (len_t - 1) - (len_arg + len_p);
 	}
@@ -51,20 +52,20 @@ void		get_prefix(t_data *d, int len_t, int len_arg)
 int			get_arg_size(t_data *d, void *arg)
 {
 	int len;
-	int	prefix;
 
 	len = ft_strlen(arg);
-	prefix = 0;
-	if (d->flag[point] && !d->width_max && !ft_strcmp(arg, "0") && !(d->conv == 'o' && d->flag[diese]))
+	if (d->flag[point] && !d->width_max && !ft_strcmp(arg, "0") && 
+			!(d->conv == 'o' && d->flag[diese]) && !(d->conv == 'p'))
 		return (0);
-	if (d->conv == 'o' && d->flag[diese])
+	if (d->conv == 'o' && d->flag[diese] && !ft_strcmp(arg, "0"))
 		len = 0;
 	if ((d->conv == 'd' && ((d->flag[most]) ||  d->flag[space] || d->neg)
 			&& (d->prfx = 1)))
 		len++;
-	if (d->flag[diese] && (ft_strcmp(arg, "0") || (d->conv == 'o')))
+	if ((d->flag[diese] && (ft_strcmp(arg, "0") || (d->conv == 'o'))) 
+			|| d->conv == 'p')
 	{
-		if (d->conv == 'x' || d->conv == 'X')
+		if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
 			len += 2;
 		else
 			len++;
@@ -72,8 +73,9 @@ int			get_arg_size(t_data *d, void *arg)
 	}
 	if (len < d->width_max)
 		len = d->width_max;
-	if (d->precis && d->precis == d->width_max && d->prfx)
+	if (d->precis >= len && d->precis == d->width_max && d->prfx)
 		d->conv == 'x' | d->conv == 'X' ? len += 2 : len++;
+	/*printf("len = %d\n", len);*/
 	return (len);
 }
 
@@ -87,7 +89,6 @@ void		manage_size(t_data *d, void *arg)
 	
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
-	/*printf("len = %d\n", len);*/
 	//gestion des exclusions
 	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point])
 		len_brut = 0; 
@@ -98,12 +99,13 @@ void		manage_size(t_data *d, void *arg)
 		d->field = d->precis + 1;
 	memset(d->argument, ' ', len);
 	// remplissage du prefix
-	if (d->prfx)
+	if (d->prfx || d->conv == 'p')
 		get_prefix(d, len, len_brut);
 	len_p = ft_strlen(d->prefix);	
+	
 	/*remplissage de la precision*/
 	int	width_z;
-	if (d->precis > len_brut || d->flag[zero]) // condition a revoir !!!!!
+	if (d->precis > len_brut || d->flag[zero])
 	{
 		if (!d->flag[less] && d->precis)
 			d->ad_pf = len - d->precis;
@@ -114,10 +116,11 @@ void		manage_size(t_data *d, void *arg)
 		ft_memset(&d->argument[d->ad_pf], '0', width_z);
 		d->ad_pf += width_z; // place du pointeur apres ajout des 0000
 	}
+	
 	/*Placement argument*/
 	if (len_brut)
 	{
-		if (d->flag[less])
+		if (d->flag[less] && d->width_max >= len)
 		{
 			if (!d->precis)             // car si pas precision va ecrire sur prefix
 				len_p += len_brut;

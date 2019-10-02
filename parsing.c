@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/28 07:25:40 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/02 14:36:25 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	get_size(t_data *data, const char *format)
 	}
 }
 
-void		get_flag(const char *format, t_data *data)
+int		get_flag(const char *format, t_data *data)
 {
 	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-", "0", "%", "."};
 	int			y;
@@ -69,7 +69,9 @@ void		get_flag(const char *format, t_data *data)
 			{
 				manage_size(data, "%");
 				strcat(data->buffer, data->argument);
-				data->len = ft_strlen(data->buffer);
+				data->len += ft_strlen(data->argument);
+				data->index++;
+				return (1);
 			}
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
@@ -81,9 +83,8 @@ void		get_flag(const char *format, t_data *data)
 		}
 		y++;
 	}
+	return (0);
 }
-
-
 
 void	parsing(const char *format, t_data *data)
 {
@@ -94,9 +95,11 @@ void	parsing(const char *format, t_data *data)
 		{
 			data->index++;		
 			init_new_arg(data);
-			get_flag(format, data);
-			get_conv(format, data);
-			dispatcher(data);
+			if (!get_flag(format, data))
+			{
+				get_conv(format, data);
+				dispatcher(data);
+			}
 		}
 		else
 		{

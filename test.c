@@ -22,6 +22,8 @@ int	main()
 	ft_printf("diese et precision null et o => |%#.o|\n", 0);
 	printf("diese et precision null et x => |%#.x|\n", 0);
 	ft_printf("diese et precision null et x => |%#.x|\n", 0);
+
+	printf("%.5o", 34);
 	
 	return 0;
 }

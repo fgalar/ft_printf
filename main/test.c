@@ -35,7 +35,7 @@ int	main()
 	
 	printf("\nNEGATIFS\nconv o = %o\tconv u = %u\tconv x = %x\n", -42, -42, -42);
 	printf("#neg\nconv d = %#d\tconv o = %#o\tconv u = %#u\tconv x = %#x\n", -42, -42, -42, -42);
-	printf("precision et -");
-	printf("precision et ");
+	
+	printf("%#.1o\n", 34);
 	return 0;
 }

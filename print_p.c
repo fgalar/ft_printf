@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/25 19:53:06 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/01 18:47:37 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 int		print_p(t_data *data)
 {
 	long long *adress;
-	char *prefix;
 
-	prefix = "0x";
+	data->prfx = 1;
+	ft_strncpy(data->prefix, "0x", 2);
+	data->flag[point] = 0;
+	data->precis = 0;
 	adress = va_arg(data->arg, void*);
-	ft_strcat(data->buffer, prefix);
-	ft_strcat(data->buffer, itoa_base((unsigned long long)adress, 16));
+	manage_size(data, itoa_base((unsigned long long)adress, 16));
+	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
+	
 	return (0);
 }
