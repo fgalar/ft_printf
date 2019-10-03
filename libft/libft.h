@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 18:19:35 by fgarault          #+#    #+#             */
-/*   Updated: 2019/07/30 17:32:04 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/03 13:06:12 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int					*ft_sort_integer(int *tab, int size);
 int					ft_power(int nb, int power);
 char				*itoa_base(long long n, int base);
 char				splitmin_maj(char c);
+char				*ft_utoa(unsigned long nb);
 
 #endif
