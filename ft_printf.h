@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/28 07:39:14 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/03 16:56:38 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef enum		e_flags
 	h,
 	ll,
 	l,
-	diese, 
-	most, 
+	diese,
+	most,
 	space,
 	less,
 	zero,
@@ -39,10 +39,10 @@ typedef struct	s_data
 {
 	va_list		arg;
 	int			index;
-	
+
 	char		buffer[4096];
 	int			len;
-	
+
 	char		conv;
 	int			flag[NB_FLAGS];
 
@@ -52,8 +52,8 @@ typedef struct	s_data
 
 	char		argument[100];
 	int			neg;
-	
-	char		prefix[3];
+
+	char		*prefix;
 	int			prfx;
 	int			ad_pf;
 
@@ -70,6 +70,8 @@ typedef struct	s_float
 
 int				ft_printf(const char *format, ...);
 void			parsing(const char *format, t_data *data);
+void			init_new_arg(t_data *d);
+int				dispatcher(t_data *data);
 
 int				print_c(t_data *data);
 int				print_s(t_data *data);
@@ -79,14 +81,10 @@ int				print_o(t_data *data);
 int				print_u(t_data *data);
 int				print_x(t_data *data);
 int				print_f(t_data *data);
+
+void			manage_size(t_data *data, void *arg);
 char			*ft_ftoa(t_float *nb);
 void			print_majhex(char *nb);
+int				print_percent(t_data *d);
 
-int				get_conv(const char *format, t_data *data);
-int				get_flags(const char *format, t_data *data);
-int				dispatcher(t_data *data);
-void			get_size(t_data *data, const char *format);
-void			manage_size(t_data *data, void *arg);
-void			print_char(char *arg, size_t size, t_data *data);
-void			init_new_arg(t_data *d);
 #endif

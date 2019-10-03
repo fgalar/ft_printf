@@ -6,24 +6,11 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/26 19:28:06 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/03 16:51:39 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	print_majhex(char *nb)
-{
-	int		i;
-
-	i = 0;
-	while (nb[i])
-	{
-		if (ft_isalpha(nb[i]))
-			nb[i] = splitmin_maj(nb[i]);
-		i++;
-	}
-}
 
 int		print_x(t_data *data)
 {

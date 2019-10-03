@@ -3,19 +3,20 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = 	ft_printf.c \
-	dispatcher.c \
-	parsing.c \
-       	print_c.c \
-	print_s.c \
-	print_p.c \
-	print_d.c \
-	print_o.c \
-	print_u.c \
-	print_x.c \
-	tools.c   \
-	print_f.c \
-	ft_ftoa.c \
+SRCS = 	ft_printf.c		\
+		dispatcher.c	\
+		parsing.c		\
+		print_c.c		\
+		print_s.c		\
+		print_p.c		\
+		print_d.c		\
+		print_o.c		\
+		print_u.c		\
+		print_x.c		\
+		handle_arg.c	\
+		tools.c			\
+		print_f.c		\
+		ft_ftoa.c		\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -36,7 +37,7 @@ $(NAME) : $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@make clean -C $(LIBDIR) 
-	
+
 fclean: clean
 	@rm -rf $(NAME)
 	@make fclean -C $(LIBDIR)

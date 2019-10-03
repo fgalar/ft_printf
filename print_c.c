@@ -6,39 +6,43 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/01 16:34:05 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/03 16:32:18 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_c(t_data *data)
+static void	handle_null(t_data *data)
 {
-	unsigned char	c;
-	char			layout;
+	char	layout;
 
-	c = va_arg(data->arg, int);
 	if (data->flag[zero])
 		layout = '0';
 	else
 		layout = ' ';
 	data->precis = 0;
 	data->flag[point] = 0;
-	if (c == 0)
+	if (data->field > 1 && !data->flag[less])
 	{
-		if (data->field > 1 && !data->flag[less])
-		{
-			ft_memset(&data->buffer[data->len], layout, data->field);
-			data->len += data->field - 1;
-		}
-		ft_memset(&data->buffer[data->len], 0, sizeof(char));
-		data->len++;
-		if (data->flag[less] && data->field)
-		{
-			ft_memset(&data->buffer[data->len], layout, data->field);
-			data->len += data->field - 1;
-		}
+		ft_memset(&data->buffer[data->len], layout, data->field);
+		data->len += data->field - 1;
 	}
+	ft_memset(&data->buffer[data->len], 0, sizeof(char));
+	data->len++;
+	if (data->flag[less] && data->field)
+	{
+		ft_memset(&data->buffer[data->len], layout, data->field);
+		data->len += data->field - 1;
+	}
+}
+
+int			print_c(t_data *data)
+{
+	unsigned char	c;
+
+	c = va_arg(data->arg, int);
+	if (c == 0)
+		handle_null(data);
 	if (c != 0)
 	{
 		manage_size(data, &c);
@@ -47,4 +51,3 @@ int	print_c(t_data *data)
 	}
 	return (0);
 }
-

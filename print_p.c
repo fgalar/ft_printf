@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 16:27:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/01 18:47:37 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/03 16:34:24 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int		print_p(t_data *data)
 	manage_size(data, itoa_base((unsigned long long)adress, 16));
 	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
-	
 	return (0);
 }

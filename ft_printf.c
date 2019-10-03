@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/09/28 20:32:32 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/03 16:40:04 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int		ft_printf(const char *format, ...)
 	ft_bzero(data, sizeof(t_data));
 	va_start(data->arg, format);
 	while (format[data->index])
-	{
 		parsing(format, data);
-	}
 	write(1, data->buffer, data->len);
 	va_end(data->arg);
 	return (data->len);
