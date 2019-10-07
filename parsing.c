@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/03 16:45:10 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/06 20:23:46 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ static int		get_conv(const char *format, t_data *data)
 		y++;
 	}
 	data->conv = '0';
+	if (format[data->index + 1])
+	{
+		data->index++;
+		get_conv(format, data);
+	}
 	return (-1);
 }
 
@@ -87,13 +92,12 @@ void			parsing(const char *format, t_data *data)
 	{
 		if (format[data->index] == '%')
 		{
-			data->index++;
 			init_new_arg(data);
-			if (!get_flag(format, data))
-			{
-				if (!get_conv(format, data))
-					dispatcher(data);
-			}
+			data->index++;
+			get_flag(format, data);
+			if (get_conv(format, data) < 0)
+				return ;
+			dispatcher(data);
 		}
 		else
 		{
