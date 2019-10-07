@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/03 16:56:38 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/07 14:41:35 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct	s_data
 	char		argument[100];
 	int			neg;
 
-	char		*prefix;
+	char		prefix[3];
 	int			prfx;
 	int			ad_pf;
 

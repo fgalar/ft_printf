@@ -1,115 +1,92 @@
 #include <stdio.h>
+#include <limits.h>
 #include "../ft_printf.h"
 
 int		main()
 {
-	puts("# 0015 (int)");
-	ft_printf("1. %#jx\n", 4294967295);
-	printf("2. %#jx\n", 4294967295);
+	puts("# 0015 (int) -> %jx, 4294967295");
+	ft_printf("1. %jx\n", 4294967295);
+	printf("2. %jx\n", 4294967295);
 
-//# 0016 (int)
-//  ft_printf("%jx", 4294967296);
-//  1. (    2) -->jx<--
-//  2. (    9) -->100000000<--
-//
-//# 0017 (int)
-//  ft_printf("%jx", -4294967296);
-//  1. (    2) -->jx<--
-//  2. (   16) -->ffffffff00000000<--
-//
-//# 0018 (int)
-//  ft_printf("%jx", -4294967297);
-//  1. (    2) -->jx<--
-//  2. (   16) -->fffffffeffffffff<--
-//
-//# 0034 (intmax_t)
-//  ft_printf("%jd", 9223372036854775807);
-//  1. (    2) -->jd<--
-//  2. (   19) -->9223372036854775807<--
-//
-//# 0035 (intmax_t)
-//  ft_printf("%jd", -9223372036854775808);
-//  1. (    2) -->jd<--
-//  2. (   20) -->-9223372036854775808<--
-//
-//# 0036 (ssize_t)
-//  ft_printf("%zd", 4294967295);
-//  1. (    2) -->zd<--
-//  2. (   10) -->4294967295<--
-//
-//# 0037 (ssize_t)
-//  ft_printf("%zd", 4294967296);
-//  1. (    2) -->zd<--
-//  2. (   10) -->4294967296<--
-//
-//# 0038 (ssize_t)
-//  ft_printf("%zd", -0);
-//  1. (    2) -->zd<--
-//  2. (    1) -->0<--
-//
-//# 0039 (ssize_t)
-//  ft_printf("%zd", -1);
-//  1. (    2) -->zd<--
-//  2. (    2) -->-1<--
-//
-//# 0040 (intmax_t)
-//  ft_printf("%ju", 4999999999);
-//  1. (    2) -->ju<--
-//  2. (   10) -->4999999999<--
-//
-//# 0041 (size_t)
-//  ft_printf("%ju", 4294967296);
-//  1. (    2) -->ju<--
-//  2. (   10) -->4294967296<--
-//
-//# 0042 (unsigned long)
-//  ft_printf("%U", 4294967295);
-//  1. (    1) -->U<--
-//  2. (   10) -->4294967295<--
-//
-//# 0043 (unsigned long)
-//  ft_printf("%hU", 4294967296);
-//  1. (    1) -->U<--
-//  2. (   10) -->4294967296<--
-//
-//# 0044 (unsigned long)
-//  ft_printf("%U", 4294967296);
-//  1. (    1) -->U<--
-//  2. (   10) -->4294967296<--
-//
-//# 0045 (size_t)
-//  ft_printf("%zhd", 4294967296);
-//  1. (    3) -->zhd<--
-//  2. (   10) -->4294967296<--
-//
-//# 0046 (unsigned long long)
-//  ft_printf("%jzd", 9223372036854775807);
-//  1. (    3) -->jzd<--
-//  2. (   19) -->9223372036854775807<--
-//
-//# 0047 (unsigned long long)
-//  ft_printf("%jhd", 9223372036854775807);
-//  1. (    3) -->jhd<--
-//  2. (   19) -->9223372036854775807<--
-//
-//# 0049 (unsigned long long)
-//  ft_printf("%lhlz", 9223372036854775807);
-//  1. (    1) -->z<--
-//  2. (    0) --><--
-//
-//# 0050 (unsigned long long)
-//  ft_printf("%zj", 9223372036854775807);
-//  1. (    2) -->zj<--
-//  2. (    0) --><--
-//
-//# 0052 (unsigned long)
-//  ft_printf("%hhld", 128);
-//  1. (    4) -->-128<--
-//  2. (    3) -->128<--
-//
-//# 0055 (int)
-//  ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d", 256);
-//  1. (   49) -->@main_ftprintf: +000000000256                    <--
-//  2. (   49) -->@main_ftpr
+	puts("\n# 0016 (int) -> %jx, 4294967296");
+	ft_printf("1. %jx\n", 4294967296);
+	printf("2. %jx\n\n", 4294967296);
+
+	puts("\n 0016 (int)");
+	ft_printf("1. %jx\n", -4294967296);
+	printf("2. %jx\n", -4294967296);
+
+	puts("\n# 0018 (int)");
+	ft_printf("1. %jx\n", -4294967297);
+	printf("2. %jx\n", -4294967297);
+
+	puts("\n# 0034 (intmax_t)");
+	ft_printf("1. %jd\n", 9223372036854775807);
+	printf("2. %jd\n", 9223372036854775807);
+
+	puts("\n# 0035 (intmax_t)");
+	ft_printf("1. %jd\n", -9223372036854775808);
+	printf("2. %jd\n", -9223372036854775808);
+
+	puts("\n# 0036 (ssize_t)");
+	ft_printf("1. %zd\n", 4294967295);
+	printf("2. %zd\n", 4294967295);
+
+	puts("\n# 0037 (ssize_t)");
+	ft_printf("1. %zd\n", 4294967296);
+	printf("2. %zd\n", 4294967296);
+	
+	puts("\n# 0038 (ssize_t)");
+	ft_printf("1. %zd\n", -0);
+	printf("2. %zd\n", -0);
+
+	puts("\n# 0039 (ssize_t)");
+	ft_printf("1. %zd\n", -1);
+	printf("2. %zd\n", -1);
+
+	puts("\n# 0040 (intmax_t)");
+	ft_printf("1. %ju\n", 4999999999);
+	printf("2. %ju\n", 4999999999);
+
+	puts("\n# 0041 (size_t)");
+	ft_printf("1. %ju\n", 4294967296);
+	printf("2. %ju\n", 4294967296);
+
+	puts("\n# 0043 (unsigned long)");
+	ft_printf("1. %hU\n", 4294967296);
+	printf("2. %hU\n", 4294967296);
+	
+	puts("\n# 0044 (unsigned long)");
+	ft_printf("1. %U\n", 4294967296);
+	printf("2. %U\n", 4294967296);
+
+	puts("\n# 0045 (size_t)");
+	ft_printf("1. %zhd\n", 4294967296);
+	printf("2. %zhd\n", 4294967296);
+
+	puts("\n# 0046 (unsigned long long)");
+	ft_printf("1. %jzd\n", 9223372036854775807);
+	printf("2. %jzd\n", 9223372036854775807);
+
+	puts("\n# 0047 (unsigned long long)");
+	ft_printf("1. %jhd\n", 9223372036854775807);
+	printf("2. %jhd\n", 9223372036854775807);
+
+	puts("\n# 0049 (unsigned long long)");
+	ft_printf("1. %lhlz\n", 9223372036854775807);
+	printf("2. %lhlz\n", 9223372036854775807);
+
+	puts("\n# 0050 (unsigned long long)");
+	ft_printf("1. %zj\n", 9223372036854775807);
+	printf("2. %zj\n", 9223372036854775807);
+	
+	puts("\n# 0052 (unsigned long)");
+	ft_printf("1. %hhld\n", 128);
+	printf("2. %hhld\n", 128);
+	
+	puts("\n# 0055 (int)");
+	ft_printf("1. @main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
+	printf("2. @main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: fgarault <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:50:20 by fgarault          #+#    #+#              #
-#    Updated: 2019/10/04 17:00:26 by fanny            ###   ########.fr        #
+#    Updated: 2019/10/07 19:13:13 by fgarault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,8 @@ SRCS	= ft_memset.c \
 		ft_sort_integer.c \
 		ft_itoa_base.c \
 		ft_split_maj.c \
-		ft_utoa.c
+		ft_utoa.c \
+		ft_ismaj.c
 
 HEADER	= libft.h
 

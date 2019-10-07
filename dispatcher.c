@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/03 15:19:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/07 17:43:07 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int			dispatcher(t_data *data)
 		print_d, print_o, print_u, print_x, print_x, print_f};
 
 	x = 0;
+	if (!data->conv)
+		return (-1);
 	if (data->conv == 'i')
 		data->conv = 'd';
 	while (conv[x] != data->conv)

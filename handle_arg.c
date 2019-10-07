@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/03 16:47:14 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/07 19:40:39 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void			manage_size(t_data *d, void *arg)
 {
 	int		len;
 	int		len_brut;
-	int		len_p;
 
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
@@ -119,11 +118,11 @@ void			manage_size(t_data *d, void *arg)
 	if (d->flag[space] && !d->field && !d->neg)
 	{
 		d->prfx = 1;
-		d->prefix = " ";
+		ft_strcpy(d->prefix, " ");
 		d->ad_pf = 1;
 		d->field = d->precis + 1;
 	}
-	memset(d->argument, ' ', len);
+	ft_memset(d->argument, ' ', len);
 	if (d->prfx || d->conv == 'p')
 		get_prefix(d, len, len_brut);
 	if (d->precis > len_brut || d->flag[zero])

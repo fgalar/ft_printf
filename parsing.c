@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/06 20:23:46 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/07 19:31:44 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@ static int		get_conv(const char *format, t_data *data)
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'i', 'o', 'u', 'x', 'X',
 		'f'};
 	int			y;
-
+	char		c;
+	
 	y = 0;
+	c = format[data->index];
+	if (ft_ismaj(c) && c != 'X')
+	{	
+		init_new_arg(data);
+		c = ft_tolower(format[data->index]);
+	}
 	while (y < NB_CONV)
 	{
-		if (format[data->index] == conv[y])
+		if (c == conv[y])
 		{
 			data->conv = conv[y];
 			data->index++;
@@ -31,12 +38,8 @@ static int		get_conv(const char *format, t_data *data)
 		}
 		y++;
 	}
-	data->conv = '0';
-	if (format[data->index + 1])
-	{
-		data->index++;
+	if (!data->conv && format[data->index++])
 		get_conv(format, data);
-	}
 	return (-1);
 }
 
@@ -95,9 +98,10 @@ void			parsing(const char *format, t_data *data)
 			init_new_arg(data);
 			data->index++;
 			get_flag(format, data);
-			if (get_conv(format, data) < 0)
+			if (data->flag[percent])
 				return ;
-			dispatcher(data);
+			get_conv(format, data);
+			return ;
 		}
 		else
 		{
