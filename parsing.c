@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/07 19:31:44 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/08 18:37:03 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		get_conv(const char *format, t_data *data)
 	
 	y = 0;
 	c = format[data->index];
-	if (ft_ismaj(c) && c != 'X')
+	if (ft_ismaj(c) && c != 'X' && (data->flag[ll]))
 	{	
 		init_new_arg(data);
 		c = ft_tolower(format[data->index]);
@@ -39,7 +39,11 @@ static int		get_conv(const char *format, t_data *data)
 		y++;
 	}
 	if (!data->conv && format[data->index++])
+	{
+		init_new_arg(data);
+		data->flag[l] = 1;
 		get_conv(format, data);
+	}	
 	return (-1);
 }
 
@@ -73,6 +77,8 @@ static int		get_flag(const char *format, t_data *data)
 	{
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
+			if(data->flag[hh] || data->flag[h] || data->flag[ll] || data->flag[l])
+				init_new_arg(data);
 			data->flag[y] = 1;
 			if (data->flag[percent] && !print_percent(data))
 				return (1);
