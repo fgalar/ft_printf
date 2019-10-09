@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/07 14:41:35 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/09 16:06:54 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int				print_o(t_data *data);
 int				print_u(t_data *data);
 int				print_x(t_data *data);
 int				print_f(t_data *data);
+int				print_a(t_data *d, char *arg);
 
 void			manage_size(t_data *data, void *arg);
 char			*ft_ftoa(t_float *nb);
 void			print_majhex(char *nb);
-int				print_percent(t_data *d);
 
 #endif

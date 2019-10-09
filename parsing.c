@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/08 18:37:03 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/09 17:42:02 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,7 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static int		get_conv(const char *format, t_data *data)
-{
-	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'i', 'o', 'u', 'x', 'X',
-		'f'};
-	int			y;
-	char		c;
-	
-	y = 0;
-	c = format[data->index];
-	if (ft_ismaj(c) && c != 'X' && (data->flag[ll]))
-	{	
-		init_new_arg(data);
-		c = ft_tolower(format[data->index]);
-	}
-	while (y < NB_CONV)
-	{
-		if (c == conv[y])
-		{
-			data->conv = conv[y];
-			data->index++;
-			return (0);
-		}
-		y++;
-	}
-	if (!data->conv && format[data->index++])
-	{
-		init_new_arg(data);
-		data->flag[l] = 1;
-		get_conv(format, data);
-	}	
-	return (-1);
-}
+
 
 static void		get_size(t_data *data, const char *format)
 {
@@ -77,10 +46,10 @@ static int		get_flag(const char *format, t_data *data)
 	{
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
-			if(data->flag[hh] || data->flag[h] || data->flag[ll] || data->flag[l])
+			if(y >= 0 && y <= 3 && (data->flag[hh] || data->flag[h] || data->flag[ll] || data->flag[l]))
 				init_new_arg(data);
 			data->flag[y] = 1;
-			if (data->flag[percent] && !print_percent(data))
+			if (data->flag[percent] && !print_a(data, "%"))
 				return (1);
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
@@ -94,6 +63,42 @@ static int		get_flag(const char *format, t_data *data)
 	}
 	return (0);
 }
+static int		get_conv(const char *format, t_data *data)
+{
+	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'i', 'o', 'u', 'x', 'X',
+		'f'};
+	int			y;
+	char		c;
+	
+	y = 0;
+	c = format[data->index];
+	if (format[data->index] == 'Z')
+		return (print_a(data, "Z"));
+	if (ft_ismaj(c) && c != 'X')
+	{
+		init_new_arg(data);
+		data->flag[ll] = 1;
+		c = ft_tolower(format[data->index]);
+	}
+	while (y < NB_CONV)
+	{
+		if (c == conv[y])
+		{
+			data->conv = conv[y];
+			data->index++;
+			return (0);
+		}
+		y++;
+	}
+	if (!data->conv && format[data->index+1])
+	{
+		data->index++;
+		init_new_arg(data);
+		data->flag[l] = 1;
+		get_conv(format, data);
+	}	
+	return (-1);
+}
 
 void			parsing(const char *format, t_data *data)
 {
@@ -101,8 +106,9 @@ void			parsing(const char *format, t_data *data)
 	{
 		if (format[data->index] == '%')
 		{
-			init_new_arg(data);
+			/*puts("get a %");*/
 			data->index++;
+			init_new_arg(data);
 			get_flag(format, data);
 			if (data->flag[percent])
 				return ;
@@ -111,6 +117,7 @@ void			parsing(const char *format, t_data *data)
 		}
 		else
 		{
+			/*puts("else");*/
 			data->buffer[data->len] = format[data->index];
 			data->index++;
 			data->len++;

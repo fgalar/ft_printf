@@ -18,5 +18,6 @@ int main()
 	printf("apres largeur de champ : |%.45d|\n", 42);
 	printf("neg + flag 0 + champ = 	  |%010d|\n", -42);
 	printf("neg + precision + champ = |%10.10d|\n", -42);
+	printf("%4Z", 4);
 	return (0);
 }

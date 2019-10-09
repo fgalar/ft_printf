@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/07 19:45:16 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/09 16:08:26 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		print_x(t_data *data)
 	else if (data->flag[h])
 		nb = itoa_base((unsigned short)va_arg(data->arg, unsigned), 16);
 	else if (data->flag[ll] || data->flag[l])
-		nb = itoa_base(va_arg(data->arg, unsigned long), 16);
+		nb = itoa_base(va_arg(data->arg, unsigned long long), 16);
 	else
 		nb = itoa_base(va_arg(data->arg, unsigned), 16);
 	manage_size(data, nb);
