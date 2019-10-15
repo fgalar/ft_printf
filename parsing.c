@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/09 17:42:02 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/15 20:42:01 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@ static void		get_size(t_data *data, const char *format)
 	int		n_size;
 
 	n_size = ft_atoi(&format[data->index]);
+	if (format[data->index] == '.')
+	{
+		data->precis = 0;
+		return ;
+	}
 	if (format[data->index - 1] == '.')
 		data->precis = n_size;
 	else
 		data->field = n_size;
-	data->index += ft_nbrlen(n_size);
+		data->index += ft_nbrlen(n_size);
 	if (data->precis || data->field)
 	{
 		if (data->field > data->precis)
@@ -51,10 +56,12 @@ static int		get_flag(const char *format, t_data *data)
 			data->flag[y] = 1;
 			if (data->flag[percent] && !print_a(data, "%"))
 				return (1);
+			if (format[data->index] == '.')
+				get_size(data, format);
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
-		else if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
 		{
 			get_size(data, format);
 			get_flag(format, data);

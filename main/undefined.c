@@ -18,11 +18,12 @@ int		main()
 	int	i;
 	int	y;
 	puts("\n# 0001");
-	i = ft_printf("1. %\n");
-	y = printf("2. %\n");
+	i = ft_printf("1. %");
+	y = printf("2. %");
 	print_len(i, y);	
-	puts("\n# 0002");
+	
 
+	puts("\n# 0002");
 	i = ft_printf("1. % \n");
 	y = printf("2. % \n");
 	print_len(i, y);	

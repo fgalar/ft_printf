@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/09 09:50:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/15 20:41:52 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int		ft_printf(const char *format, ...)
 {
 	t_data	*data;
+	int		len;
 
 	if (!(data = (t_data*)malloc(sizeof(t_data))))
 		return (-1);
@@ -25,10 +26,13 @@ int		ft_printf(const char *format, ...)
 	{
 		parsing(format, data);
 		/*puts(&data->conv);*/
-		if (data->conv)
-			dispatcher(data);
+		if (!data->conv)
+			break ;
+		dispatcher(data);
 	}
-	write(1, data->buffer, data->len);
+	len = data->len;
+	free(data);
+	write(1, data->buffer, len);
 	va_end(data->arg);
 	return (data->len);
 }
