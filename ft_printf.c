@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/15 20:41:52 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/17 18:38:46 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ int		ft_printf(const char *format, ...)
 	while (format[data->index])
 	{
 		parsing(format, data);
-		/*puts(&data->conv);*/
-		if (!data->conv)
-			break ;
-		dispatcher(data);
+		if (data->conv)
+			dispatcher(data);
 	}
 	len = data->len;
 	free(data);

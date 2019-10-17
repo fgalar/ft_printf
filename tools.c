@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 05:46:24 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/15 18:43:34 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/17 18:38:35 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,25 @@ void	print_majhex(char *nb)
 	while (nb[i])
 	{
 		if (ft_isalpha(nb[i]))
-			nb[i] = splitmin_maj(nb[i]);
+			nb[i] = ft_toupper(nb[i]);
 		i++;
 	}
 }
 
-int		print_a(t_data *d, char *arg)
-{
+int		print_a(t_data *d)
+{	
+	char	*arg;
+	
+	if (d->conv == 'Z')
+		arg = "Z";
+	else
+		arg = "%";
+	printf("%c\n", d->conv);
 	manage_size(d, arg);
 	ft_strcat(d->buffer, d->argument);
-	d->len = ft_strlen(d->buffer);
+	d->len += ft_strlen(d->argument);
 	d->index++;
+	d->conv = 0;
 	return (0);
 }
 

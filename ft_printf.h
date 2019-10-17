@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/09 16:06:54 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:09:21 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include "libft/libft.h"
 # define NB_CONV 10
-# define NB_FLAGS 11
+# define NB_FLAGS 12
 
 typedef enum		e_flags
 {
@@ -32,7 +32,8 @@ typedef enum		e_flags
 	less,
 	zero,
 	percent,
-	point
+	point, 
+	z
 }					t_flags;
 
 typedef struct	s_data
@@ -81,7 +82,7 @@ int				print_o(t_data *data);
 int				print_u(t_data *data);
 int				print_x(t_data *data);
 int				print_f(t_data *data);
-int				print_a(t_data *d, char *arg);
+int				print_a(t_data *d);
 
 void			manage_size(t_data *data, void *arg);
 char			*ft_ftoa(t_float *nb);

@@ -6,9 +6,10 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/07 19:46:56 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/17 12:09:26 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int		print_d(t_data *data)

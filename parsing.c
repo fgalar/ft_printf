@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/15 20:42:01 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/17 18:38:39 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-
-
 static void		get_size(t_data *data, const char *format)
 {
 	int		n_size;
 
 	n_size = ft_atoi(&format[data->index]);
-	if (format[data->index] == '.')
-	{
-		data->precis = 0;
-		return ;
-	}
 	if (format[data->index - 1] == '.')
 		data->precis = n_size;
 	else
 		data->field = n_size;
-		data->index += ft_nbrlen(n_size);
+	data->index += ft_nbrlen(n_size);
 	if (data->precis || data->field)
 	{
 		if (data->field > data->precis)
@@ -43,7 +36,7 @@ static void		get_size(t_data *data, const char *format)
 static int		get_flag(const char *format, t_data *data)
 {
 	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
-		"0", "%", "."};
+		"0", "%", ".", "Z"};
 	int			y;
 
 	y = 0;
@@ -54,14 +47,13 @@ static int		get_flag(const char *format, t_data *data)
 			if(y >= 0 && y <= 3 && (data->flag[hh] || data->flag[h] || data->flag[ll] || data->flag[l]))
 				init_new_arg(data);
 			data->flag[y] = 1;
-			if (data->flag[percent] && !print_a(data, "%"))
+			if ((data->flag[percent] || data->flag[z]) && (data->conv = *flags[y]))
 				return (1);
-			if (format[data->index] == '.')
-				get_size(data, format);
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
-		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+		if ((ft_isdigit(format[data->index]) && format[data->index] != '0') 
+			|| format[data->index - 1] == '.')
 		{
 			get_size(data, format);
 			get_flag(format, data);
@@ -79,8 +71,6 @@ static int		get_conv(const char *format, t_data *data)
 	
 	y = 0;
 	c = format[data->index];
-	if (format[data->index] == 'Z')
-		return (print_a(data, "Z"));
 	if (ft_ismaj(c) && c != 'X')
 	{
 		init_new_arg(data);
@@ -117,8 +107,6 @@ void			parsing(const char *format, t_data *data)
 			data->index++;
 			init_new_arg(data);
 			get_flag(format, data);
-			if (data->flag[percent])
-				return ;
 			get_conv(format, data);
 			return ;
 		}
@@ -126,8 +114,8 @@ void			parsing(const char *format, t_data *data)
 		{
 			/*puts("else");*/
 			data->buffer[data->len] = format[data->index];
-			data->index++;
 			data->len++;
+			data->index++;
 		}
 	}
 }

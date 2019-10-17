@@ -52,6 +52,9 @@ $(LIBFT) : $(OBJDIR)
 	@make -C $(LIBDIR)
 	@cp $(LIBFT) ./$(NAME)
 
+norme:
+	@norminette $(SRCS) libft/
+
 clean:
 	@rm -rf $(OBJDIR)
 	@make clean -C $(LIBDIR) 
