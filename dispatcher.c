@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:37 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/22 11:55:35 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int			dispatcher(t_data *data)
 	x = 0;
 	if (data->conv == 'Z' || data->conv == '%')
 	{
-		puts("coucou");
 		print_a(data);
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 05:46:24 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:35 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/22 11:54:11 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,7 @@ void	print_majhex(char *nb)
 
 int		print_a(t_data *d)
 {	
-	char	*arg;
-	
-	if (d->conv == 'Z')
-		arg = "Z";
-	else
-		arg = "%";
-	printf("%c\n", d->conv);
-	manage_size(d, arg);
+	d->conv == 'Z'? manage_size(d, "Z"): manage_size(d, "%");
 	ft_strcat(d->buffer, d->argument);
 	d->len += ft_strlen(d->argument);
 	d->index++;

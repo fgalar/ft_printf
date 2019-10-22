@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/22 12:31:54 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int		ft_printf(const char *format, ...)
 			dispatcher(data);
 	}
 	len = data->len;
-	free(data);
 	write(1, data->buffer, len);
 	va_end(data->arg);
-	return (data->len);
+	
+	free(data);
+	return (len);
 }

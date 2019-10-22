@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/09 13:57:18 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/22 12:50:26 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static void	handle_null(t_data *data)
 		layout = '0';
 	else
 		layout = ' ';
-	data->precis = 0;
-	data->flag[point] = 0;
 	if (data->field > 1 && !data->flag[less])
 	{
 		ft_memset(&data->buffer[data->len], layout, data->field);
@@ -41,6 +39,10 @@ int			print_c(t_data *data)
 	unsigned char	c;
 
 	c = va_arg(data->arg, int);
+	data->precis == data->width_max? data->width_max = 0: data->width_max;
+	data->precis = 0;
+	data->flag[point] = 0;
+
 	if (c == 0)
 		handle_null(data);
 	if (c != 0)

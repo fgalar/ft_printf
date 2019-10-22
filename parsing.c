@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:39 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/22 12:05:12 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,12 @@ static int		get_flag(const char *format, t_data *data)
 			data->flag[y] = 1;
 			if ((data->flag[percent] || data->flag[z]) && (data->conv = *flags[y]))
 				return (1);
+			if (data->flag[point])
+				data->precis = 0;
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
-		if ((ft_isdigit(format[data->index]) && format[data->index] != '0') 
-			|| format[data->index - 1] == '.')
+		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
 		{
 			get_size(data, format);
 			get_flag(format, data);
@@ -106,8 +107,8 @@ void			parsing(const char *format, t_data *data)
 			/*puts("get a %");*/
 			data->index++;
 			init_new_arg(data);
-			get_flag(format, data);
-			get_conv(format, data);
+			if (!get_flag(format, data))
+				get_conv(format, data);
 			return ;
 		}
 		else

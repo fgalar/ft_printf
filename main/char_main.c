@@ -66,5 +66,9 @@ int main()
 	i = ft_printf("1. |%05c|\n", 0); 
 	y = printf("2. |%05c|\n", 0);
 	print_len(i, y);
+	
+	i = ft_printf("|%.5c|\n", 42);
+	y = printf("|%.5c|\n", 42);	
+	print_len(i, y);
 	return (0);
 }
