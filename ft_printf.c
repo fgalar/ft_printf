@@ -6,14 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/22 12:31:54 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/23 18:37:54 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_data	*data;
 	int		len;
@@ -31,7 +31,7 @@ int		ft_printf(const char *format, ...)
 	len = data->len;
 	write(1, data->buffer, len);
 	va_end(data->arg);
-	
+	ft_bzero(data, sizeof(t_data));
 	free(data);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/09 17:28:40 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/30 18:08:20 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -504,5 +504,44 @@ int main()
 	i = ft_printf("|%#.5x|\n", 435);
 	y = printf("|%#.5x|\n", 435);
 	print_len(i, y);
+	
+	i = ft_printf("1. |%-8.3i|\n", -8473);
+	y = printf("2. |%-8.3i|\n", -8473);
+	print_len(i, y);
+
+	i = ft_printf("1. |% -7i|\n", 33);
+	y = printf("2. |% -7i|\n", 33);
+	print_len(i, y);
+
+	i = ft_printf("1. %-+10.5d\n", 4242);
+	y = printf("2. %-+10.5d\n", 4242);
+	print_len(i, y);
+
+
+	i = ft_printf("1. |%-8.3d|\n", 8375);
+	y = printf("2. |%-8.3d|\n", 8375);
+	print_len(i, y);
+
+	i = ft_printf("1. |%0-8.3d|\n", 8375);
+	y = printf("2. |%0-8.3d|\n", 8375);
+	print_len(i, y);
+	
+	i = ft_printf("1. |% -3.7i|\n", 3267); // precision qui se place mal
+	y = printf("2. |% -3.7i|\n", 3267);
+	print_len(i, y);
+
+	i = ft_printf("1. |%#3o|\n", 0); // place prefix ET nb 00
+	y = printf("2. |%#3o|\n", 0);
+	print_len(i, y);
+	
+	i = ft_printf("1. |%+.0i|\n", 0); // doit mettre le + meme quand valeur est nulle pour %d et %i
+	y = printf("2. |%+.0i|\n", 0);
+	print_len(i, y);
+
+
+	i = ft_printf("1. |%.03s|\n", NULL); // on dirait que (null) ne se met pas dans le tableau
+	y = printf("2. |%.03s|\n", NULL);
+	print_len(i, y);
+	
 	return 0;
 }

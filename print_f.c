@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/08/31 15:24:50 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/23 10:45:28 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ int		print_f(t_data *data)
 	nb->mantissa = get_mantissa(n, nb->mantissa);
 //	printf("mantissa = %s\n", nb->mantissa);
 	ft_ftoa(nb);
+	free(nb);
+	free(nb->exponent);
+	free(nb->mantissa);
 	return (0);
 }

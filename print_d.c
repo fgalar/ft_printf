@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:12:11 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/17 12:09:26 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/30 13:06:43 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		print_d(t_data *data)
 {
 	char	*nb;
-	
+
 	if (data->flag[hh])
 		nb = ft_itoa((char)va_arg(data->arg, int));
 	else if (data->flag[h])
@@ -24,7 +24,7 @@ int		print_d(t_data *data)
 		nb = itoa_base(va_arg(data->arg, long long), 10);
 	else if (data->flag[l])
 		nb = itoa_base(va_arg(data->arg, long), 10);
-	else 
+	else
 		nb = itoa_base(va_arg(data->arg, int), 10);
 	if (nb[0] == '-')
 	{

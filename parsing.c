@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/22 12:05:12 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/23 18:21:46 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,36 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void		get_size(t_data *data, const char *format)
+static int		get_flag(const char *format, t_data *data)
+{
+	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
+		"0", "%", ".", "Z"};
+	int			y;
+
+	y = 0;
+	while (y < NB_FLAGS)
+	{
+		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
+		{
+			if (y <= 3 && (data->flag[hh] || data->flag[h] || data->flag[ll]
+				|| data->flag[l]))
+				init_new_arg(data);
+			data->flag[y] = 1;
+			if ((data->flag[percent] || data->flag[z]) && (data->conv = 1))
+				return (1);
+			if (y == 10)
+				data->precis = 0;
+			data->index += ft_strlen(flags[y]);
+			get_flag(format, data);
+		}
+		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
+			get_size(data, format);
+		y++;
+	}
+	return (0);
+}
+
+void			get_size(t_data *data, const char *format)
 {
 	int		n_size;
 
@@ -31,71 +60,41 @@ static void		get_size(t_data *data, const char *format)
 		else
 			data->width_max = data->precis;
 	}
+	get_flag(format, data);
 }
 
-static int		get_flag(const char *format, t_data *data)
+static void		core_get_conv(t_data *data)
 {
-	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
-		"0", "%", ".", "Z"};
-	int			y;
-
-	y = 0;
-	while (y < NB_FLAGS)
-	{
-		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
-		{
-			if(y >= 0 && y <= 3 && (data->flag[hh] || data->flag[h] || data->flag[ll] || data->flag[l]))
-				init_new_arg(data);
-			data->flag[y] = 1;
-			if ((data->flag[percent] || data->flag[z]) && (data->conv = *flags[y]))
-				return (1);
-			if (data->flag[point])
-				data->precis = 0;
-			data->index += ft_strlen(flags[y]);
-			get_flag(format, data);
-		}
-		if (ft_isdigit(format[data->index]) && format[data->index] != '0')
-		{
-			get_size(data, format);
-			get_flag(format, data);
-		}
-		y++;
-	}
-	return (0);
+	init_new_arg(data);
+	data->index++;
+	data->flag[l] = 1;
 }
-static int		get_conv(const char *format, t_data *data)
+
+static void		get_conv(const char *format, t_data *data)
 {
-	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'i', 'o', 'u', 'x', 'X',
-		'f'};
+	static char	conv[NB_CONV] = {'c', 's', 'p', 'd',
+						'i', 'o', 'u', 'x', 'X', 'f'};
 	int			y;
 	char		c;
-	
+
 	y = 0;
 	c = format[data->index];
-	if (ft_ismaj(c) && c != 'X')
+	if (ft_ismaj(c) && c != 'X' && (c = ft_tolower(format[data->index])))
 	{
 		init_new_arg(data);
 		data->flag[ll] = 1;
-		c = ft_tolower(format[data->index]);
 	}
 	while (y < NB_CONV)
 	{
-		if (c == conv[y])
-		{
-			data->conv = conv[y];
-			data->index++;
-			return (0);
-		}
+		if (c == conv[y] && data->index++ && (data->conv = conv[y]))
+			return ;
 		y++;
 	}
-	if (!data->conv && format[data->index+1])
+	if (!data->conv && format[data->index + 1])
 	{
-		data->index++;
-		init_new_arg(data);
-		data->flag[l] = 1;
+		core_get_conv(data);
 		get_conv(format, data);
-	}	
-	return (-1);
+	}
 }
 
 void			parsing(const char *format, t_data *data)
@@ -104,7 +103,6 @@ void			parsing(const char *format, t_data *data)
 	{
 		if (format[data->index] == '%')
 		{
-			/*puts("get a %");*/
 			data->index++;
 			init_new_arg(data);
 			if (!get_flag(format, data))
@@ -113,7 +111,6 @@ void			parsing(const char *format, t_data *data)
 		}
 		else
 		{
-			/*puts("else");*/
 			data->buffer[data->len] = format[data->index];
 			data->len++;
 			data->index++;

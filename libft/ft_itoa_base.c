@@ -6,14 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 08:59:15 by fanny             #+#    #+#             */
-/*   Updated: 2019/07/30 17:51:02 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/30 10:48:22 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	conv_len(long long n, int base)
+int		conv_len(long long n, int base)
 {
 	int					len;
 	unsigned long long	nb;
@@ -40,7 +40,7 @@ int	conv_len(long long n, int base)
 void	convert(unsigned long long n, int b, char *nb, int i)
 {
 	char	*base;
-   
+
 	base = "0123456789abcdef";
 	if (n > 0)
 	{
@@ -55,11 +55,11 @@ char	*itoa_base(long long n, int base)
 	char				*nb;
 
 	len = conv_len(n, base);
-	if (base < 2 || base > 16 
+	if (base < 2 || base > 16
 			|| !(nb = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	if (n == 0)
-		return("0");
+		return ("0");
 	if (n < 0 && base == 10)
 	{
 		nb[0] = '-';
@@ -67,5 +67,6 @@ char	*itoa_base(long long n, int base)
 	}
 	convert(n, base, nb, (len - 1));
 	nb[len] = '\0';
+	free(nb);
 	return (nb);
 }

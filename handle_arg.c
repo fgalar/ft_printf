@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:33 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/10/30 18:02:41 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,21 @@ static void		get_arg(t_data *d, char *arg, int len)
 {
 	int		len_p;
 	int		len_arg;
+	int		place;
 
 	len_p = ft_strlen(d->prefix);
 	len_arg = ft_strlen(arg);
+	place = 0;
 	if (d->flag[less] && d->width_max >= len)
 	{
-		if (!d->precis)
-			len_p += len_arg;
-		ft_strncpy(&d->argument[(len_p + d->precis) - len_arg], arg, len_arg);
+		if (!d->prfx)
+			d->precis > len_arg ? (place = d->precis - len_arg) :
+			(place = 0);
+		else if (d->prfx)
+			d->precis > len_arg ? (place = (d->precis + len_p) - len_arg) :
+			(place = len_p);
+		printf("prefix : |%s| && place = %d\n",d->prefix, d->ad_pf);
+		ft_strncpy(&d->argument[place], arg, len_arg);
 	}
 	else if (d->precis > (len_arg + len_p) && d->precis > d->field)
 		ft_strncpy(&d->argument[d->ad_pf - len_arg], arg, len_arg);
@@ -115,16 +122,16 @@ void			manage_size(t_data *d, void *arg)
 		len_brut = 0;
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;
-	if (d->flag[space] && !d->field && !d->neg)
-	{
-		d->prfx = 1;
-		ft_strcpy(d->prefix, " ");
-		d->ad_pf = 1;
-		d->field = d->precis + 1;
-	}
 	ft_memset(d->argument, ' ', len);
 	if (d->prfx || d->conv == 'p')
 		get_prefix(d, len, len_brut);
+	if (d->flag[space] && d->field > len_brut && !d->neg)
+	{
+		d->prfx = 1;
+		d->prefix[0] = ' ';
+		d->ad_pf = 1;
+		d->field = d->precis + 1;
+	}
 	if (d->precis > len_brut || d->flag[zero])
 		get_precis(d, len);
 	if (len_brut)

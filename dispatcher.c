@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/22 11:55:35 by fanny            ###   ########.fr       */
+/*   Updated: 2019/10/23 13:59:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			dispatcher(t_data *data)
 		print_d, print_o, print_u, print_x, print_x, print_f};
 
 	x = 0;
-	if (data->conv == 'Z' || data->conv == '%')
+	if (data->conv == 1)
 	{
 		print_a(data);
 		return (0);
