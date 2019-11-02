@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/30 18:08:20 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/02 18:26:57 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -534,12 +534,12 @@ int main()
 	y = printf("2. |%#3o|\n", 0);
 	print_len(i, y);
 	
-	i = ft_printf("1. |%+.0i|\n", 0); // doit mettre le + meme quand valeur est nulle pour %d et %i
+	i = ft_printf("1. |%+.0i|\n", 0);
 	y = printf("2. |%+.0i|\n", 0);
 	print_len(i, y);
 
 
-	i = ft_printf("1. |%.03s|\n", NULL); // on dirait que (null) ne se met pas dans le tableau
+	i = ft_printf("1. |%.03s|\n", NULL);
 	y = printf("2. |%.03s|\n", NULL);
 	print_len(i, y);
 	

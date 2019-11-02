@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/30 18:02:41 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/02 18:22:47 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,11 @@ static int		get_arg_size(t_data *d, void *arg)
 	len = ft_strlen(arg);
 	if (d->flag[point] && !d->width_max && !ft_strcmp(arg, "0") &&
 			!(d->conv == 'o' && d->flag[diese]) && !(d->conv == 'p'))
-		return (0);
-	if (d->conv == 'o' && d->flag[diese] && !ft_strcmp(arg, "0"))
 		len = 0;
 	if ((d->conv == 'd' && ((d->flag[most]) || d->flag[space] || d->neg)
 				&& (d->prfx = 1)))
 		len++;
-	if ((d->flag[diese] && (ft_strcmp(arg, "0") || (d->conv == 'o')))
+	if ((d->flag[diese] && ft_strcmp(arg, "0"))
 			|| d->conv == 'p')
 	{
 		if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
@@ -102,7 +100,6 @@ static void		get_arg(t_data *d, char *arg, int len)
 		else if (d->prfx)
 			d->precis > len_arg ? (place = (d->precis + len_p) - len_arg) :
 			(place = len_p);
-		printf("prefix : |%s| && place = %d\n",d->prefix, d->ad_pf);
 		ft_strncpy(&d->argument[place], arg, len_arg);
 	}
 	else if (d->precis > (len_arg + len_p) && d->precis > d->field)
@@ -118,7 +115,7 @@ void			manage_size(t_data *d, void *arg)
 
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
-	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point])
+	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point] && d->conv == 'd')
 		len_brut = 0;
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;

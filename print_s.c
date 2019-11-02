@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/10/30 11:19:59 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/02 16:06:29 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static char	*precis_str(t_data *d, char *s)
 	int		i;
 	char	*arg;
 
-	len = d->precis;
+	d->precis ? (len = d->precis) : (len = d->width_max);
 	i = 0;
 	arg = (char*)malloc(sizeof(char) * (d->precis + 1));
 	ft_bzero(arg, d->precis + 1);
-	if (!d->precis)
-		return ("0");
 	while (len > i)
 	{
 		arg[i] = s[i];
