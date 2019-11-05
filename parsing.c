@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/23 18:21:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:00:00 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static int		get_flag(const char *format, t_data *data)
 {
 	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
-		"0", "%", ".", "Z"};
+		"0", "%", "."};
 	int			y;
 
 	y = 0;
@@ -29,10 +29,8 @@ static int		get_flag(const char *format, t_data *data)
 				|| data->flag[l]))
 				init_new_arg(data);
 			data->flag[y] = 1;
-			if ((data->flag[percent] || data->flag[z]) && (data->conv = 1))
+			if (data->flag[percent])
 				return (1);
-			if (y == 10)
-				data->precis = 0;
 			data->index += ft_strlen(flags[y]);
 			get_flag(format, data);
 		}
@@ -63,13 +61,6 @@ void			get_size(t_data *data, const char *format)
 	get_flag(format, data);
 }
 
-static void		core_get_conv(t_data *data)
-{
-	init_new_arg(data);
-	data->index++;
-	data->flag[l] = 1;
-}
-
 static void		get_conv(const char *format, t_data *data)
 {
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd',
@@ -90,24 +81,17 @@ static void		get_conv(const char *format, t_data *data)
 			return ;
 		y++;
 	}
-	if (!data->conv && format[data->index + 1])
-	{
-		core_get_conv(data);
-		get_conv(format, data);
-	}
 }
 
 void			parsing(const char *format, t_data *data)
 {
-	while (format[data->index])
-	{
 		if (format[data->index] == '%')
 		{
 			data->index++;
 			init_new_arg(data);
 			if (!get_flag(format, data))
 				get_conv(format, data);
-			return ;
+			dispatcher(format, data);
 		}
 		else
 		{
@@ -115,5 +99,4 @@ void			parsing(const char *format, t_data *data)
 			data->len++;
 			data->index++;
 		}
-	}
 }

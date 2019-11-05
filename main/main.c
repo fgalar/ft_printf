@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/02 18:26:57 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:30:59 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ int main()
 	y = printf("adresse de i :%p et y : %p\t%s %c%c\n", &i, &y, "salut", '!', '?');
 	print_len(i, y);
 	
-	
 	ft_printf("***** FAKING PRINTF CONVERSION d ********************************\n");
 	i = ft_printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);
 	printf("***** TRUE PRINTF *****\n");
 	y = printf("%d\t%d\t%d\t%d\t%d\n", INT_MIN, INT_MAX, 0, 42, -56);
 	print_len(i, y);
-	
+
 	ft_printf("****** FAKING PRINTF CONVERSION i ********************************\n");
 	i = ft_printf("%i\t%i\t%i\t%i\t%i\n", INT_MIN, INT_MAX, 0, 42, -56);
 	printf("***** TRUE PRINTF ******\n");
@@ -476,11 +475,7 @@ int main()
 	y = printf("|% c|\n", 0);
 	print_len(i, y);
 
-	puts("XII. 91. FAIL (@moulitest: %#.o %#.0o, 0, 0);");
-	i = ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
-	y = printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
-	print_len(i, y);
-
+	
 	puts("XIII.121. FAIL(%0d, -42);");
 	i = ft_printf("|%0d|\n", -42);
 	y = printf("|%0d|\n", -42);
@@ -526,11 +521,11 @@ int main()
 	y = printf("2. |%0-8.3d|\n", 8375);
 	print_len(i, y);
 	
-	i = ft_printf("1. |% -3.7i|\n", 3267); // precision qui se place mal
+	i = ft_printf("1. |% -3.7i|\n", 3267);
 	y = printf("2. |% -3.7i|\n", 3267);
 	print_len(i, y);
 
-	i = ft_printf("1. |%#3o|\n", 0); // place prefix ET nb 00
+	i = ft_printf("1. |%#3o|\n", 0);
 	y = printf("2. |%#3o|\n", 0);
 	print_len(i, y);
 	
@@ -542,6 +537,25 @@ int main()
 	i = ft_printf("1. |%.03s|\n", NULL);
 	y = printf("2. |%.03s|\n", NULL);
 	print_len(i, y);
+
+  	i = ft_printf("@moulitest x with null: |%5.x| |%5.0x|\n", 0, 0);
+  	y = printf("@moulitest x with null: |%5.x| |%5.0x|\n", 0, 0);
+	print_len(i, y);
+
+  	i = ft_printf("@moulitest o with null: |%5.o| |%5.0o|\n", 0, 0);
+  	y = printf("@moulitest o with null: |%5.o| |%5.0o|\n", 0, 0);
+	print_len(i, y);
 	
+	puts("XII. (@moulitest: %#.o %#.0o, 0, 0);");
+	i = ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	y = printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	print_len(i, y);
+	
+	ft_printf("bonjour tout le monde\n");
+	i = ft_printf("|%|\t|%4.s|\t|%.p|, |%.0p|\n","42", 0, 0);
+	y = printf("|%|\t|%4.s|\t|%.p|, |%.0p|\n","42", 0, 0);
+	print_len(i, y);
+
+	ft_printf("%.06d", 49);
 	return 0;
 }

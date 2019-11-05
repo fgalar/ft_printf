@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/02 18:22:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/05 18:50:28 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		get_arg_size(t_data *d, void *arg)
 
 	len = ft_strlen(arg);
 	if (d->flag[point] && !d->width_max && !ft_strcmp(arg, "0") &&
-			!(d->conv == 'o' && d->flag[diese]) && !(d->conv == 'p'))
+			!(d->conv == 'o' && d->flag[diese]))
 		len = 0;
 	if ((d->conv == 'd' && ((d->flag[most]) || d->flag[space] || d->neg)
 				&& (d->prfx = 1)))
@@ -115,14 +115,14 @@ void			manage_size(t_data *d, void *arg)
 
 	len = get_arg_size(d, arg);
 	len_brut = ft_strlen(arg);
-	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point] && d->conv == 'd')
+	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point] && !d->flag[diese])
 		len_brut = 0;
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;
 	ft_memset(d->argument, ' ', len);
 	if (d->prfx || d->conv == 'p')
 		get_prefix(d, len, len_brut);
-	if (d->flag[space] && d->field > len_brut && !d->neg)
+	if (d->flag[space] && !d->neg)
 	{
 		d->prfx = 1;
 		d->prefix[0] = ' ';

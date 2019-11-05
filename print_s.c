@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/02 16:06:29 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:10:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static char	*precis_str(t_data *d, char *s)
 
 	d->precis ? (len = d->precis) : (len = d->width_max);
 	i = 0;
-	arg = (char*)malloc(sizeof(char) * (d->precis + 1));
+	if(!(arg = (char*)malloc(sizeof(char) * (d->precis + 1)))
+		|| (d->precis == 0 && d->field == 0))
+		return ("0");
 	ft_bzero(arg, d->precis + 1);
 	while (len > i)
 	{
@@ -50,12 +52,9 @@ int			print_s(t_data *data)
 		s = "(null)";
 	if (data->flag[point])
 		s = precis_str(data, s);
-	if (s)
-	{
-		manage_size(data, s);
-		ft_strcat(data->buffer, data->argument);
-		data->len = ft_strlen(data->buffer);
-	}
+	manage_size(data, s);
+	ft_strcat(data->buffer, data->argument);
+	data->len = ft_strlen(data->buffer);
 	data->conv = 0;
 	return (0);
 }

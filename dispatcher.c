@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/23 13:59:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:32:27 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			dispatcher(t_data *data)
+int			dispatcher(const char *format, t_data *data)
 {
 	int			x;
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'o', 'u', 'x', 'X',
@@ -21,9 +21,11 @@ int			dispatcher(t_data *data)
 		print_d, print_o, print_u, print_x, print_x, print_f};
 
 	x = 0;
-	if (data->conv == 1)
+	if (!data->conv)
 	{
-		print_a(data);
+		//printf("format[%d] = '%c'\n", data->index, format[data->index]);
+		if (data->field || data->flag[percent])
+			print_a(data, format[data->index]);
 		return (0);
 	}
 	if (data->conv == 'i')
