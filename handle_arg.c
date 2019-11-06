@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/05 18:50:28 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 17:10:31 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	}
 	else if (d->precis >= len_arg)
 	{
+		//printf("d->argument = |%s|, len_t = %d, d->precis = %d; len = %d==> %d\n", d->argument, len_t, d->precis, len, len_t - (d->precis+len));
 		ft_strncpy(&d->argument[(len_t) - (d->precis + len)], d->prefix, len);
 		d->ad_pf = ((len_t - 1) - d->precis) + len;
 	}
@@ -51,8 +52,8 @@ static int		get_arg_size(t_data *d, void *arg)
 	if ((d->conv == 'd' && ((d->flag[most]) || d->flag[space] || d->neg)
 				&& (d->prfx = 1)))
 		len++;
-	if ((d->flag[diese] && ft_strcmp(arg, "0"))
-			|| d->conv == 'p')
+	//printf("len_t = %d\n", len);
+	if ((d->flag[diese] && ft_strcmp(arg, "0")) || d->conv == 'p')
 	{
 		if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
 			len += 2;
@@ -63,7 +64,7 @@ static int		get_arg_size(t_data *d, void *arg)
 	if (len < d->width_max)
 		len = d->width_max;
 	if (d->precis >= len && d->precis == d->width_max && d->prfx)
-		d->conv == 'x' | d->conv == 'X' ? len += 2 : len++;
+		d->conv == 'x' | d->conv == 'X' | d->conv == 'p'? len += 2 : len++;
 	return (len);
 }
 

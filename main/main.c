@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/05 19:30:59 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 17:21:15 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -556,6 +556,82 @@ int main()
 	y = printf("|%|\t|%4.s|\t|%.p|, |%.0p|\n","42", 0, 0);
 	print_len(i, y);
 
-	ft_printf("%.06d", 49);
+	i = ft_printf("%.06d\n", 49);
+	y = printf("%.06d\n", 49);
+	print_len(i, y);
+	
+	i = ft_printf("%.5p\n", 0);
+	y = printf("%.5p\n", 0);
+	print_len(i, y);
+
+	i = ft_printf("%4.15s\n", "42 is the answer");
+	y = printf("%4.15s\n", "42 is the answer");
+	print_len(i, y);
+	char	c;
+
+	c = '!';
+	ft_printf("c: %c.\n", c);
+	printf("c: %c.\n----------\n", c);
+	ft_printf("1c: %1c.\n", c);
+	printf("1c: %1c.\n----------\n", c);
+	ft_printf("7c: %7c.\n", c);
+	printf("7c: %7c.\n----------\n", c);
+	ft_printf("-1c: %-1c.\n", c);
+	printf("-1c: %-1c.\n----------\n", c);
+	ft_printf("-5c: %-5c.\n", c);
+	printf("-5c: %-5c.\n----------\n", c);
+	c = 'Z';
+	ft_printf("c: %c.\n", c);
+	printf("c: %c.\n----------\n", c);
+	ft_printf("12c: %12c.\n", c);
+	printf("12c: %12c.\n----------\n", c);
+	ft_printf("-1c: %-1c.\n", c);
+	printf("-1c: %-1c.\n----------\n", c);
+	ft_printf("1c: %1c.\n", c);
+	printf("1c: %1c.\n----------\n", c);
+	ft_printf("5c: %5c.\n", c);
+	printf("5c: %5c.\n----------\n", c);
+	ft_printf("-5c: %-5c.\n", c);
+	printf("-5c: %-5c.\n----------\n", c);
+
+	ft_printf("c: %c.\n", 0);
+	printf("c: %c.\n----------\n", 0);
+
+	ft_printf("%%.\n");
+	printf("%%.\n----------\n");
+	ft_printf("%%%%%d.\n", -120);
+	printf("%%%%%d.\n----------\n", -120);
+	int			ans;
+	int			real;
+
+	ans = ft_printf("Okalmos : %c. %f. %d. %x.\n", 'A', 1235.123, 0, 56985);
+	real = printf("Okalmos : %c. %f. %d. %x.\n", 'A', 1235.123, 0, 56985);
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
+
+	ans = ft_printf("Okalmos : %12c. %-5f. %020d. %#x.\n", 'A', 1235.123, 0, 56985);
+	real = printf("Okalmos : %12c. %-5f. %020d. %#x.\n", 'A', 1235.123, 0, 56985);
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
+
+	ans = ft_printf("%s. %s. %s. %d.\n", "asdqwdas das", "asdasd asdasasdasdw qbhd", "", -569521);
+	real = printf("%s. %s. %s. %d.\n", "asdqwdas das", "asdasd asdasasdasdw qbhd", "", -569521);
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
+
+	ans = ft_printf("");
+	real = printf("");
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
+
+	ans = ft_printf("%-43d. %12s. %096.5d.\n", -321, "Oaklaasd", -9658);
+	real = printf("%-43d. %12s. %096.5d.\n", -321, "Oaklaasd", -9658);
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
+
+	ans = ft_printf("Okalmos : %c. %.0d. %.0x., %d.\n", 'A', 1235, 0, 56985);
+	real = printf("Okalmos : %c. %.0d. %.0x., %d.\n", 'A', 1235, 0, 56985);
+	printf("return ft_printf: %d\n", ans);
+	printf("return printf: %d\n----------\n", real);
 	return 0;
 }

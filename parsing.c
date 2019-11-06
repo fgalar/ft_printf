@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/05 17:00:00 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 16:04:32 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static int		get_flag(const char *format, t_data *data)
 				|| data->flag[l]))
 				init_new_arg(data);
 			data->flag[y] = 1;
+			if (y == 10)
+				data->precis = 0;
 			if (data->flag[percent])
 				return (1);
 			data->index += ft_strlen(flags[y]);
@@ -46,7 +48,8 @@ void			get_size(t_data *data, const char *format)
 	int		n_size;
 
 	n_size = ft_atoi(&format[data->index]);
-	if (format[data->index - 1] == '.')
+	if (format[data->index - 1] == '.' || (data->flag[point] && data->precis ==
+		0))
 		data->precis = n_size;
 	else
 		data->field = n_size;
@@ -64,7 +67,7 @@ void			get_size(t_data *data, const char *format)
 static void		get_conv(const char *format, t_data *data)
 {
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd',
-						'i', 'o', 'u', 'x', 'X', 'f'};
+						'i', 'o', 'u', 'x', 'X'};
 	int			y;
 	char		c;
 
@@ -85,18 +88,18 @@ static void		get_conv(const char *format, t_data *data)
 
 void			parsing(const char *format, t_data *data)
 {
-		if (format[data->index] == '%')
-		{
-			data->index++;
-			init_new_arg(data);
-			if (!get_flag(format, data))
-				get_conv(format, data);
-			dispatcher(format, data);
-		}
-		else
-		{
-			data->buffer[data->len] = format[data->index];
-			data->len++;
-			data->index++;
-		}
+	if (format[data->index] == '%')
+	{
+		data->index++;
+		init_new_arg(data);
+		if (!get_flag(format, data))
+			get_conv(format, data);
+		dispatcher(format, data);
+	}
+	else
+	{
+		data->buffer[data->len] = format[data->index];
+		data->len++;
+		data->index++;
+	}
 }

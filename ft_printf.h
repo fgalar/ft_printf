@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/05 17:31:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 16:02:57 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# define NB_CONV 10
+# define NB_CONV 9
 # define NB_FLAGS 11
 
 typedef enum		e_flags

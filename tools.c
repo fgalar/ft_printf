@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:58:14 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/05 17:32:30 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 15:56:01 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ void	print_majhex(char *nb)
 
 void	print_a(t_data *d, unsigned char c)
 {
-	//printf("format[%d] = '%c'\n",d->index, c);
-	manage_size(d,(char*)&c);
+	manage_size(d, (char*)&c);
 	d->precis = 0;
 	d->flag[point] = 0;
 	ft_strcat(d->buffer, d->argument);
-	printf("%s\n", d->argument);
 	d->len += ft_strlen(d->argument);
 	d->index++;
 	d->conv = 0;

@@ -6,7 +6,7 @@
 /*   By: kemethen <kemethen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 16:46:30 by amamy             #+#    #+#             */
-/*   Updated: 2019/10/01 18:16:28 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/06 11:34:53 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int		main(void)
 	ft_printf("18) Mon PRINTF  : |%2.5s|\n", "printf");
 	printf("19) Vrai PRINTF : |%-10.2s|\n", "424242424242");
 	ft_printf("19) Mon PRINTF  : |%-10.2s|\n", "424242424242");
-	printf("20) Vrai PRINTF : |%1.0s|\n", "123456789");
-	ft_printf("20) Mon PRINTF  : |%1.0s|\n", "123456789");
 	printf("20) Vrai PRINTF : |%-1.0s|\n", "123456789");
 	ft_printf("20) Mon PRINTF  : |%-1.0s|\n", "123456789");
 	printf("21) Vrai PRINTF : |%s|\n", NULL);
