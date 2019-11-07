@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/06 17:21:15 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/07 20:48:26 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -633,5 +633,9 @@ int main()
 	real = printf("Okalmos : %c. %.0d. %.0x., %d.\n", 'A', 1235, 0, 56985);
 	printf("return ft_printf: %d\n", ans);
 	printf("return printf: %d\n----------\n", real);
+
+	i = ft_printf("mine|%-+1.d|%- 1.d|%-01.d|%+ 1.d|%+01.d|% 01.d|%-+ 01.d|\n", 0, 0, 0, 0, 0, 0, 0);
+	y = printf("true|%-+1.d|%- 1.d|%-01.d|%+ 1.d|%+01.d|% 01.d|%-+ 01.d|\n", 0, 0, 0, 0, 0, 0, 0);
+	print_len(i, y);
 	return 0;
 }
