@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/03 16:34:03 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/12 15:15:41 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		print_o(t_data *data)
 		oct = itoa_base(va_arg(data->arg, unsigned long), 8);
 	else
 		oct = itoa_base(va_arg(data->arg, unsigned), 8);
-	if (data->flag[diese] && data->precis)
+	if (data->flag[diese] && data->precis && ft_strcmp(oct, "0"))
 		data->precis--;
 	manage_size(data, oct);
 	ft_strcat(data->buffer, data->argument);

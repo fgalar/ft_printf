@@ -18,9 +18,10 @@ int main()
 {
 	int i = 0;
 	int y = 0;
-
-	i = ft_printf("|%|\t|%%|\t|%5%|\n");
-	y = printf("|%|\t|%%|\t|%5%|\n");
+	
+	ft_printf("NULL\n");
+	i = ft_printf();
+	y = printf();
 	print_len(i, y);
 	return 0;
 }

@@ -7,6 +7,7 @@ int		main(void)
 	ft_printf("--------------------%%f--------------------\n");
 	printf("01) VRAI PRINTF : |%f|\n", 42.42);
 	ft_printf("01) MON PRINTF  : |%f|\n", 42.42);
+	exit(1);
 	printf("02) VRAI PRINTF : |%f|\n", 42.4242421);
 	ft_printf("02) MON PRINTF  : |%f|\n", 42.4242421);
 	printf("03) VRAI PRINTF : |%15f|\n", 10.1111111);

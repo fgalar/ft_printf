@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/23 10:45:28 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/14 19:02:30 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int		print_f(t_data *data)
 	else
 		nb->sign = 0;
 	nb->exp = ft_log(n);
-	//printf("%d\n", nb->sign);
+	printf("%d\n", nb->sign);
 	nb->exponent = itoa_base((nb->exp + 1023), 2); // exp -> str
-//	printf("exp = %s\n", nb->exponent);
+	printf("exp = %s\n", nb->exponent);
 	
 	nb->mantissa = get_mantissa(n, nb->mantissa);
 //	printf("mantissa = %s\n", nb->mantissa);

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/06 16:04:32 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/14 18:53:53 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			get_size(t_data *data, const char *format)
 static void		get_conv(const char *format, t_data *data)
 {
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd',
-						'i', 'o', 'u', 'x', 'X'};
+						'i', 'o', 'u', 'x', 'X', 'f'};
 	int			y;
 	char		c;
 

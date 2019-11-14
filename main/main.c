@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/07 20:48:26 by fanny            ###   ########.fr       */
+/*   Updated: 2019/11/14 18:06:52 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -414,7 +414,6 @@ int main()
 	i = ft_printf("@moulitest: %.10d\n", -42);
 	y = printf("@moulitest: %.10d\n", -42);
 	print_len(i, y);
-	
 	ft_printf("# 0180 (unsigned long)\n");
 	i = ft_printf("%u\n", -42);
 	y = printf("%u\n", -42);
@@ -637,5 +636,73 @@ int main()
 	i = ft_printf("mine|%-+1.d|%- 1.d|%-01.d|%+ 1.d|%+01.d|% 01.d|%-+ 01.d|\n", 0, 0, 0, 0, 0, 0, 0);
 	y = printf("true|%-+1.d|%- 1.d|%-01.d|%+ 1.d|%+01.d|% 01.d|%-+ 01.d|\n", 0, 0, 0, 0, 0, 0, 0);
 	print_len(i, y);
+
+	i = ft_printf("1.%23.5o|%-23.5o|%#23.5o|%023.5o\n", 0U, 0U, 0U, 0U);
+	y = printf("1.%23.5o|%-23.5o|%#23.5o|%023.5o\n", 0U, 0U, 0U, 0U);
+	print_len(i, y);
+	
+	i = ft_printf("2.%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
+	y = printf("2.%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
+	print_len(i, y);
+
+	i = ft_printf("3.%.5hho|%-.5hho|%#.5hho|%0.5hho\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	y = printf("3.%.5hho|%-.5hho|%#.5hho|%0.5hho\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	print_len(i, y);
+
+	i = ft_printf("4.%-#1.5hX|%-01.5hX|%#01.5hX|%-#01.5hX\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	y = printf("4.%-#1.5hX|%-01.5hX|%#01.5hX|%-#01.5hX\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	print_len(i, y);
+	
+	i = ft_printf("%-#.5hX|%-0.5hX|%#0.5hX|%-#0.5hX\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	y = printf("%-#.5hX|%-0.5hX|%#0.5hX|%-#0.5hX\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	print_len(i, y);
+	
+	i = ft_printf("%1.X|%-1.X|%#1.X|%01.X\n", 0U, 0U, 0U, 0U);
+	y = printf("%1.X|%-1.X|%#1.X|%01.X\n", 0U, 0U, 0U, 0U);
+	print_len(i, y);
+	i = ft_printf("%-#1.5hx|%-01.5hx|%#01.5hx|%-#01.5hx\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	y = printf("%-#1.5hx|%-01.5hx|%#01.5hx|%-#01.5hx\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	print_len(i, y);
+
+	
+	i = ft_printf("%1.x|%-1.x|%#1.x|%01.x\n", 0U, 0U, 0U, 0U);
+	y = printf("%1.x|%-1.x|%#1.x|%01.x\n", 0U, 0U, 0U, 0U);
+	print_len(i, y);
+
+	i = ft_printf("%.5hx|%-.5hx|%#.5hx|%0.5hx\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	y = printf("%.5hx|%-.5hx|%#.5hx|%0.5hx\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	print_len(i, y);
+
+	i = ft_printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	y = printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	print_len(i, y);
+	i = ft_printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	y = printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	print_len(i, y);
+
+	i = ft_printf("%-+.5d|%- .5d|%-0.5d|%+ .5d|%+0.5d|% 0.5d|%-+ 0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	y = printf("%-+.5d|%- .5d|%-0.5d|%+ .5d|%+0.5d|% 0.5d|%-+ 0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	print_len(i, y);
+
+	i = ft_printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	y = printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
+	print_len(i, y);
+
+	i = ft_printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	y = printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	print_len(i, y);
+
+	i = ft_printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	y = printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	print_len(i, y);
+
+	i = ft_printf("%-+.5d|%- .5d|%-0.5d|%+ .5d|%+0.5d|% 0.5d|%-+ 0.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	y = printf("%-+.5d|%- .5d|%-0.5d|%+ .5d|%+0.5d|% 0.5d|%-+ 0.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	print_len(i, y);
+	
+	i = ft_printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	y = printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
+	print_len(i, y);
+exit(1);
 	return 0;
 }
