@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/14 19:02:30 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/15 17:48:37 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*get_mantissa(double nb, char *tab)
 	
 	facto = (nb / ft_power(2, ft_log(nb)) -1); //	calcul du mantisse x = nb/2^log
 	i = 0;
-	while (i < 52) // a changer apres pour les double = 52bits
+	while (i < 23) // a changer apres pour les double = 52bits
 	{
 		facto += facto;
 		if (facto >= 1)
@@ -68,15 +68,13 @@ int		print_f(t_data *data)
 	else
 		nb->sign = 0;
 	nb->exp = ft_log(n);
-	printf("%d\n", nb->sign);
-	nb->exponent = itoa_base((nb->exp + 1023), 2); // exp -> str
-	printf("exp = %s\n", nb->exponent);
+//	printf("sign = %d\n", nb->sign);
+	nb->exponent = itoa_base((nb->exp + 127), 2); // exp -> str
+//	printf("exp = %s\n", nb->exponent);
 	
 	nb->mantissa = get_mantissa(n, nb->mantissa);
 //	printf("mantissa = %s\n", nb->mantissa);
-	ft_ftoa(nb);
-	free(nb);
-	free(nb->exponent);
-	free(nb->mantissa);
+	ft_strcat(data->buffer, ft_ftoa(data, nb));
+	data->len += ft_strlen(data->buffer);
 	return (0);
 }
