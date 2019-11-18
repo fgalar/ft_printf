@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/15 17:48:37 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:09:47 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int		ft_log(double value)
 	return (index);
 }
 
-char	*get_mantissa(double nb, char *tab)
+char	*get_mantissa(float nb, char *tab)
 {
-	double		facto;
+	float		facto;
 	int			i;
 	
 	facto = (nb / ft_power(2, ft_log(nb)) -1); //	calcul du mantisse x = nb/2^log
 	i = 0;
-	while (i < 23) // a changer apres pour les double = 52bits
+	while (i < 64) // a changer apres pour les double = 52bits
 	{
 		facto += facto;
 		if (facto >= 1)
@@ -55,13 +55,13 @@ char	*get_mantissa(double nb, char *tab)
 
 int		print_f(t_data *data)
 {
-	double			n;
+	float			n;
 	t_float			*nb;
 
-	n = va_arg(data->arg, double);
+	n = (float)va_arg(data->arg, double);
 	if (!(nb = ((t_float*)malloc(sizeof(t_float))))
-				|| !(nb->exponent = (char*)malloc(sizeof(char) * 12))
-				|| !(nb->mantissa = (char*)malloc(sizeof(char) * 53)))
+				|| !(nb->exponent = (char*)malloc(sizeof(char) * 16))
+				|| !(nb->mantissa = (char*)malloc(sizeof(char) * 65)))
 		return (0);
 	if (n < 0)
 		nb->sign = 1;
@@ -69,7 +69,7 @@ int		print_f(t_data *data)
 		nb->sign = 0;
 	nb->exp = ft_log(n);
 //	printf("sign = %d\n", nb->sign);
-	nb->exponent = itoa_base((nb->exp + 127), 2); // exp -> str
+	nb->exponent = itoa_base((nb->exp + 16383), 2); // exp -> str
 //	printf("exp = %s\n", nb->exponent);
 	
 	nb->mantissa = get_mantissa(n, nb->mantissa);

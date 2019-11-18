@@ -6,21 +6,41 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/15 17:40:24 by fgarault         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:17:30 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 
-void	get_af_comma(t_float *nb, double f, t_data *data)
+void	get_af_comma(t_float *nb, float f, t_data *data)
 {
 	(void)nb;
 	(void)data;
 	(void)f;
-	//printf("%f\n", f);
+	int		integer_part;
+	int		index;
+
+	index = 0;
+	if (!(nb->af_comma = (char*)malloc(sizeof(char) * (7))))
+		return ;
+	bzero(nb->af_comma, 7);
+	while (index < 6)
+	{
+		integer_part = f;
+		printf("%f\n", f);
+		f -= integer_part;
+		if (f >= 0.5)
+			f += 0.000001;
+		if (f >= 1)
+			f-= 1;
+		f *= 10;
+		nb->af_comma[index] = '0' + (int)f;
+		index++;
+	}
+	printf("apres = %s\n", nb->af_comma);
 }
-void	get_bf_comma(t_float *nb, double f, t_data *data)
+void	get_bf_comma(t_float *nb, float f, t_data *data)
 {
 	int	i;
 	int	index;
@@ -51,7 +71,7 @@ void	get_bf_comma(t_float *nb, double f, t_data *data)
 char	*ft_ftoa(t_data *data, t_float *nb)
 {
 	int				index;
-	double			f;
+	float			f;
 	char			*str;
 
 	index = 0;
@@ -62,10 +82,11 @@ char	*ft_ftoa(t_data *data, t_float *nb)
 		index++;
 	}
 	f = ft_power(-1, nb->sign) * ((1 + nb->m)) * ft_power(2, nb->exp);
-	printf("%f\n", f);
+	//printf("%f\n", f);
 	get_bf_comma(nb, f, data);
 	get_af_comma(nb, f, data);
 	str = ft_strdup(ft_strcat(nb->bf_comma, "."));
+	str = ft_strdup(ft_strcat(str, nb->af_comma));
 
 	return (str);
 }
