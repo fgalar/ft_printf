@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/15 16:54:06 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/14 19:22:50 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,6 @@ typedef struct		s_data
 	int				ad_pf;
 }					t_data;
 
-typedef struct		s_float
-{
-	int				sign;
-	char			*exponent;
-	int				exp;
-	char			*mantissa;
-	double			m;
-	char			*bf_comma;
-	char			*af_comma;
-}					t_float;
-
 int					ft_printf(
 	const char *format, ...) __attribute__((__format__(__printf__,1,2)));
 
@@ -82,9 +71,9 @@ int					print_u(t_data *data);
 int					print_x(t_data *data);
 int					print_f(t_data *data);
 void				print_a(t_data *d, unsigned char c);
+char				*ft_float(t_data *d, double f);
 
 void				manage_size(t_data *data, void *arg);
-char				*ft_ftoa(t_data *data, t_float *nb);
 void				print_majhex(char *nb);
 
 #endif

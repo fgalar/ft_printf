@@ -6,87 +6,96 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2019/11/18 18:17:30 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/14 20:52:13 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_printf.h"
 
-
-void	get_af_comma(t_float *nb, float f, t_data *data)
+int		ft_floatlen(double f, int precision)
 {
-	(void)nb;
-	(void)data;
-	(void)f;
-	int		integer_part;
-	int		index;
+	int		len;
 
-	index = 0;
-	if (!(nb->af_comma = (char*)malloc(sizeof(char) * (7))))
-		return ;
-	bzero(nb->af_comma, 7);
-	while (index < 6)
+	len = precision + 1;
+	if (f <=1.00)
+		return (len + 1);
+	while (f >= 1.0)
 	{
-		integer_part = f;
-		printf("%f\n", f);
-		f -= integer_part;
-		if (f >= 0.5)
-			f += 0.000001;
-		if (f >= 1)
-			f-= 1;
-		f *= 10;
-		nb->af_comma[index] = '0' + (int)f;
-		index++;
+		len++;
+		f /= 10;
 	}
-	printf("apres = %s\n", nb->af_comma);
+	return (len);
 }
-void	get_bf_comma(t_float *nb, float f, t_data *data)
+
+void	ft_round(char *tab)
 {
-	int	i;
-	int	index;
+	int		i;
+
+	i = strlen(tab) - 1;
+	printf("reste = %s\n", tab);
+	while (i + 1> 0)
+	{
+		tab[i] += 1;
+		if (!ft_isdigit(tab[i]))
+		{
+			tab[i] = '0';
+			i--;
+		}
+		else
+			return ;
+	}
+}
+
+void	memset_integer_part(char *tab, double *f, int len)
+{
+	int		i;
 
 	i = 0;
-	index = 0;
-	while ((int)f > 0)
+	while (*f > 10.0)
+		*f /= 10;
+	while (len > i)
 	{
-		f /= 10;
+		tab[i] = (int)*f + '0';
+		*f -= (int)*f;
+		*f *= 10;
 		i++;
 	}
-	if (!(nb->bf_comma = (char*)malloc(sizeof(char) * i + 1)))
-		return ;
-	bzero(nb->bf_comma, i);
-	data->len +=i;
-	while (i > 0)
-	{
-		f*=10;
-		nb->bf_comma[index] = '0' + (int)(f);
-		//printf("index[%d] = %f\n",index, f);
-		f -= ft_atoi(&nb->bf_comma[index]);
-		index++;
-		i--;
-	}
-	nb->bf_comma[index] = '\0';
-
 }
-char	*ft_ftoa(t_data *data, t_float *nb)
+
+void	memset_decimal_part(char *tab, double f, int precision)
 {
-	int				index;
-	float			f;
-	char			*str;
+	int		i;
 
-	index = 0;
-	while (nb->mantissa[index])
+	i = 0;
+	while (i < precision)
 	{
-		if (nb->mantissa[index] == '1')
-			nb->m += 1.0 / ft_power(2, index + 1);
-		index++;
+		tab[i] = (int)f + '0';
+		f -= (int)f;
+		f *= 10;
+		i++;
 	}
-	f = ft_power(-1, nb->sign) * ((1 + nb->m)) * ft_power(2, nb->exp);
-	//printf("%f\n", f);
-	get_bf_comma(nb, f, data);
-	get_af_comma(nb, f, data);
-	str = ft_strdup(ft_strcat(nb->bf_comma, "."));
-	str = ft_strdup(ft_strcat(str, nb->af_comma));
+	while (f > 5)
+	{
+		f /= 10;
+		ft_round(tab);
+	}
+}
 
-	return (str);
+
+char	*ft_float(t_data *d, double f)
+{
+	int		len;
+	char	*tab;
+
+	if (!d->precis)
+		d->precis = 6;
+	len = ft_floatlen(f, d->precis);
+	tab = (char*)malloc(sizeof(char) * (len + 1));
+	tab[len] = '\0';
+	ft_memset(tab, '0', len);
+	memset_integer_part(tab, &f, len - (d->precis + 1));
+	tab[len - (d->precis + 1)] = '.';
+	memset_decimal_part(&tab[len - d->precis], f, d->precis);
+	return (tab);
 }

@@ -1,17 +1,19 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <float.h>
+#include <limits.h>
 #include "../ft_printf.h"
 
 
 int		main(void)
 {
 	ft_printf("--------------------%%f--------------------\n");
-	printf("00) VRAI PRINTF : |%f|\n",  79.89);
-	ft_printf("00) MON PRINTF : |%f|\n", 79.89);
+	printf("00) VRAI PRINTF : |%.15f|\n",  79.89);
+	ft_printf("00) MON PRINTF  : |%.15f|\n",  79.89);
 	printf("01) VRAI PRINTF : |%f|\n", 42.42);
 	ft_printf("01) MON PRINTF  : |%f|\n", 42.42);
 	printf("02) VRAI PRINTF : |%f|\n", 42.4242421);
 	ft_printf("02) MON PRINTF  : |%f|\n", 42.4242421);
-	exit(1);
 	printf("03) VRAI PRINTF : |%15f|\n", 10.1111111);
 	ft_printf("03) MON PRINTF  : |%15f|\n", 10.1111111);
 	printf("04) VRAI PRINTF : |%.10f|\n", 25.98428445642615313253);
