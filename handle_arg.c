@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/01/22 18:07:10 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:54:34 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 {
 	int		len;
 
+	puts(d->prefix);
 	if (d->conv == 'd' && (d->neg || d->flag[most]))
 		d->neg ? ft_strcpy(d->prefix, "-") : ft_strcpy(d->prefix, "+");
 	if (d->conv == 'o')
@@ -33,10 +34,10 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	{
 		ft_strncpy(&d->argument[(len_t) - (d->precis + len)], d->prefix, len);
 		d->ad_pf = ((len_t - 1) - d->precis) + len;
-		//printf("d->argument = |%s|, len_t = %d, d->precis = %d; len = %d==> %d\n", d->argument, len_t, d->precis, len, len_t - (d->precis+len));
 	}
 	else
 	{
+		printf("d->argument = |%s|, len_t = %d, d->precis = %d; len = %d==> %d\n", d->argument, len_t, d->precis, len_arg, (len_t) - len_arg +len);
 		ft_strncpy(&d->argument[(len_t) - (len_arg + len)], d->prefix, len);
 		d->ad_pf = (len_t - 1) - (len_arg + len);
 	}
