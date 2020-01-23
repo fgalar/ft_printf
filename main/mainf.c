@@ -8,8 +8,8 @@
 int		main(void)
 {
 	ft_printf("--------------------%%f--------------------\n");
-	printf("00) VRAI PRINTF : |%.15f|\n",  79.89);
-	ft_printf("00) MON PRINTF  : |%.15f|\n",  79.89);
+	printf("00) VRAI PRINTF : |%.10f|\n",  79.89);
+	ft_printf("00) MON PRINTF  : |%.10f|\n",  79.89);
 	printf("01) VRAI PRINTF : |%f|\n", 42.42);
 	ft_printf("01) MON PRINTF  : |%f|\n", 42.42);
 	printf("02) VRAI PRINTF : |%f|\n", 42.4242421);
@@ -31,7 +31,9 @@ int		main(void)
 	printf("10) VRAI PRINTF : |%10.2f|\n", 10.21111111);
 	ft_printf("10) MON PRINTF  : |%10.2f|\n", 10.21111111);
 	printf("11) VRAI PRINTF : |%+5f|\n", 10.5);
-	ft_printf("11) MON PRINTF  : |%+5f|\n", 10.5);
+	ft_printf("11) MON PRINTF  : |%+f|\n", 10.5);
+	printf("%+010f\n", 2.00);
+	exit(2);
 	printf("12) VRAI PRINTF : |%0f|\n", 77.2);
 	ft_printf("12) MON PRINTF  : |%0f|\n", 77.2);
 	printf("13) VRAI PRINTF : |%#f|\n", 42.42);

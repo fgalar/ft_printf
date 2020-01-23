@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/14 20:52:13 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/22 17:18:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_round(char *tab)
 	int		i;
 
 	i = strlen(tab) - 1;
-	printf("reste = %s\n", tab);
 	while (i + 1> 0)
 	{
 		tab[i] += 1;
@@ -75,11 +74,8 @@ void	memset_decimal_part(char *tab, double f, int precision)
 		f *= 10;
 		i++;
 	}
-	while (f > 5)
-	{
-		f /= 10;
+	if (f > 5)
 		ft_round(tab);
-	}
 }
 
 
@@ -88,14 +84,19 @@ char	*ft_float(t_data *d, double f)
 	int		len;
 	char	*tab;
 
-	if (!d->precis)
+	if (!d->precis && !d->flag[point])
 		d->precis = 6;
 	len = ft_floatlen(f, d->precis);
 	tab = (char*)malloc(sizeof(char) * (len + 1));
 	tab[len] = '\0';
 	ft_memset(tab, '0', len);
 	memset_integer_part(tab, &f, len - (d->precis + 1));
-	tab[len - (d->precis + 1)] = '.';
+	if (!d->precis && d->flag[point])
+	{
+		tab[len - (d->precis +1)] = '\0';
+		return (tab);
+	}
+	tab[(len - 1) - d->precis] = '.';
 	memset_decimal_part(&tab[len - d->precis], f, d->precis);
 	return (tab);
 }
