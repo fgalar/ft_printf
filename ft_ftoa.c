@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/22 17:18:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:12:15 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,12 @@ char	*ft_float(t_data *d, double f)
 	len = ft_floatlen(f, d->precis);
 	tab = (char*)malloc(sizeof(char) * (len + 1));
 	tab[len] = '\0';
-	ft_memset(tab, '0', len);
+	ft_memset(tab, 0, len);
 	memset_integer_part(tab, &f, len - (d->precis + 1));
 	if (!d->precis && d->flag[point])
 	{
-		tab[len - (d->precis +1)] = '\0';
+		if (d->flag[diese])
+			ft_strcat(tab, ".");
 		return (tab);
 	}
 	tab[(len - 1) - d->precis] = '.';

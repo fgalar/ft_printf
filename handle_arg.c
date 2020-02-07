@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/01/23 16:54:34 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:33:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 {
 	int		len;
 
-	puts(d->prefix);
+//	puts(d->prefix);
 	if (d->conv == 'd' && (d->neg || d->flag[most]))
 		d->neg ? ft_strcpy(d->prefix, "-") : ft_strcpy(d->prefix, "+");
 	if (d->conv == 'o')
@@ -24,7 +24,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
 		ft_strcpy(d->prefix, "0x");
 	len = ft_strlen(d->prefix);
-	
+
 	if (d->flag[less] || d->flag[zero])
 	{
 		ft_strncpy(d->argument, d->prefix, len);
@@ -37,7 +37,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	}
 	else
 	{
-		printf("d->argument = |%s|, len_t = %d, d->precis = %d; len = %d==> %d\n", d->argument, len_t, d->precis, len_arg, (len_t) - len_arg +len);
+		//printf("(len_t[%d]) -  (len_arg[%d] + len[%d])==> %d\n",len_t ,len_arg, len, (len_t) - len_arg +len);
 		ft_strncpy(&d->argument[(len_t) - (len_arg + len)], d->prefix, len);
 		d->ad_pf = (len_t - 1) - (len_arg + len);
 	}
@@ -50,7 +50,7 @@ static int		get_arg_size(t_data *d, void *arg)
 	len = ft_strlen(arg);
 	if (d->flag[point] && !ft_strcmp(arg, "0") && !(d->conv == 'o' && d->flag[diese]))
 		len = 0;
-	if ((d->conv == 'd' && ((d->flag[most]) || d->flag[space] || d->neg)
+	if (((d->conv == 'd' || d->conv == 'f') && ((d->flag[most]) || d->flag[space] || d->neg)
 				&& (d->prfx = 1)))
 		len++;
 	if ((d->flag[diese] && ft_strcmp(arg, "0")) || d->conv == 'p')

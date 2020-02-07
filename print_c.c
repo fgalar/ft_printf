@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/23 13:02:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/30 21:17:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	handle_null(t_data *data)
 		ft_memset(&data->buffer[data->len], layout, data->field);
 		data->len += data->field - 1;
 	}
-	ft_memset(&data->buffer[data->len], 0, sizeof(char));
+	ft_memset(&data->buffer[data->len], 0, 1);
 	data->len++;
 	if (data->flag[less] && data->field)
 	{

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/14 19:22:50 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/01/30 17:12:14 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef enum		e_flags
 	less,
 	zero,
 	percent,
-	point
+	point,
 }					t_flags;
 
 typedef struct		s_data
