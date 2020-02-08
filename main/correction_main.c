@@ -17,8 +17,8 @@ int		main()
 	printf("Check that you can put multiple conversions\n");
 	printf("-%d -%i -%o -%u -%x -%X\n", INT_MAX, INT_MIN, INT_MAX, INT_MAX, INT_MIN, INT_MAX);
 	ft_printf("-%d -%i -%o -%u -%x -%X\n", INT_MAX, INT_MIN, INT_MAX, INT_MAX, INT_MIN, INT_MAX);
-	printf("true|%c|%c|%c|%c|%c|\n", 't', 'a', '!', 'v', '0');
-	ft_printf("fals|%c|%c|%c|%c|%c|\n", 't', 'a', '!', 'v', '0');
+	printf("true|%c|%c|%c|%c|%c|\n", '!', 0, 0, 'v', '0');
+	ft_printf("fals|%c|%c|%c|%c|%c|\n", '!', 0, 0, 'v', '0');
 	printf("\nSlighly complicated tests\n");
 	printf("");
 

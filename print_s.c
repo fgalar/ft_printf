@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/06 16:16:50 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/08 14:50:10 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			print_s(t_data *data)
 		s = precis_str(data, s);
 	manage_size(data, s);
 	ft_strcat(data->buffer, data->argument);
-	data->len = ft_strlen(data->buffer);
+	data->len += ft_strlen(data->argument);
 	data->conv = 0;
 	return (0);
 }

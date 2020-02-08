@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 12:40:09 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/07 19:56:43 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/08 14:59:19 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		print_u(t_data *data)
 		nb = itoa_base((unsigned long)va_arg(data->arg, unsigned int), 10);
 	manage_size(data, nb);
 	ft_strcat(data->buffer, data->argument);
-	data->len = ft_strlen(data->buffer);
+	data->len += ft_strlen(data->argument);
 	data->conv = 0;
 	return (0);
 }

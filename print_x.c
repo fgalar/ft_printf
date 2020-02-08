@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/09 16:08:26 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/08 14:59:36 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		print_x(t_data *data)
 	if (data->conv == 'X')
 		print_majhex(data->argument);
 	ft_strcat(data->buffer, data->argument);
-	data->len = ft_strlen(data->buffer);
+	data->len += ft_strlen(data->argument);
 	data->conv = 0;
 	return (0);
 }
