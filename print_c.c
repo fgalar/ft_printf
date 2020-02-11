@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/30 21:17:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/11 20:18:46 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int			print_c(t_data *data)
 	if (c != 0)
 	{
 		manage_size(data, &c);
-		ft_strcat(data->buffer, data->argument);
-		data->len = ft_strlen(data->buffer);
+		ft_strcat(&data->buffer[data->len], data->argument);
+		data->len += ft_strlen(data->argument);
 	}
 	data->conv = 0;
 	return (0);

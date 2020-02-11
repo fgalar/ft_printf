@@ -1,0 +1,288 @@
+Norme: ./libft/Makefile
+Warning: Not a valid file
+Norme: ./libft/auteur
+Warning: Not a valid file
+Norme: ./libft/ft_atoi.o
+Warning: Not a valid file
+Norme: ./libft/ft_bzero.o
+Warning: Not a valid file
+Norme: ./libft/ft_isalnum.o
+Warning: Not a valid file
+Norme: ./libft/ft_isalpha.o
+Warning: Not a valid file
+Norme: ./libft/ft_isascii.o
+Warning: Not a valid file
+Norme: ./libft/ft_isdigit.o
+Warning: Not a valid file
+Norme: ./libft/ft_isprint.o
+Warning: Not a valid file
+Norme: ./libft/ft_itoa.o
+Warning: Not a valid file
+Norme: ./libft/ft_itoa_base.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstadd.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstdel.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstdelone.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstiter.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstmap.o
+Warning: Not a valid file
+Norme: ./libft/ft_lstnew.o
+Warning: Not a valid file
+Norme: ./libft/ft_memalloc.o
+Warning: Not a valid file
+Norme: ./libft/ft_memccpy.o
+Warning: Not a valid file
+Norme: ./libft/ft_memchr.o
+Warning: Not a valid file
+Norme: ./libft/ft_memcmp.o
+Warning: Not a valid file
+Norme: ./libft/ft_memcpy.o
+Warning: Not a valid file
+Norme: ./libft/ft_memdel.o
+Warning: Not a valid file
+Norme: ./libft/ft_memmove.o
+Warning: Not a valid file
+Norme: ./libft/ft_memset.o
+Warning: Not a valid file
+Norme: ./libft/ft_nbrlen.o
+Warning: Not a valid file
+Norme: ./libft/ft_power.o
+Warning: Not a valid file
+Norme: ./libft/ft_print_tab.o
+Warning: Not a valid file
+Norme: ./libft/ft_print_tab_int.o
+Warning: Not a valid file
+Norme: ./libft/ft_putchar.o
+Warning: Not a valid file
+Norme: ./libft/ft_putchar_fd.o
+Warning: Not a valid file
+Norme: ./libft/ft_putendl.o
+Warning: Not a valid file
+Norme: ./libft/ft_putendl_fd.o
+Warning: Not a valid file
+Norme: ./libft/ft_putnbr.o
+Warning: Not a valid file
+Norme: ./libft/ft_putnbr_fd.o
+Warning: Not a valid file
+Norme: ./libft/ft_putstr.o
+Warning: Not a valid file
+Norme: ./libft/ft_putstr_fd.o
+Warning: Not a valid file
+Norme: ./libft/ft_sort_integer.o
+Warning: Not a valid file
+Norme: ./libft/ft_split_maj.o
+Warning: Not a valid file
+Norme: ./libft/ft_strcat.o
+Warning: Not a valid file
+Norme: ./libft/ft_strchr.o
+Warning: Not a valid file
+Norme: ./libft/ft_strclr.o
+Warning: Not a valid file
+Norme: ./libft/ft_strcmp.o
+Warning: Not a valid file
+Norme: ./libft/ft_strcpy.o
+Warning: Not a valid file
+Norme: ./libft/ft_strdel.o
+Warning: Not a valid file
+Norme: ./libft/ft_strdup.o
+Warning: Not a valid file
+Norme: ./libft/ft_strequ.o
+Warning: Not a valid file
+Norme: ./libft/ft_striter.o
+Warning: Not a valid file
+Norme: ./libft/ft_striteri.o
+Warning: Not a valid file
+Norme: ./libft/ft_strjoin.o
+Warning: Not a valid file
+Norme: ./libft/ft_strlcat.o
+Warning: Not a valid file
+Norme: ./libft/ft_strlen.o
+Warning: Not a valid file
+Norme: ./libft/ft_strmap.o
+Warning: Not a valid file
+Norme: ./libft/ft_strmapi.o
+Warning: Not a valid file
+Norme: ./libft/ft_strncat.o
+Warning: Not a valid file
+Norme: ./libft/ft_strncmp.o
+Warning: Not a valid file
+Norme: ./libft/ft_strncpy.o
+Warning: Not a valid file
+Norme: ./libft/ft_strnequ.o
+Warning: Not a valid file
+Norme: ./libft/ft_strnew.o
+Warning: Not a valid file
+Norme: ./libft/ft_strnstr.o
+Warning: Not a valid file
+Norme: ./libft/ft_strrchr.o
+Warning: Not a valid file
+Norme: ./libft/ft_strsplit.o
+Warning: Not a valid file
+Norme: ./libft/ft_strstr.o
+Warning: Not a valid file
+Norme: ./libft/ft_strsub.o
+Warning: Not a valid file
+Norme: ./libft/ft_strtrim.o
+Warning: Not a valid file
+Norme: ./libft/ft_tolower.o
+Warning: Not a valid file
+Norme: ./libft/ft_toupper.o
+Warning: Not a valid file
+Norme: ./libft/libft.a
+Warning: Not a valid file
+Norme: ./main/a.out
+Warning: Not a valid file
+Norme: ./libft/ft_atoi.c
+Norme: ./libft/ft_bzero.c
+Norme: ./libft/ft_isalnum.c
+Norme: ./libft/ft_isalpha.c
+Norme: ./libft/ft_floatoa.c
+Error: global scope bad aligned
+Error (line 16): declarations must be followed by one empty line in ft_floatoa
+Error (line 16): bad spacing after ft_floatoa
+Error (line 19): spaces at the end of line
+Error (line 22): C++ comment
+Error (line 25): Space before function name
+Error (line 25): missing void in function main
+Error (line 25): bad spacing before main
+Error (line 28): C++ comment
+Norme: ./libft/ft_isascii.c
+Norme: ./libft/ft_isdigit.c
+Norme: ./libft/ft_isprint.c
+Norme: ./libft/ft_lstadd.c
+Norme: ./libft/ft_lstdel.c
+Norme: ./libft/ft_lstdelone.c
+Norme: ./libft/ft_itoa.c
+Error (line 35): spaces at the end of line
+Error (line 35, col 1): no newline after block
+Norme: ./libft/ft_lstiter.c
+Norme: ./libft/ft_lstmap.c
+Norme: ./libft/ft_itoa_base.c
+Error: global scope bad aligned
+Error (line 40): declarations must be followed by one empty line in convert
+Error (line 43): bad indentation
+Error (line 43): must begin only by tabulations
+Error (line 43): spaces at the end of line
+Error (line 58): spaces at the end of line
+Error (line 62, col 2): missing space after return
+Norme: ./libft/ft_lstnew.c
+Norme: ./libft/ft_memccpy.c
+Norme: ./libft/ft_memalloc.c
+Norme: ./libft/ft_memdel.c
+Norme: ./libft/ft_memchr.c
+Norme: ./libft/ft_memcmp.c
+Norme: ./libft/ft_memcpy.c
+Norme: ./libft/ft_memset.c
+Norme: ./libft/ft_memmove.c
+Norme: ./libft/ft_nbrlen.c
+Norme: ./libft/ft_print_tab.c
+Norme: ./libft/ft_print_tab_int.c
+Norme: ./libft/ft_putchar.c
+Norme: ./libft/ft_power.c
+Norme: ./libft/ft_putchar_fd.c
+Norme: ./libft/ft_putendl_fd.c
+Norme: ./libft/ft_putendl.c
+Norme: ./libft/ft_putnbr.c
+Norme: ./libft/ft_putstr_fd.c
+Norme: ./libft/ft_putnbr_fd.c
+Norme: ./libft/ft_putstr.c
+Norme: ./libft/ft_split_maj.c
+Error (line 19, col 1): missing space after return
+Norme: ./libft/ft_strclr.c
+Norme: ./libft/ft_strcat.c
+Norme: ./libft/ft_sort_integer.c
+Norme: ./libft/ft_strchr.c
+Norme: ./libft/ft_strdel.c
+Norme: ./libft/ft_strcmp.c
+Norme: ./libft/ft_strcpy.c
+Norme: ./libft/ft_strdup.c
+Norme: ./libft/ft_strequ.c
+Norme: ./libft/ft_striter.c
+Norme: ./libft/ft_striteri.c
+Norme: ./libft/ft_strlen.c
+Norme: ./libft/ft_strlcat.c
+Norme: ./libft/ft_strjoin.c
+Norme: ./libft/ft_strmap.c
+Norme: ./libft/ft_strncat.c
+Norme: ./libft/ft_strncmp.c
+Norme: ./libft/ft_strncpy.c
+Norme: ./libft/ft_strmapi.c
+Norme: ./libft/ft_strnequ.c
+Norme: ./libft/ft_strnew.c
+Norme: ./libft/ft_strrchr.c
+Norme: ./libft/ft_strnstr.c
+Norme: ./libft/ft_strstr.c
+Norme: ./libft/ft_strsub.c
+Norme: ./libft/ft_tolower.c
+Norme: ./libft/ft_toupper.c
+Norme: ./libft/ft_strtrim.c
+Norme: ./main/main_floats.c
+Error: 42 header not at top of the file
+Error (line 4): preprocessor block must be followed by one empty line
+Error (line 5): Space before function name
+Error (line 5): missing void in function main
+Error (line 5): bad spacing before main
+Norme: ./main/test.c
+Error: 42 header not at top of the file
+Error (line 3): missing void in function main
+Error (line 11, col 8): missing parentheses in return statement
+Norme: ./libft/ft_strsplit.c
+Norme: ./libft/libft.h
+Norme: ./main/main.c
+Error: global scope bad aligned
+Error (line 17): Bad spacing for argument i
+Error (line 28): Space before function name
+Error (line 28): function main has 148 lines
+Error (line 28): missing void in function main
+Error (line 33): line has 87 characters
+Error (line 34): line has 87 characters
+Error (line 36): line has 84 characters
+Error (line 38): Empty line
+Error (line 39): multiple empty lines
+Error (line 39): Empty line
+Error (line 40): line has 86 characters
+Error (line 45): spaces at the end of line
+Error (line 46): line has 87 characters
+Error (line 51): Empty line
+Error (line 52): line has 87 characters
+Error (line 56): spaces at the end of line
+Error (line 56, col 16): bad character after ;
+Error (line 57): spaces at the end of line
+Error (line 58): line has 85 characters
+Error (line 63): Empty line
+Error (line 64): line has 87 characters
+Error (line 69): Empty line
+Error (line 70): line has 87 characters
+Error (line 75): Empty line
+Error (line 77): spaces at the end of line
+Error (line 82): Empty line
+Error (line 86): Empty line
+Error (line 90): spaces at the end of line
+Error (line 94): Empty line
+Error (line 96): spaces at the end of line
+Error (line 100): Empty line
+Error (line 104): Empty line
+Error (line 108): spaces at the end of line
+Error (line 112): spaces at the end of line
+Error (line 114): spaces at the end of line
+Error (line 118): Empty line
+Error (line 122): Empty line
+Error (line 126): spaces at the end of line
+Error (line 130): Empty line
+Error (line 132): spaces at the end of line
+Error (line 136): Empty line
+Error (line 140): Empty line
+Error (line 144): spaces at the end of line
+Error (line 148): spaces at the end of line
+Error (line 152): Empty line
+Error (line 156): Empty line
+Error (line 160): spaces at the end of line
+Error (line 164): spaces at the end of line
+Error (line 168): spaces at the end of line
+Error (line 172): spaces at the end of line
+Error (line 176): Empty line
+Error (line 177, col 8): missing parentheses in return statement
