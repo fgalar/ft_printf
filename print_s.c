@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/08 14:50:10 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/17 19:27:05 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,8 @@ static char	*precis_str(t_data *d, char *s)
 		i++;
 	}
 	if (d->precis == d->width_max)
-	{
-		if (d->field)
-			d->width_max = d->field;
-		else
-			d->width_max = 0;
-	}
+		d->field ? (d->width_max = d->field) :
+		(d->width_max = 0);
 	d->precis = 0;
 	d->flag[point] = 0;
 	free(arg);
@@ -48,7 +44,6 @@ int			print_s(t_data *data)
 	char	*s;
 
 	s = va_arg(data->arg, char*);
-	data->flag[zero] = 0;
 	if (!s)
 		s = "(null)";
 	if (data->flag[point])

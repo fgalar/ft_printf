@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/14 18:34:52 by fanny            ###   ########.fr       */
+/*   Updated: 2020/02/17 20:07:19 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 {
 	int		len;
 
-//	puts(d->prefix);
 	if (d->conv == 'd' && (d->neg || d->flag[most]))
 		d->neg ? ft_strcpy(d->prefix, "-") : ft_strcpy(d->prefix, "+");
 	if (d->conv == 'o')
@@ -24,7 +23,6 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	if (d->conv == 'x' || d->conv == 'X' || d->conv == 'p')
 		ft_strcpy(d->prefix, "0x");
 	len = ft_strlen(d->prefix);
-
 	if (d->flag[less] || d->flag[zero])
 	{
 		ft_strncpy(d->argument, d->prefix, len);
@@ -37,7 +35,6 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 	}
 	else
 	{
-		//printf("(len_t[%d]) -  (len_arg[%d] + len[%d])==> %d\n",len_t ,len_arg, len, (len_t) - len_arg +len);
 		ft_strncpy(&d->argument[(len_t) - (len_arg + len)], d->prefix, len);
 		d->ad_pf = (len_t - 1) - (len_arg + len);
 	}
@@ -48,9 +45,11 @@ static int		get_arg_size(t_data *d, void *arg)
 	int len;
 
 	len = ft_strlen(arg);
-	if (d->flag[point] && !ft_strcmp(arg, "0") && !(d->conv == 'o' && d->flag[diese]))
+	if (d->flag[point] && !ft_strcmp(arg, "0")
+		&& !(d->conv == 'o' && d->flag[diese]))
 		len = 0;
-	if (((d->conv == 'd' || d->conv == 'f') && ((d->flag[most]) || d->flag[space] || d->neg)
+	if (((d->conv == 'd' || d->conv == 'f')
+		&& ((d->flag[most]) || d->flag[space] || d->neg)
 				&& (d->prfx = 1)))
 		len++;
 	if ((d->flag[diese] && ft_strcmp(arg, "0")) || d->conv == 'p')
@@ -61,10 +60,11 @@ static int		get_arg_size(t_data *d, void *arg)
 			len++;
 		d->prfx = 1;
 	}
-	if (len < d->width_max || (d->flag[diese] && d->width_max))
-		len = d->width_max;
-	if (d->precis >= len && d->precis == d->width_max && d->prfx)
-		d->conv == 'x' | d->conv == 'X' | d->conv == 'p'? len += 2 : len++;
+	//printf("len = %d && d->width_max = %d\n", len, d->width_max); Pb ici
+	if (len < d->width_max || (d->flag[diese] && d->width_max)) //------------>
+		len = d->width_max;										//------------>
+	if (d->precis >= len && d->precis == d->width_max && d->prfx)//-----------> 
+		d->conv == 'x' | d->conv == 'X' | d->conv == 'p' ? len += 2 : len++;//>
 	return (len);
 }
 
@@ -119,7 +119,6 @@ void			manage_size(t_data *d, void *arg)
 	if (!ft_strcmp(arg, "0") && !d->precis && d->flag[point] && (!d->flag[diese]
 		|| d->conv != 'o'))
 		len_brut = 0;
-	//printf("len_brut = %d\n", len_brut);
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;
 	ft_memset(d->argument, ' ', len);

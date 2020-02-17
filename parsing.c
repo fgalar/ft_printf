@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/11 19:15:18 by fanny            ###   ########.fr       */
+/*   Updated: 2020/02/17 18:28:22 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ static int		get_flag(const char *format, t_data *data)
 	y = 0;
 	while (y < NB_FLAGS)
 	{
-		if (format[data->index] == 'L' && data->index++)
-			data->flag[ll] = 1;
+		format[data->index] == 'L' && data->index++ ? data->flag[ll] = 1 : 0;
 		if (!ft_strncmp(flags[y], &format[data->index], ft_strlen(flags[y])))
 		{
 			if (y <= 3 && (data->flag[hh] || data->flag[h] || data->flag[ll]
 				|| data->flag[l]))
 				init_new_arg(data);
 			data->flag[y] = 1;
-			if (y == 10)
-				data->precis = 0;
+			y == 10 ? data->precis = 0 : 0;
 			if (data->flag[percent])
 				return (1);
 			data->index += ft_strlen(flags[y]);

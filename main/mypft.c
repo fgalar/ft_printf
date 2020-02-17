@@ -5,11 +5,10 @@
 
 int	main()
 {
-	/* */
-	printf("1.%5");
-	//ft_printf("%5");
-	printf("%05");
-	printf("%-05");
-	printf("%-5");
+	ft_printf("%010s is a string\n", "this");
+	printf("%010s is a string\n", "this");
+
+	ft_printf("%#5x\n", 52625);
+	printf("%#5x\n", 52625);
 	return 0;
 }

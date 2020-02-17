@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/11 19:17:20 by fanny            ###   ########.fr       */
+/*   Updated: 2020/02/17 17:37:21 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 int			dispatcher(const char *format, t_data *data)
 {
 	int			x;
-	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'o', 'u', 'x', 'X', 'f'
-		};
+	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'o', 'u', 'x', 'X', 'f'};
 	static int	(*go_ft[NB_CONV])(t_data *data) = {print_c, print_s, print_p,
 		print_d, print_o, print_u, print_x, print_x, print_f};
 

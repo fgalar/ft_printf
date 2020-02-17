@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/14 18:27:29 by fanny            ###   ########.fr       */
+/*   Updated: 2020/02/17 17:27:46 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_floatlen(double f, int precision)
 	int		len;
 
 	len = precision + 1;
-	if (f <=1.00)
+	if (f <= 1.00)
 		return (len + 1);
 	while (f >= 1.0)
 	{
@@ -33,7 +33,7 @@ void	ft_round(char *tab)
 	int		i;
 
 	i = ft_strlen(tab) - 1;
-	while (i + 1> 0)
+	while (i + 1 > 0)
 	{
 		tab[i] += 1;
 		if (!ft_isdigit(tab[i]))
@@ -77,7 +77,6 @@ void	memset_decimal_part(char *tab, double f, int precision)
 	if (f > 5)
 		ft_round(tab);
 }
-
 
 char	*ft_float(t_data *d, double f)
 {

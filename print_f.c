@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/30 17:33:05 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/17 17:44:51 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		print_f(t_data *data)
 		n = va_arg(data->arg, long double);
 	else
 		n = va_arg(data->arg, double);
-	
 	ft_strcpy(f, ft_float(data, n));
 	reinit_precis(data);
 	manage_size(data, f);
