@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/30 16:12:15 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/14 18:27:29 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_round(char *tab)
 {
 	int		i;
 
-	i = strlen(tab) - 1;
+	i = ft_strlen(tab) - 1;
 	while (i + 1> 0)
 	{
 		tab[i] += 1;
