@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/17 17:27:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/19 21:05:55 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ int		ft_floatlen(double f, int precision)
 {
 	int		len;
 
-	len = precision + 1;
-	if (f <= 1.00)
+	precision ? len = precision + 1 : (len = 0);
+	if (f < 0)
+	{
+		f *= -1.0;
+		len++;
+	}
+	if (f <= 1.0)
 		return (len + 1);
 	while (f >= 1.0)
 	{
@@ -40,6 +45,11 @@ void	ft_round(char *tab)
 		{
 			tab[i] = '0';
 			i--;
+			if (tab[i] == '.')
+			{
+				i--;
+				tab[i] += 1;
+			}	
 		}
 		else
 			return ;
@@ -51,7 +61,13 @@ void	memset_integer_part(char *tab, double *f, int len)
 	int		i;
 
 	i = 0;
-	while (*f > 10.0)
+	if (*f < 0)
+	{
+		*f *= -1.0;
+		tab[i] = '-';
+		i++;
+	}
+	while (*f >= 10.0)
 		*f /= 10;
 	while (len > i)
 	{
@@ -74,7 +90,7 @@ void	memset_decimal_part(char *tab, double f, int precision)
 		f *= 10;
 		i++;
 	}
-	if (f > 5)
+	if ((int)f > 5)
 		ft_round(tab);
 }
 
@@ -92,6 +108,7 @@ char	*ft_float(t_data *d, double f)
 	memset_integer_part(tab, &f, len - (d->precis + 1));
 	if (!d->precis && d->flag[point])
 	{
+		printf("%d\n", len);
 		if (d->flag[diese])
 			ft_strcat(tab, ".");
 		return (tab);

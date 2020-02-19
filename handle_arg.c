@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/17 20:07:19 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/18 13:49:31 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,10 @@ static int		get_arg_size(t_data *d, void *arg)
 			len++;
 		d->prfx = 1;
 	}
-	//printf("len = %d && d->width_max = %d\n", len, d->width_max); Pb ici
-	if (len < d->width_max || (d->flag[diese] && d->width_max)) //------------>
-		len = d->width_max;										//------------>
-	if (d->precis >= len && d->precis == d->width_max && d->prfx)//-----------> 
-		d->conv == 'x' | d->conv == 'X' | d->conv == 'p' ? len += 2 : len++;//>
+	if (len < d->width_max || (d->flag[diese] && d->precis))
+		len = d->width_max;
+	if (d->precis >= len && d->precis == d->width_max && d->prfx)
+		d->conv == 'x' | d->conv == 'X' | d->conv == 'p' ? len += 2 : len++;
 	return (len);
 }
 
