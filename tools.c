@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:58:14 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/06 15:56:01 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/20 20:15:09 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,11 @@ void	init_new_arg(t_data *d)
 	ft_bzero(d->prefix, sizeof(d->prefix));
 	d->prfx = 0;
 	d->ad_pf = 0;
+}
+
+int		is_even(char n)
+{
+	if (n == '2' || n == '4' || n == '6' || n == '8')
+		return (1);
+	return (0);
 }

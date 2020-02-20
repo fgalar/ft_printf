@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/17 17:44:51 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/20 19:20:38 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	reinit_precis(t_data *d)
 {
 	d->precis = 0;
 	d->flag[point] = 0;
+	d->flag[zero] = 0;
 	d->width_max = d->field;
 	d->flag[diese] = 0;
 	if (d->flag[most])

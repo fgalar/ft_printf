@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2020/01/30 17:12:14 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/20 20:16:52 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ char				*ft_float(t_data *d, double f);
 
 void				manage_size(t_data *data, void *arg);
 void				print_majhex(char *nb);
+int					is_even(char n);
 
 #endif

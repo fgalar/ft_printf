@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/19 21:05:55 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/20 20:32:48 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int		ft_floatlen(double f, int precision)
 {
 	int		len;
 
-	precision ? len = precision + 1 : (len = 0);
+	precision ? len = precision + 1 :
+	(len = 0);
 	if (f < 0)
 	{
 		f *= -1.0;
@@ -40,7 +41,7 @@ void	ft_round(char *tab)
 	i = ft_strlen(tab) - 1;
 	while (i + 1 > 0)
 	{
-		tab[i] += 1;
+		!is_even(tab[i]) ? tab[i] += 1 : 0;
 		if (!ft_isdigit(tab[i]))
 		{
 			tab[i] = '0';
@@ -49,14 +50,14 @@ void	ft_round(char *tab)
 			{
 				i--;
 				tab[i] += 1;
-			}	
+			}
 		}
 		else
 			return ;
 	}
 }
 
-void	memset_integer_part(char *tab, double *f, int len)
+void	memset_integer_part(char *tab, double *f, int len, t_data *d)
 {
 	int		i;
 
@@ -65,6 +66,7 @@ void	memset_integer_part(char *tab, double *f, int len)
 	{
 		*f *= -1.0;
 		tab[i] = '-';
+		d->flag[space] = 0;
 		i++;
 	}
 	while (*f >= 10.0)
@@ -90,7 +92,7 @@ void	memset_decimal_part(char *tab, double f, int precision)
 		f *= 10;
 		i++;
 	}
-	if ((int)f > 5)
+	if (f >= 5.0)
 		ft_round(tab);
 }
 
@@ -101,14 +103,17 @@ char	*ft_float(t_data *d, double f)
 
 	if (!d->precis && !d->flag[point])
 		d->precis = 6;
+	if (!d->precis && d->flag[point])
+		d->precis -= 1;
 	len = ft_floatlen(f, d->precis);
 	tab = (char*)malloc(sizeof(char) * (len + 1));
 	tab[len] = '\0';
 	ft_memset(tab, 0, len);
-	memset_integer_part(tab, &f, len - (d->precis + 1));
-	if (!d->precis && d->flag[point])
+	memset_integer_part(tab, &f, len - (d->precis + 1), d);
+	if (d->precis == -1 && d->flag[point])
 	{
-		printf("%d\n", len);
+		if (f > 5.0)
+			ft_round(tab);
 		if (d->flag[diese])
 			ft_strcat(tab, ".");
 		return (tab);
