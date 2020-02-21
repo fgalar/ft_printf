@@ -6,6 +6,8 @@
 
 int	main()
 {
+	printf("%5\n");
+	ft_printf("%5");
 	ft_printf("1 . %010s is a string\n", "this");
 	printf("1 . %010s is a string\n", "this");
 	puts("");
@@ -26,9 +28,6 @@ int	main()
 	puts("");
 	ft_printf("7 . %f\n", 1.99999949);
 	ft_printf("7 . %f\n", 1.99999949);
-	puts("");
-	ft_printf("{%f}{%lf}{%Lf}\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242);
- 	printf("{%f}{%lf}{%Lf}\n", 1444565444646.6465424242242, 1444565444646.6465424242242,1444565444646.6465424242242);
 	puts("");
 	ft_printf("8 . %f\n", -958.125);
 	printf("8 . %f\n", -958.125);
@@ -362,71 +361,14 @@ int	main()
 	printf("%Lf\n", LDBL_MIN);
 	ft_printf("%.8Lf\n", LDBL_MIN);
 	printf("%.8Lf\n", LDBL_MIN);
-//
-//Test 2573 (moul_f_2) : FAILED.
-//    First line of code: {return test("Kashim a %f histoires √† raconter", (double)1001);}
-//      expected output : "Kashim a 1001.000000 histoires √† raconter"
-//      your output     : "Kashim a 1000.000000 histoires √† raconter"
-//      expected (nonprintable as hex) : "Kashim a 1001.000000 histoires √† raconter"
-//      actual   (nonprintable as hex) : "Kashim a 1000.000000 histoires √† raconter"
-//
-//Test 2574 (moul_f_3) : FAILED.
-//    First line of code: {return test("Il fait au moins %f
-//", (double)-8000);}
-//      expected output : "Il fait au moins -8000.000000
-//"
-//      your output     : "Il fait au moins .000000
-//"
-//      expected (nonprintable as hex) : "Il fait au moins -8000.000000
-//"
-//      actual   (nonprintable as hex) : "Il fait au moins .000000
-//"
-//
-//Test 2578 (moul_f_7) : FAILED.
-//    First line of code: {return test("%f", (double)INT_MIN);}
-//      expected output : "-2147483648.000000"
-//      your output     : "0.000000"
-//      expected (nonprintable as hex) : "-2147483648.000000"
-//      actual   (nonprintable as hex) : "0.000000"
-//
-//Test 2579 (moul_f_7b) : FAILED.
-//    First line of code: {return test("%f", (double)INT_MIN - 1);}
-//      expected output : "-2147483649.000000"
-//      your output     : "0.&00000"
-//      expected (nonprintable as hex) : "-2147483649.000000"
-//      actual   (nonprintable as hex) : "0.&00000"
-//
-//Test 2580 (moul_f_8) : FAILED.
-//    First line of code: {return test("%f", (double)INT_MAX + 1);}
-//      expected output : "2147483648.000000"
-//      your output     : "2147483648.000001"
-//      expected (nonprintable as hex) : "2147483648.000000"
-//      actual   (nonprintable as hex) : "2147483648.000001"
-//
-//Test 2581 (moul_f_9) : FAILED.
-//    First line of code: {return test("%%f 0000042 == |%f|
-//", (double)0000042);}
-//      expected output : "%f 0000042 == |34.000000|
-//"
-//      your output     : "%f 0000042 == |33.000000|
-//"
-//      expected (nonprintable as hex) : "%f 0000042 == |34.000000|
-//"
-//      actual   (nonprintable as hex) : "%f 0000042 == |33.000000|
-//"
-//
-//Test 2583 (moul_f_11) : FAILED.
-//    First line of code: {return test("%%f Lydie == |%f|
-//", (double)'L'+'y'+'d'+'i'+'e');}
-//      expected output : "%f Lydie == |503.000000|
-//"
-//      your output     : "%f Lydie == |502.000000|
-//"
-//      expected (nonprintable as hex) : "%f Lydie == |503.000000|
-//"
-//      actual   (nonprintable as hex) : "%f Lydie == |502.000000|
-//"
-//
+	ft_printf("%.1f\n", 3.45);
+	printf("%.1f\n", 3.45);
+	ft_printf("%.7f\n", 1.99999949);
+	printf("%.7f\n\n\n\n", 1.99999949);
+
+
+	ft_printf("%.1f\n", -3.85);
+	printf("%.1f\n", -3.85);
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/17 17:37:21 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/21 17:34:44 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			dispatcher(const char *format, t_data *data)
 	x = 0;
 	if (!data->conv)
 	{
-		if (data->field || data->flag[percent])
+		if ((data->field || data->flag[percent]) && format[data->index])
 			print_a(data, format[data->index]);
 		return (0);
 	}

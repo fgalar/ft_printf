@@ -26,5 +26,8 @@ int main()
 	ft_printf("20) Mon PRINTF  : |%-1.0s|\n", "123456789");
 	printf("30) Vrai PRINTF : |%1.0s|\n", NULL);
 	ft_printf("30) Mon PRINTF  : |%1.0s|\n", NULL);
+	ft_printf("%%");
+	puts("");
+	printf("%%");
 	return (0);
 }

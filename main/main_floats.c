@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include "../ft_printf.h"
 
-<<<<<<< HEAD
-int main()
-{
-	printf("%f\n", 1234563294890.696969696969);
-	ft_printf("%f", 1234563294890.696969696969);
-=======
 int		main(void)
 {
 	ft_printf("--------------------%%f--------------------\n");
@@ -156,6 +150,5 @@ int		main(void)
 	ft_printf("23) MON PRINTF  : |%#+5Lf|\n", (long double)10.5);
 	printf("24) VRAI PRINTF : |%#0Lf|\n", (long double)77.2);
 	ft_printf("24) MON PRINTF  : |%#0Lf|\n", (long double)77.2);
->>>>>>> dev
 	return (0);
 }

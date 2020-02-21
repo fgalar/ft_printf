@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/17 19:27:05 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/21 17:55:02 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static char	*precis_str(t_data *d, char *s)
 		(d->width_max = 0);
 	d->precis = 0;
 	d->flag[point] = 0;
+	d->flag[zero] = 0;
 	free(arg);
 	return (arg);
 }

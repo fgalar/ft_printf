@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:58:14 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/20 20:15:09 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/21 17:32:49 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_majhex(char *nb)
 }
 
 void	print_a(t_data *d, unsigned char c)
-{
+{ 	
 	manage_size(d, (char*)&c);
 	d->precis = 0;
 	d->flag[point] = 0;
@@ -52,7 +52,7 @@ void	init_new_arg(t_data *d)
 
 int		is_even(char n)
 {
-	if (n == '2' || n == '4' || n == '6' || n == '8')
+	if (n == '0' || n == '2' || n == '4' || n == '6' || n == '8')
 		return (1);
 	return (0);
 }

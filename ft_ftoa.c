@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/20 20:32:48 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/21 17:05:00 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,28 @@ int		ft_floatlen(double f, int precision)
 	return (len);
 }
 
-void	ft_round(char *tab)
+void	ft_round(char *tab, double f, t_data *d)
 {
 	int		i;
 
 	i = ft_strlen(tab) - 1;
+	if (f >= 5 && f < 6)
+	{
+		f -= (int)f;
+		f *= 10;
+	}
 	while (i + 1 > 0)
 	{
-		!is_even(tab[i]) ? tab[i] += 1 : 0;
+		if (f < 1.0 && d->precis > 1)
+			!is_even(tab[i]) ? (tab[i] += 1) : 0;
+		else
+			tab[i] += 1;
 		if (!ft_isdigit(tab[i]))
 		{
 			tab[i] = '0';
 			i--;
-			if (tab[i] == '.')
-			{
-				i--;
+			if (tab[i] == '.' && (i--))
 				tab[i] += 1;
-			}
 		}
 		else
 			return ;
@@ -80,7 +85,7 @@ void	memset_integer_part(char *tab, double *f, int len, t_data *d)
 	}
 }
 
-void	memset_decimal_part(char *tab, double f, int precision)
+void	memset_decimal_part(char *tab, double f, int precision, t_data *d)
 {
 	int		i;
 
@@ -92,8 +97,8 @@ void	memset_decimal_part(char *tab, double f, int precision)
 		f *= 10;
 		i++;
 	}
-	if (f >= 5.0)
-		ft_round(tab);
+	if ((int)f >= 5)
+		ft_round(tab, f, d);
 }
 
 char	*ft_float(t_data *d, double f)
@@ -112,13 +117,13 @@ char	*ft_float(t_data *d, double f)
 	memset_integer_part(tab, &f, len - (d->precis + 1), d);
 	if (d->precis == -1 && d->flag[point])
 	{
-		if (f > 5.0)
-			ft_round(tab);
+		if ((int)f >= 5)
+			ft_round(tab, f, d);
 		if (d->flag[diese])
 			ft_strcat(tab, ".");
 		return (tab);
 	}
 	tab[(len - 1) - d->precis] = '.';
-	memset_decimal_part(&tab[len - d->precis], f, d->precis);
+	memset_decimal_part(&tab[len - d->precis], f, d->precis, d);
 	return (tab);
 }

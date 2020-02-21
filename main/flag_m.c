@@ -100,12 +100,14 @@ int	main()
 	printf("largeur de chmp > precision et d = 0        ==> |%25.0d|\n", 0);
 	ft_printf("flag 0 & larg chmp 5 & preci 0 & d 42       ==> |%05.0d|\n", 42);
 	printf("flag 0 & larg chmp 5 & preci 0 & d 42       ==> |%05.0d|\n", 42);
-	ft_printf("flag 0 & precision 0 & d 42                 ==> |%0.0d|\n\n", 42);
-	printf("flag 0 & precision 0 & d 42                 ==> |%0.0d|\n\n", 42);
+	ft_printf("flag 0 & precision 0 & d 42                 ==> |%0.0d|\n", 42);
+	printf("flag 0 & precision 0 & d 42                 ==> |%0.0d|\n", 42);
 	
 	/*[>[>test autour du flag 0 vs largeur de champ vs precision<]<]*/
 	ft_printf("avant le d : |%0d|\n", 42);
+	printf("avant le d : |%0d|\n", 42);
 	ft_printf("apres largeur de champ : |%.45d|\n", 42);
+	printf("apres largeur de champ : |%.45d|\n", 42);
 	ft_printf("%d\n", 0);
 	printf("%d\n", 0);
 	printf("true\t[SPCE]/[LARG-CHMP = 10] = |% 10d|\n", 42);
