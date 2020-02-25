@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:58:14 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/21 18:12:08 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/24 18:35:36 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_majhex(char *nb)
 
 void	print_a(t_data *d, unsigned char c)
 {
-	manage_size(d, (char*)&c);
+	handler(d, (char*)&c);
 	d->precis = 0;
 	d->flag[point] = 0;
 	ft_strcat(d->buffer, d->argument);
@@ -38,14 +38,31 @@ void	print_a(t_data *d, unsigned char c)
 
 void	init_new_arg(t_data *d)
 {
+	ft_bzero(d->argument, 100);
+	ft_bzero(d->prefix, 3);
 	d->conv = 0;
 	ft_bzero(d->flag, sizeof(d->flag));
 	d->precis = 0;
 	d->field = 0;
 	d->width_max = 0;
-	ft_bzero(d->argument, sizeof(d->argument));
 	d->neg = 0;
-	ft_bzero(d->prefix, sizeof(d->prefix));
+	d->prfx = 0;
+	d->ad_pf = 0;
+}
+
+void	init_struct(t_data *d)
+{
+	ft_bzero(d->buffer, 4096);
+	ft_bzero(d->argument, 100);
+	ft_bzero(d->prefix, 3);
+	d->conv = 0;
+	ft_bzero(d->flag, NB_FLAGS);
+	d->index = 0;
+	d->len = 0;
+	d->precis = 0;
+	d->field = 0;
+	d->width_max = 0;
+	d->neg = 0;
 	d->prfx = 0;
 	d->ad_pf = 0;
 }

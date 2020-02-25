@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2019/11/14 18:06:52 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:47:31 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -532,7 +532,6 @@ int main()
 	y = printf("2. |%+.0i|\n", 0);
 	print_len(i, y);
 
-
 	i = ft_printf("1. |%.03s|\n", NULL);
 	y = printf("2. |%.03s|\n", NULL);
 	print_len(i, y);
@@ -676,6 +675,7 @@ int main()
 	i = ft_printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 	y = printf("%.5d|%-.5d|%+.5d|% .5d|%0.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 	print_len(i, y);
+
 	i = ft_printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 	y = printf("%1.5d|%-1.5d|%+1.5d|% 1.5d|%01.5d\n", INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 	print_len(i, y);
@@ -703,6 +703,35 @@ int main()
 	i = ft_printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
 	y = printf("%-+1.5d|%- 1.5d|%-01.5d|%+ 1.5d|%+01.5d|% 01.5d|%-+ 01.5d\n", INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN, INT_MIN);
 	print_len(i, y);
-exit(1);
+
+	ft_printf("|%#x|\n", 0);
+	printf("|%#x|\n", 0);
+	ft_printf("@moulitest: |%#.x|\t|%#.0x|\n", 0, 0);
+	printf("@moulitest: |%#.x|\t|%#.0x|\n", 0, 0);
+	ft_printf("|%#o|\n", 0);
+	printf("|%#o|\n", 0);
+	ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	ft_printf("@moulitest: |%o|\n", 0);
+	printf("@moulitest: |%o|\n", 0);
+	ft_printf("%#o\n", 42);
+	printf("%#o\n", 42);
+	ft_printf("@moulitest: |%.o| |%.0o|\n", 0, 0);
+	printf("@moulitest: |%.o| |%.0o|\n", 0, 0);
+	ft_printf("%#.3o\n", 1);
+	printf("%#.3o\n", 1);
+	puts("\n\n");
+	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
+	printf("%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
+	ft_printf("%-#23o|%-023o|%#023o|%-#023o\n", 0U, 0U, 0U, 0U);
+	printf("%-#23o|%-023o|%#023o|%-#023o\n", 0U, 0U, 0U, 0U);
+	ft_printf("%-#23.o|%-023.o|%#023.o|%-#023.o\n", 0U, 0U, 0U, 0U);
+	printf("%-#23.o|%-023.o|%#023.o|%-#023.o\n", 0U, 0U, 0U, 0U);
+	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	ft_printf("%1.5lo|%-1.5lo|%#1.5lo|%01.5lo\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+
 	return 0;
 }

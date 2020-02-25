@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/21 15:56:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/24 18:35:08 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	reinit_precis(t_data *d)
+static void	reinit_precis(t_data *d)
 {
 	d->precis = 0;
 	d->flag[point] = 0;
@@ -26,7 +26,7 @@ void	reinit_precis(t_data *d)
 	}
 }
 
-int		print_f(t_data *data)
+int			print_f(t_data *data)
 {
 	double			n;
 	char			f[100];
@@ -37,7 +37,7 @@ int		print_f(t_data *data)
 		n = va_arg(data->arg, double);
 	ft_strcpy(f, ft_float(data, n));
 	reinit_precis(data);
-	manage_size(data, f);
+	handler(data, f);
 	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
 	data->conv = 0;

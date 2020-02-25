@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
+/*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/10 18:33:06 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/20 20:16:52 by fgarault         ###   ########.fr       */
+/*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
+/*   Updated: 2020/02/24 18:37:22 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
 # define NB_CONV 10
 # define NB_FLAGS 11
+
+int					ft_printf(const char *format, ...);
 
 typedef enum		e_flags
 {
@@ -39,29 +40,24 @@ typedef enum		e_flags
 typedef struct		s_data
 {
 	va_list			arg;
-	int				index;
 	char			buffer[4096];
-	int				len;
+	char			argument[100];
+	char			prefix[3];
 	char			conv;
 	int				flag[NB_FLAGS];
+	int				index;
+	int				len;
 	int				precis;
 	int				field;
 	int				width_max;
-	char			argument[100];
 	int				neg;
-	char			prefix[3];
 	int				prfx;
 	int				ad_pf;
 }					t_data;
 
-int					ft_printf(
-	const char *format, ...) __attribute__((__format__(__printf__,1,2)));
-
-void				parsing(const char *format, t_data *data);
+void				parsing(t_data *data, const char *format);
 void				get_size(t_data *data, const char *format);
-void				init_new_arg(t_data *d);
-int					dispatcher(const char *format, t_data *data);
-
+int					dispatcher(t_data *data, const char*format);
 int					print_c(t_data *data);
 int					print_s(t_data *data);
 int					print_p(t_data *data);
@@ -70,11 +66,12 @@ int					print_o(t_data *data);
 int					print_u(t_data *data);
 int					print_x(t_data *data);
 int					print_f(t_data *data);
-void				print_a(t_data *d, unsigned char c);
 char				*ft_float(t_data *d, double f);
-
-void				manage_size(t_data *data, void *arg);
+void				handler(t_data *data, void *arg);
 void				print_majhex(char *nb);
+void				print_a(t_data *d, unsigned char c);
+void				init_new_arg(t_data *d);
+void				init_struct(t_data *d);
 int					is_even(char n);
 
 #endif

@@ -18,7 +18,6 @@ int main()
 {
 	int		i = 0;
 	int		y = 0;
-	puts("%c, '?'");
 	i = ft_printf("1.|%c|\n", '?');
 	y = printf("2.|%c|\n", '?');
 	print_len(i, y);

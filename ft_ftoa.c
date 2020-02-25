@@ -6,14 +6,14 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/21 17:05:00 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/24 18:21:24 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_printf.h"
 
-int		ft_floatlen(double f, int precision)
+static int		ft_floatlen(double f, int precision)
 {
 	int		len;
 
@@ -34,7 +34,7 @@ int		ft_floatlen(double f, int precision)
 	return (len);
 }
 
-void	ft_round(char *tab, double f, t_data *d)
+static void		ft_round(char *tab, double f, t_data *d)
 {
 	int		i;
 
@@ -62,7 +62,7 @@ void	ft_round(char *tab, double f, t_data *d)
 	}
 }
 
-void	memset_integer_part(char *tab, double *f, int len, t_data *d)
+static void		memset_integer_part(char *tab, double *f, int len, t_data *d)
 {
 	int		i;
 
@@ -85,12 +85,12 @@ void	memset_integer_part(char *tab, double *f, int len, t_data *d)
 	}
 }
 
-void	memset_decimal_part(char *tab, double f, int precision, t_data *d)
+static void		memset_decimal_part(char *tab, double f, int precis, t_data *d)
 {
 	int		i;
 
 	i = 0;
-	while (i < precision)
+	while (i < precis)
 	{
 		tab[i] = (int)f + '0';
 		f -= (int)f;
@@ -101,15 +101,15 @@ void	memset_decimal_part(char *tab, double f, int precision, t_data *d)
 		ft_round(tab, f, d);
 }
 
-char	*ft_float(t_data *d, double f)
+char			*ft_float(t_data *d, double f)
 {
 	int		len;
 	char	*tab;
 
-	if (!d->precis && !d->flag[point])
-		d->precis = 6;
-	if (!d->precis && d->flag[point])
+	if (d->flag[point] && !d->precis)
 		d->precis -= 1;
+	else if (!d->flag[point])
+		d->precis = 6;
 	len = ft_floatlen(f, d->precis);
 	tab = (char*)malloc(sizeof(char) * (len + 1));
 	tab[len] = '\0';

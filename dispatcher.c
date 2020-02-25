@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:26 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/21 17:34:44 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:18:04 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			dispatcher(const char *format, t_data *data)
+int			dispatcher(t_data *data, const char *format)
 {
 	int			x;
 	static char	conv[NB_CONV] = {'c', 's', 'p', 'd', 'o', 'u', 'x', 'X', 'f'};
