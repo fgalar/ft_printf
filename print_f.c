@@ -6,12 +6,12 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/26 21:26:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/27 18:48:00 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 static void	reinit_precis(t_data *d)
 {
 	d->precis = 0;
@@ -34,7 +34,6 @@ int			print_f(t_data *data)
 		n = va_arg(data->arg, long double);
 	else
 		n = va_arg(data->arg, double);
-	//printf("f[zero] : %d\n", data->flag[point]);
 	ft_strcpy(f, ft_float(data, n));
 	reinit_precis(data);
 	handler(data, f);

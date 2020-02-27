@@ -6,12 +6,12 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/27 14:43:57 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/27 18:43:47 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 static void		get_prefix(t_data *d, int len_t, int len_arg)
 {
 	int		len;
@@ -65,7 +65,6 @@ static int		get_arg_size(t_data *d, void *arg)
 		p_len = 2;
 	d->precis >= a_len ? t_len = d->precis + p_len :
 		(t_len = p_len + a_len);
-	//printf("len = %d\n", p_len + d->precis );
 	d->field > t_len ? t_len = d->field : 0;
 	return (t_len);
 }
@@ -83,7 +82,6 @@ static void		get_precis(t_data *d, int len_t)
 	else
 		width_precis = d->precis;
 	ft_memset(&d->argument[d->ad_pf], '0', width_precis);
-	//puts(d->argument);
 	d->ad_pf += width_precis;
 }
 
@@ -124,7 +122,6 @@ void			handler(t_data *d, void *arg)
 		len_brut = 0;
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;
-//	printf("%d\n", d->flag[zero]);
 	ft_memset(d->argument, ' ', len);
 	if (d->prfx || d->conv == 'p')
 		get_prefix(d, len, len_brut);
