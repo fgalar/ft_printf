@@ -6,11 +6,10 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/24 18:21:24 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/27 19:49:56 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_printf.h"
 
 static int		ft_floatlen(double f, int precision)
@@ -20,10 +19,7 @@ static int		ft_floatlen(double f, int precision)
 	precision ? len = precision + 1 :
 	(len = 0);
 	if (f < 0)
-	{
 		f *= -1.0;
-		len++;
-	}
 	if (f <= 1.0)
 		return (len + 1);
 	while (f >= 1.0)
@@ -70,9 +66,9 @@ static void		memset_integer_part(char *tab, double *f, int len, t_data *d)
 	if (*f < 0)
 	{
 		*f *= -1.0;
-		tab[i] = '-';
+		d->neg = 1;
+		d->flag[most] = 0;
 		d->flag[space] = 0;
-		i++;
 	}
 	while (*f >= 10.0)
 		*f /= 10;

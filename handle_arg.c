@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/27 18:43:47 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/27 19:44:16 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		get_prefix(t_data *d, int len_t, int len_arg)
 {
 	int		len;
 
-	if ((d->conv == 'd') && (d->neg || d->flag[most]))
+	if ((d->conv == 'd' || d->conv == 'f') && (d->neg || d->flag[most]))
 		d->neg ? ft_strcpy(d->prefix, "-") : ft_strcpy(d->prefix, "+");
 	if (d->conv == 'o')
 		ft_strcpy(d->prefix, "0");
