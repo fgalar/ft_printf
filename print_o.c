@@ -6,12 +6,12 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/25 20:50:51 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:44:23 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 int		print_o(t_data *data)
 {
 	char	*oct;
@@ -26,13 +26,13 @@ int		print_o(t_data *data)
 		oct = itoa_base(va_arg(data->arg, unsigned long), 8);
 	else
 		oct = itoa_base(va_arg(data->arg, unsigned), 8);
-	//if (data->flag[diese] && data->precis && ft_strcmp(oct, "0"))
-	//	data->precis--;
-	//printf("diese : %d, precis : %d arg : |%s|\n",data->flag[diese], data->precis, oct);
-	//	data->flag[point] = 1;
-	//	data->precis = 5;
-	//}
-	//printf("%d\n", data->precis);
+	if (data->flag[diese] && data->precis && ft_strcmp(oct, "0"))
+		data->precis--;
+	if (!ft_strcmp(oct, "0") && data->flag[diese])
+	{
+		data->flag[diese] = 0;
+		data->flag[point] && !data->precis ? data->precis += 1 : 0;
+	}
 	handler(data, oct);
 	ft_strcat(data->buffer, data->argument);
 	data->len += ft_strlen(data->argument);

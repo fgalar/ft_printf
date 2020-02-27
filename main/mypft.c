@@ -224,10 +224,10 @@ int	main()
 	ft_printf("72 . %-5.6f\n", -7.3);
 	printf("72 . %-5.6f\n", -7.3);
 	puts("");
-	ft_printf("73 . % 5.0f\n", 7.3);
+	ft_printf("73 . % 5.0f\n", 7.3);//--->
 	printf("73 . % 5.0f\n", 7.3);
 	puts("");
-	ft_printf("74 . % 5.0f\n", -7.3);
+	ft_printf("74 . % 5.0f\n", -7.3);//-->
 	printf("74 . % 5.0f\n", -7.3);
 	puts("");
 	ft_printf("75 . % 5.1f\n", -7.3);

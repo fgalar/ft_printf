@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 13:48:00 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/25 20:47:31 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/27 13:54:04 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -710,8 +710,9 @@ int main()
 	printf("@moulitest: |%#.x|\t|%#.0x|\n", 0, 0);
 	ft_printf("|%#o|\n", 0);
 	printf("|%#o|\n", 0);
-	ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	ft_printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0); //--> lorsque precis = 0 -> 0 
 	printf("@moulitest: |%#.o| |%#.0o|\n", 0, 0);
+	exit (1);
 	ft_printf("@moulitest: |%o|\n", 0);
 	printf("@moulitest: |%o|\n", 0);
 	ft_printf("%#o\n", 42);
@@ -723,15 +724,17 @@ int main()
 	puts("\n\n");
 	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
 	printf("%.5o|%-.5o|%#.5o|%0.5o\n", 0U, 0U, 0U, 0U);
-	ft_printf("%-#23o|%-023o|%#023o|%-#023o\n", 0U, 0U, 0U, 0U);
+
+	ft_printf("%-#23o|%-023o|%#023o|%-#023o\n", 0U, 0U, 0U, 0U); // sans precis
 	printf("%-#23o|%-023o|%#023o|%-#023o\n", 0U, 0U, 0U, 0U);
-	ft_printf("%-#23.o|%-023.o|%#023.o|%-#023.o\n", 0U, 0U, 0U, 0U);
+	ft_printf("%-#23.o|%-023.o|%#023.o|%-#023.o\n", 0U, 0U, 0U, 0U); // avec precis a 0
 	printf("%-#23.o|%-023.o|%#023.o|%-#023.o\n", 0U, 0U, 0U, 0U);
-	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX,UINT_MAX); // avec des precis sup a 0
 	printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
 	ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
 	printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
 	ft_printf("%1.5lo|%-1.5lo|%#1.5lo|%01.5lo\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
+	printf("%1.5lo|%-1.5lo|%#1.5lo|%01.5lo\n", ULLONG_MAX, ULLONG_MAX, ULLONG_MAX, ULLONG_MAX);
 
 	return 0;
 }

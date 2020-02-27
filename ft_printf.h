@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/24 18:37:22 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:28:27 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct		s_data
 {
 	va_list			arg;
 	char			buffer[4096];
-	char			argument[100];
+	char			argument[4096];
 	char			prefix[3];
 	char			conv;
 	int				flag[NB_FLAGS];

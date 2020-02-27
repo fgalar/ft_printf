@@ -6,7 +6,7 @@
 #    By: fgarault <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:50:20 by fgarault          #+#    #+#              #
-#    Updated: 2019/10/17 10:41:50 by fgarault         ###   ########.fr        #
+#    Updated: 2020/02/27 14:54:58 by fgarault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 OBJDIR	= objs
-OBJS	= $(addprefix $(OBJDIR)/,$(SRCS:.c=.o))
+OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
 SRCS	= ft_memset.c \
 		ft_bzero.c \

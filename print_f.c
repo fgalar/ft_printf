@@ -6,17 +6,16 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/24 18:35:08 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:26:42 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
 static void	reinit_precis(t_data *d)
 {
 	d->precis = 0;
 	d->flag[point] = 0;
-	d->flag[zero] = 0;
 	d->width_max = d->field;
 	d->flag[diese] = 0;
 	if (d->flag[most])
@@ -35,6 +34,7 @@ int			print_f(t_data *data)
 		n = va_arg(data->arg, long double);
 	else
 		n = va_arg(data->arg, double);
+	//printf("f[zero] : %d\n", data->flag[point]);
 	ft_strcpy(f, ft_float(data, n));
 	reinit_precis(data);
 	handler(data, f);

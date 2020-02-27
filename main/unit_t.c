@@ -4,19 +4,51 @@
 
 int	main()
 {
-	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
-	printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//printf("%.5o|%-.5o|%#.5o|%0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//ft_printf("%-#.5o|%-0.5o|%#0.5o|%-#0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX,UINT_MAX);
+	//printf("%-#.5o|%-0.5o|%#0.5o|%-#0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX,UINT_MAX);
+	//ft_printf("%-#1.5o|%-01.5o|%#01.5o|%-#01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//printf("%-#1.5o|%-01.5o|%#01.5o|%-#01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
+	//ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
+	//printf("%.5o|%-.5o|%#.5o|%0.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
+	//ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
+	//printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
+//	ft_printf("%15.8f|%-15.8f|%+15.8f|% 15.8f|%#15.8f|%015.8f\n", 0., 0., 0., 0., 0., 0.);
+//	printf("%15.8f|%-15.8f|%+15.8f|% 15.8f|%#15.8f|%015.8f\n", 0., 0., 0., 0., 0., 0.);
+//	puts("");
+//	ft_printf("%f|%-f|%+f|% f|%#f|%0f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%f|%-f|%+f|% f|%#f|%0f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//  	ft_printf("%5f|%-5f|%+5f|% 5f|%#5f|%05f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//  	printf("%5f|%-5f|%+5f|% 5f|%#5f|%05f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%1f|%-1f|%+1f|% 1f|%#1f|%01f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%1f|%-1f|%+1f|% 1f|%#1f|%01f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//  	ft_printf("%.f|%-.f|%+.f|% .f|%#.f|%0.f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//  	printf("%.f|%-.f|%+.f|% .f|%#.f|%0.f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%.8f|%-.8f|%+.8f|% .8f|%#.8f|%0.8f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%.8f|%-.8f|%+.8f|% .8f|%#.8f|%0.8f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%5.8f|%-5.8f|%+5.8f|% 5.8f|%#5.8f|%05.8f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%5.8f|%-5.8f|%+5.8f|% 5.8f|%#5.8f|%05.8f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%15.8f|%-15.8f|%+15.8f|% 15.8f|%#15.8f|%015.8f\n", 0. / 0., 0. / 0., 0. / 0.,0. / 0., 0. / 0., 0. / 0.);
+//	printf("%15.8f|%-15.8f|%+15.8f|% 15.8f|%#15.8f|%015.8f\n", 0. / 0., 0. / 0., 0. / 0.,0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%-+8.14f|%- 8.14f|%-#8.14f|%-08.14f|%-+#8.14f|%-+ #08.14f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%-+8.14f|%- 8.14f|%-#8.14f|%-08.14f|%-+#8.14f|%-+ #08.14f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	puts("");
+//	ft_printf("%+8.14f|%+ 8.14f|%+-8.14f|%+#8.14f|%+08.14f|%+ -#08.14f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+//	printf("%+8.14f|%+ 8.14f|%+-8.14f|%+#8.14f|%+08.14f|%+ -#08.14f\n", 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0., 0. / 0.);
+
 	exit(1);
-	ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
-	printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
-	ft_printf("%-#.5o|%-0.5o|%#0.5o|%-#0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX,UINT_MAX);
-	printf("%-#.5o|%-0.5o|%#0.5o|%-#0.5o\n", UINT_MAX, UINT_MAX, UINT_MAX,UINT_MAX);
-	ft_printf("%-#1.5o|%-01.5o|%#01.5o|%-#01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
-	printf("%-#1.5o|%-01.5o|%#01.5o|%-#01.5o\n", UINT_MAX, UINT_MAX, UINT_MAX, UINT_MAX);
-	ft_printf("%.5o|%-.5o|%#.5o|%0.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
-	printf("%.5o|%-.5o|%#.5o|%0.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
-	ft_printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
-	printf("%1.5o|%-1.5o|%#1.5o|%01.5o\n", ULONG_MAX, ULONG_MAX, ULONG_MAX, ULONG_MAX);
-	
+	ft_printf("%f|%-f|%+f|% f|%#f|%0f\n", -0., -0., -0., -0., -0., -0.);
+	printf("%f|%-f|%+f|% f|%#f|%0f\n", -0., -0., -0., -0., -0., -0.);
+
 	return 0;
 }
