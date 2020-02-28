@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/27 18:48:00 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:39:02 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	reinit_precis(t_data *d)
 
 int			print_f(t_data *data)
 {
-	double			n;
-	char			f[100];
+	long double 	n;
+	char			f[4096];
 
 	if (data->flag[ll])
 		n = va_arg(data->arg, long double);

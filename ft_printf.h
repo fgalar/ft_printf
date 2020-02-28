@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/26 15:28:27 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:10:45 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int					print_o(t_data *data);
 int					print_u(t_data *data);
 int					print_x(t_data *data);
 int					print_f(t_data *data);
-char				*ft_float(t_data *d, double f);
+char				*ft_float(t_data *d, long double f);
 void				handler(t_data *data, void *arg);
 void				print_majhex(char *nb);
 void				print_a(t_data *d, unsigned char c);

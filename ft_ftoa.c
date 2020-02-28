@@ -6,15 +6,15 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/27 19:49:56 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/28 20:43:55 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int		ft_floatlen(double f, int precision)
+#include <stdio.h>
+static long long		ft_floatlen(long double f, int precision)
 {
-	int		len;
+	long long		len;
 
 	precision ? len = precision + 1 :
 	(len = 0);
@@ -30,7 +30,7 @@ static int		ft_floatlen(double f, int precision)
 	return (len);
 }
 
-static void		ft_round(char *tab, double f, t_data *d)
+static void		ft_round(char *tab, long double f, t_data *d)
 {
 	int		i;
 
@@ -46,6 +46,7 @@ static void		ft_round(char *tab, double f, t_data *d)
 			!is_even(tab[i]) ? (tab[i] += 1) : 0;
 		else
 			tab[i] += 1;
+		
 		if (!ft_isdigit(tab[i]))
 		{
 			tab[i] = '0';
@@ -58,7 +59,7 @@ static void		ft_round(char *tab, double f, t_data *d)
 	}
 }
 
-static void		memset_integer_part(char *tab, double *f, int len, t_data *d)
+static void		memset_integer_part(char *tab, long double *f, int len, t_data *d)
 {
 	int		i;
 
@@ -81,7 +82,7 @@ static void		memset_integer_part(char *tab, double *f, int len, t_data *d)
 	}
 }
 
-static void		memset_decimal_part(char *tab, double f, int precis, t_data *d)
+static void		memset_decimal_part(char *tab, long double f, int precis, t_data *d)
 {
 	int		i;
 
@@ -97,10 +98,10 @@ static void		memset_decimal_part(char *tab, double f, int precis, t_data *d)
 		ft_round(tab, f, d);
 }
 
-char			*ft_float(t_data *d, double f)
+char			*ft_float(t_data *d, long double f)
 {
-	int		len;
-	char	*tab;
+	long long	len;
+	char		*tab;
 
 	if (d->flag[point] && !d->precis)
 		d->precis -= 1;
