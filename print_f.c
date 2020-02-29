@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/28 12:39:02 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/29 15:00:27 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,19 @@ static void	reinit_precis(t_data *d)
 int			print_f(t_data *data)
 {
 	long double 	n;
-	char			f[4096];
+	t_float			f_nbr;
+	char			f_char[4096];
 
 	if (data->flag[ll])
 		n = va_arg(data->arg, long double);
 	else
 		n = va_arg(data->arg, double);
-	ft_strcpy(f, ft_float(data, n));
+		
+	f_nbr.fl = n;
+	f_nbr.b_count.sign ? (data->neg = 1): 0;
+	ft_strcpy(f_char, ft_float(data, n));
 	reinit_precis(data);
-	handler(data, f);
+	handler(data, f_char);
 	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
 	data->conv = 0;

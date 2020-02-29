@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/28 12:10:45 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/02/29 14:59:34 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ typedef struct		s_data
 	int				prfx;
 	int				ad_pf;
 }					t_data;
+
+typedef union 		u_float
+{
+	long double		fl;
+	struct
+	{
+		unsigned long 	mantisse : 64;
+		unsigned int		exp : 15;
+		unsigned int		sign : 1;
+	} 				b_count;
+}					t_float;
 
 void				parsing(t_data *data, const char *format);
 void				get_size(t_data *data, const char *format);
