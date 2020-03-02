@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/29 14:59:34 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/02 14:01:24 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ typedef struct		s_data
 	char			prefix[3];
 	char			conv;
 	int				flag[NB_FLAGS];
-	int				index;
-	int				len;
-	int				precis;
-	int				field;
-	int				width_max;
+	long			index;
+	long			len;
+	long			precis;
+	long			field;
+	long			width_max;
 	int				neg;
 	int				prfx;
 	int				ad_pf;

@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/29 20:17:46 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/02 21:12:57 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-static long long		ft_floatlen(long double f, int precision)
+static long long		ft_floatlen(long double f, int precision, t_data *d)
 {
 	long long		len;
 
@@ -27,7 +27,8 @@ static long long		ft_floatlen(long double f, int precision)
 		len++;
 		f /= 10;
 	}
-	return (len);
+	f >= 0.99 ? d->prfx = 1: 0;
+	return (len + d->prfx);
 }
 
 static void		ft_round(char *tab, long double f, int len, t_data *d)
@@ -42,7 +43,7 @@ static void		ft_round(char *tab, long double f, int len, t_data *d)
 		f -= (int)f;
 		f *= 10;
 	}
-	while (i + 1 > -len -1)
+	while (i + 1 > -len + d->prfx)
 	{
 		if (f < 1.0 && d->precis > 1)
 			!is_even(tab[i]) ? (tab[i] += 1 && (ret = 0)) : 0;
@@ -51,7 +52,7 @@ static void		ft_round(char *tab, long double f, int len, t_data *d)
 			tab[i] += 1;
 			ret = 0;
 		}
-		if (!ft_isdigit(tab[i]))
+		if (!ft_isdigit(tab[i]) && i > -len) <<<-------------
 		{
 			if (tab[i] == '.')
 				ret ? (tab[i - 1] += 1) && (i-=2): 0;
@@ -111,11 +112,11 @@ char			*ft_float(t_data *d, long double f)
 		d->precis -= 1;
 	else if (!d->flag[point])
 		d->precis = 6;
-	len = ft_floatlen(f, d->precis);
+	len = ft_floatlen(f, d->precis, d);
 	tab = (char*)malloc(sizeof(char) * (len + 1));
 	tab[len] = '\0';
-	ft_memset(tab, 0, len);
-	memset_integer_part(tab, &f, len - (d->precis + 1), d);
+	ft_memset(tab, ' ', len);
+	memset_integer_part(&tab[d->prfx], &f, len - (d->precis + 1), d);
 	if (d->precis == -1 && d->flag[point])
 	{
 		if ((int)f >= 5)
@@ -126,5 +127,6 @@ char			*ft_float(t_data *d, long double f)
 	}
 	tab[(len - 1) - d->precis] = '.';
 	memset_decimal_part(&tab[len - d->precis], f, len, d);
+	d->prfx = 0;
 	return (tab);
 }
