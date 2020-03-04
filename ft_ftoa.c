@@ -6,13 +6,13 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/02 21:12:57 by fanny            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:23:33 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-static long long		ft_floatlen(long double f, int precision, t_data *d)
+
+static long long	ft_floatlen(long double f, int precision, t_data *d)
 {
 	long long		len;
 
@@ -27,37 +27,31 @@ static long long		ft_floatlen(long double f, int precision, t_data *d)
 		len++;
 		f /= 10;
 	}
-	f >= 0.99 ? d->prfx = 1: 0;
+	f >= 0.99 ? d->prfx = 1 : 0;
 	return (len + d->prfx);
 }
 
-static void		ft_round(char *tab, long double f, int len, t_data *d)
+static void			ft_round(char *tab, long double f, int len, t_data *d)
 {
 	int		i;
 	int		ret;
 
 	i = ft_strlen(tab) - 1;
 	ret = 1;
-	if (f >= 5 && f < 6)
-	{
-		f -= (int)f;
-		f *= 10;
-	}
+	(f >= 5 && f < 6) ? (f -= (int)f) && (f *= 10) : 0;
 	while (i + 1 > -len + d->prfx)
 	{
 		if (f < 1.0 && d->precis > 1)
 			!is_even(tab[i]) ? (tab[i] += 1 && (ret = 0)) : 0;
-		else if (ft_isdigit(tab[i]))
-		{
-			tab[i] += 1;
+		else if (ft_isdigit(tab[i]) && (tab[i] += 1))
 			ret = 0;
-		}
-		if (!ft_isdigit(tab[i]) && i > -len) <<<-------------
+		if (!ft_isdigit(tab[i]))
 		{
 			if (tab[i] == '.')
-				ret ? (tab[i - 1] += 1) && (i-=2): 0;
+				ret ? (tab[i - 1] += 1) && (i -= 2) : 0;
 			else
-				tab[i] = '0';
+				tab[i] == ' ' ? (tab[i] = '1') :
+				(tab[i] = '0');
 			i--;
 		}
 		else
@@ -65,7 +59,8 @@ static void		ft_round(char *tab, long double f, int len, t_data *d)
 	}
 }
 
-static void		memset_integer_part(char *tab, long double *f, int len, t_data *d)
+static void			memset_integer_part(char *tab, long double *f,
+int len, t_data *d)
 {
 	int		i;
 
@@ -78,7 +73,7 @@ static void		memset_integer_part(char *tab, long double *f, int len, t_data *d)
 	}
 	while (*f >= 10.0)
 		*f /= 10;
-	while (len > i)
+	while (len - d->prfx > i)
 	{
 		tab[i] = (int)*f + '0';
 		*f -= (int)*f;
@@ -87,7 +82,8 @@ static void		memset_integer_part(char *tab, long double *f, int len, t_data *d)
 	}
 }
 
-static void		memset_decimal_part(char *tab, long double f, int len, t_data *d)
+static void			memset_decimal_part(char *tab, long double f, int len,
+t_data *d)
 {
 	int		i;
 
@@ -103,7 +99,7 @@ static void		memset_decimal_part(char *tab, long double f, int len, t_data *d)
 		ft_round(tab, f, len, d);
 }
 
-char			*ft_float(t_data *d, long double f)
+char				*ft_float(t_data *d, long double f)
 {
 	long long	len;
 	char		*tab;
@@ -127,6 +123,7 @@ char			*ft_float(t_data *d, long double f)
 	}
 	tab[(len - 1) - d->precis] = '.';
 	memset_decimal_part(&tab[len - d->precis], f, len, d);
+	tab[0] == ' ' ? ++tab : 0;
 	d->prfx = 0;
 	return (tab);
 }

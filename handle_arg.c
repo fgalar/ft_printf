@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:16:13 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/27 19:44:16 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/03 17:08:34 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void			handler(t_data *d, void *arg)
 	if ((d->flag[zero] && d->flag[less]) || d->flag[point])
 		d->flag[zero] = 0;
 	ft_memset(d->argument, ' ', len);
-	if (d->prfx || d->conv == 'p')
+	if (d->prfx || d->conv == 'p' || d->neg)
 		get_prefix(d, len, len_brut);
 	if (d->flag[space] && !d->neg)
 	{
