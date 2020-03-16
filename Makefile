@@ -16,7 +16,8 @@ SRCS	= 	ft_printf.c		\
 			print_f.c		\
 			ft_ftoa.c		\
 			handle_arg.c	\
-			tools.c			
+			tools.c			\
+			ft_buffer.c
 
 LIBDIR	= libft/
 LIBFT	= $(LIBDIR)libft.a

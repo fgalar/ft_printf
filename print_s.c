@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/24 18:33:01 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/13 15:36:06 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int			print_s(t_data *data)
 	s = va_arg(data->arg, char*);
 	if (!s)
 		s = "(null)";
+	if (ft_strlen(s) > 100)
+	{
+		print_buff(s, data);
+		return (0);
+	}
 	if (data->flag[point])
 		s = precis_str(data, s);
 	handler(data, s);
