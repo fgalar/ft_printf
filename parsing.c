@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/27 18:41:50 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/17 18:45:30 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static int		get_flag(t_data *d, const char *format)
 	"0", "%", "."};
 	int			y;
 
-	y = 0;
-	while (y < NB_FLAGS)
+	y = -1;
+	while (++y < NB_FLAGS)
 	{
 		format[d->index] == 'L' && d->index++ ? d->flag[ll] = 1 : 0;
 		if (!ft_strncmp(flags[y], &format[d->index], ft_strlen(flags[y])))
@@ -31,12 +31,12 @@ static int		get_flag(t_data *d, const char *format)
 				return (1);
 			d->index += ft_strlen(flags[y]);
 			if (y == 10)
-				format[d->index] == '0' ? d->index++ && (d->precis = 0) : 0;
+				format[d->index] == '0' ? d->index++ && (d->precis = 0) :
+				(d->precis = 0);
 			get_flag(d, format);
 		}
 		if (ft_isdigit(format[d->index]) && format[d->index] != '0')
 			get_size(d, format);
-		y++;
 	}
 	return (0);
 }

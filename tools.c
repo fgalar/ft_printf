@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:58:14 by fgarault          #+#    #+#             */
-/*   Updated: 2020/02/24 18:35:36 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/17 20:23:17 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	init_struct(t_data *d)
 	ft_bzero(d->flag, NB_FLAGS);
 	d->index = 0;
 	d->len = 0;
+	d->size = 0;
 	d->precis = 0;
 	d->field = 0;
 	d->width_max = 0;

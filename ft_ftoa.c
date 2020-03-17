@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/03 16:23:33 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/03/17 20:32:35 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void			ft_round(char *tab, long double f, int len, t_data *d)
 	while (i + 1 > -len + d->prfx)
 	{
 		if (f < 1.0 && d->precis > 1)
-			!is_even(tab[i]) ? (tab[i] += 1 && (ret = 0)) : 0;
+			!is_even(tab[i]) ? (tab[i]++ && (ret = 0)) : 0;
 		else if (ft_isdigit(tab[i]) && (tab[i] += 1))
 			ret = 0;
 		if (!ft_isdigit(tab[i]))
