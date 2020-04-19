@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/21 15:16:58 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/19 15:16:41 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int			print_f(t_data *data)
 		n = va_arg(data->arg, long double);
 	else
 		n = va_arg(data->arg, double);
-	f_nbr.fl = n;
 	ft_bzero(f_char, 4096);
+	f_nbr.fl = n;
 	f_nbr.b_count.sign ? (data->neg = 1 && ft_strcat(data->prefix, "-")) : 0;
 	if (f_nbr.b_count.exp == 0b111111111111111)
 	{
-		data->flag[zero] = 0;
 		ft_strcat(f_char, "inf");
+		data->flag[zero] = 0;
 	}
 	else
 		ft_strcpy(f_char, ft_float(data, n));

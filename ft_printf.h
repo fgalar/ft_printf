@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/03/13 16:50:31 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/18 17:23:39 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ typedef struct			s_data
 	int					flag[NB_FLAGS];
 	long				index;
 	int					len;
-	int					size;
-	int					precis;
-	int					field;
-	int					width_max;
+	long				precis;
+	long				field;
+	long				width_max;
+	long				size;
 	int					neg;
 	int					prfx;
 	int					ad_pf;
@@ -85,7 +85,7 @@ void					print_a(t_data *d, unsigned char c);
 void					init_new_arg(t_data *d);
 void					init_struct(t_data *d);
 int						is_even(char n);
-int						purge_buff(t_data *d);
+void					precis_float(t_data *d);
+int						buff_purge(t_data *d);
 int						print_buff(char *s, t_data *d);
-
 #endif

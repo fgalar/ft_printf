@@ -6,12 +6,12 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/26 13:39:09 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/19 11:25:38 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 static int		get_flag(t_data *d, const char *format)
 {
 	static char *flags[NB_FLAGS] = {"hh", "h", "ll", "l", "#", "+", " ", "-",
@@ -48,13 +48,12 @@ void			get_size(t_data *data, const char *format)
 	n_size = ft_atoi(&format[data->index]);
 	if (n_size < 0)
 	{
+		buff_purge(data);
 		write(1, "inf", 3);
-		ft_bzero(data->buffer, data->len);
 		data->size = -1;
 		data->index = ft_strlen(format);
 		return ;
 	}
-	printf("n_size = %d\n", n_size);
 	if (format[data->index - 1] == '.'
 		|| (data->flag[point] && data->precis == 0))
 		data->precis = n_size;
@@ -107,6 +106,8 @@ void			parsing(t_data *data, const char *format)
 	{
 		data->buffer[data->len] = format[data->index];
 		data->len++;
+		if (format[data->index] == '\n')
+			buff_purge(data);
 		data->index++;
 	}
 }

@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+         #
+#    By: fgarault <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/03/21 14:48:59 by fanny             #+#    #+#              #
-#    Updated: 2020/03/22 17:38:24 by fanny            ###   ########.fr        #
+#    Created: 2020/03/10 17:41:52 by fgarault          #+#    #+#              #
+#    Updated: 2020/03/10 17:42:00 by fgarault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 NAME	= libftprintf.a
 
 CC		= gcc
@@ -28,8 +27,9 @@ SRCS	= 	ft_printf.c		\
 			print_f.c		\
 			ft_ftoa.c		\
 			handle_arg.c	\
+			ft_buffer.c		\
 			tools.c			\
-			ft_buffer.c
+			tools2.c
 
 LIBDIR	= libft/
 LIBFT	= $(LIBDIR)libft.a

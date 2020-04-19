@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/17 20:32:35 by fanny            ###   ########.fr       */
+/*   Updated: 2020/03/10 16:59:42 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static long long	ft_floatlen(long double f, int precision, t_data *d)
 		f *= -1.0;
 	if (f <= 1.0)
 		return (len + 1);
-	while (f >= 1.0)
+	while (f >= 1.0 && len < 4096)
 	{
 		len++;
 		f /= 10;
@@ -104,13 +104,10 @@ char				*ft_float(t_data *d, long double f)
 	long long	len;
 	char		*tab;
 
-	if (d->flag[point] && !d->precis)
-		d->precis -= 1;
-	else if (!d->flag[point])
-		d->precis = 6;
+	precis_float(d);
 	len = ft_floatlen(f, d->precis, d);
-	tab = (char*)malloc(sizeof(char) * (len + 1));
-	tab[len] = '\0';
+	if (!(tab = ft_strnew(len + 1)))
+		return (NULL);
 	ft_memset(tab, ' ', len);
 	memset_integer_part(&tab[d->prfx], &f, len - (d->precis + 1), d);
 	if (d->precis == -1 && d->flag[point])
@@ -119,6 +116,7 @@ char				*ft_float(t_data *d, long double f)
 			ft_round(tab, f, len, d);
 		if (d->flag[diese])
 			ft_strcat(tab, ".");
+		d->prfx = 0;
 		return (tab);
 	}
 	tab[(len - 1) - d->precis] = '.';

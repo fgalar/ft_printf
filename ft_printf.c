@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 19:28:53 by fgarault          #+#    #+#             */
-/*   Updated: 2020/03/14 12:21:55 by fanny            ###   ########.fr       */
+/*   Updated: 2020/03/09 16:11:13 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printf(const char *format, ...)
 	va_start(data->arg, format);
 	while (format[data->index])
 		parsing(data, format);
-	index = purge_buff(data);
+	index = buff_purge(data);
 	va_end(data->arg);
 	free(data);
 	return (index);
