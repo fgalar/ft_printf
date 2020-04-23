@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:54:18 by fanny             #+#    #+#             */
-/*   Updated: 2020/03/10 16:59:42 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/04/23 14:21:23 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,13 @@ char				*ft_float(t_data *d, long double f)
 		if (d->flag[diese])
 			ft_strcat(tab, ".");
 		d->prfx = 0;
+		free(tab);
 		return (tab);
 	}
 	tab[(len - 1) - d->precis] = '.';
 	memset_decimal_part(&tab[len - d->precis], f, len, d);
 	tab[0] == ' ' ? ++tab : 0;
 	d->prfx = 0;
+	free(tab);
 	return (tab);
 }

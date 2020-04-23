@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 08:59:15 by fanny             #+#    #+#             */
-/*   Updated: 2019/10/30 10:48:22 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/04/23 14:14:11 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ char	*itoa_base(long long n, int base)
 			|| !(nb = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	if (n == 0)
+	{
+		free(nb);
 		return ("0");
+	}
 	if (n < 0 && base == 10)
 	{
 		nb[0] = '-';
