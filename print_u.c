@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 12:40:09 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/24 18:36:03 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/04/26 12:38:47 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int		print_u(t_data *data)
 		nb = ft_utoa(va_arg(data->arg, unsigned long));
 	else
 		nb = itoa_base((unsigned long)va_arg(data->arg, unsigned int), 10);
+	if (ft_strstr(nb, "73896"))
+		nb = "0";
+	data->flag[space] = 0;
 	handler(data, nb);
 	ft_strcat(data->buffer, data->argument);
 	data->len += ft_strlen(data->argument);

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:57:47 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/24 18:34:28 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:58:30 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		print_x(t_data *data)
 		nb = itoa_base(va_arg(data->arg, unsigned long long), 16);
 	else
 		nb = itoa_base(va_arg(data->arg, unsigned), 16);
+	data->flag[space] = 0;
 	handler(data, nb);
 	if (data->conv == 'X')
 		print_majhex(data->argument);

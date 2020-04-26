@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:59:07 by fanny             #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:23 by fgarault         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:44:18 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		print_o(t_data *data)
 		data->flag[diese] = 0;
 		data->flag[point] && !data->precis ? data->precis += 1 : 0;
 	}
+	data->flag[space] = 0;
 	handler(data, oct);
 	ft_strcat(data->buffer, data->argument);
 	data->len += ft_strlen(data->argument);

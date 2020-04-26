@@ -6,7 +6,7 @@
 /*   By: fgarault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:52:34 by fgarault          #+#    #+#             */
-/*   Updated: 2020/04/18 17:23:02 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/23 15:26:01 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			print_s(t_data *data)
 	s = va_arg(data->arg, char*);
 	if (!s)
 		s = "(null)";
-	if (ft_strlen(s) > 100 || data->field)
+	if (ft_strlen(s) > 100 || data->field || data->len > 100)
 	{
 		data->size = print_buff(s, data);
 		return (0);

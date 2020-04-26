@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2020/04/19 14:38:59 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/26 15:24:12 by fanny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ int			print_c(t_data *data)
 	unsigned char	c;
 
 	c = va_arg(data->arg, int);
-	data->precis == data->width_max ? data->width_max = 0 : data->width_max;
+	data->precis == data->width_max ? data->width_max = data->field :
+	data->width_max;
 	data->precis = 0;
 	data->flag[point] = 0;
+	data->flag[space] = 0;
 	if (c == 0)
 		handle_null(data);
 	if (c != 0)
