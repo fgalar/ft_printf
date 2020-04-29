@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 17:26:59 by fanny             #+#    #+#             */
-/*   Updated: 2020/04/26 15:24:12 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/27 20:13:00 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int			print_c(t_data *data)
 	data->precis = 0;
 	data->flag[point] = 0;
 	data->flag[space] = 0;
+	if (data->width_max > 1000)
+	{
+		print_buff((char*)&c, data);
+		return (0);
+	}
 	if (c == 0)
 		handle_null(data);
 	if (c != 0)

@@ -6,7 +6,7 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:10:36 by fanny             #+#    #+#             */
-/*   Updated: 2020/04/23 15:22:20 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/27 20:38:29 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void			parsing(t_data *data, const char *format)
 {
 	if (format[data->index] == '%')
 	{
+		if (data->len >= 100)
+			buff_purge(data);
 		data->index++;
 		init_new_arg(data);
 		if (!get_flag(data, format))

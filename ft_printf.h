@@ -6,7 +6,7 @@
 /*   By: fgarault <fgarault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 18:33:06 by fgarault          #+#    #+#             */
-/*   Updated: 2020/04/18 17:23:39 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/27 19:00:51 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ int						is_even(char n);
 void					precis_float(t_data *d);
 int						buff_purge(t_data *d);
 int						print_buff(char *s, t_data *d);
+void					write_while(char a, int len);
 #endif

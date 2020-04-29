@@ -6,11 +6,23 @@
 /*   By: fanny <fgarault@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 16:15:40 by fanny             #+#    #+#             */
-/*   Updated: 2020/04/19 15:16:41 by fanny            ###   ########.fr       */
+/*   Updated: 2020/04/27 20:18:06 by fgarault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	ft_print_f_core(t_data *data, char *f_char)
+{
+	if (data->width_max < 1000)
+		handler(data, f_char);
+	else
+	{
+		print_buff(f_char, data);
+		return (0);
+	}
+	return (1);
+}
 
 static void	reinit_precis(t_data *d)
 {
@@ -43,10 +55,11 @@ int			print_f(t_data *data)
 		ft_strcat(f_char, "inf");
 		data->flag[zero] = 0;
 	}
-	else
+	else if (data->width_max < 100)
 		ft_strcpy(f_char, ft_float(data, n));
 	reinit_precis(data);
-	handler(data, f_char);
+	if (!ft_print_f_core(data, f_char))
+		return (0);
 	ft_strcat(data->buffer, data->argument);
 	data->len = ft_strlen(data->buffer);
 	data->conv = 0;
